@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+<!--    package="com.rongxin.im.dome"-->
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:mimeType="*/*" />
+        </intent>
+    </queries>
+
+
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- 允许程序访问有关GSM网络信息 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 允许程序访问Wi-Fi网络状态信息 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.GET_TASKS" /> <!-- 允许访问振动设备 -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" /> <!-- 允许程序禁用键盘锁 -->
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" /> <!-- 允许使用PowerManager的WakeLocks保持进程在休眠时从屏幕消失(非必选,由应用选择是否需要) -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW" />
+    <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE" />
+    <uses-permission android:name="com.sec.android.provider.badge.permission.READ" />
+    <uses-permission android:name="com.sec.android.provider.badge.permission.WRITE" />
+    <uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE" /> <!-- GPS定位权限 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- android8.0安装apk -->
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" /> <!-- android 9.0上使用前台服务，需要添加权限 -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" /> <!-- Android Q新增权限，允许应用在后台发起定位，如应用target为Q，请添加此权限 -->
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" /> <!-- ********推送权限配置 start******** -->
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
+    <!-- 接收容联 SDK 消息广播权限 -->
+    <permission
+        android:name="com.github.geekcodesteam.app.permission.RECEIVE_MSG"
+        android:protectionLevel="signature" />
+    <permission
+        android:name="com.github.geekcodesteam.app.permission.INCOMING_CALL"
+        android:protectionLevel="signature" /> <!-- 接收小米 SDK 消息广播权限 -->
+    <permission
+        android:name="com.github.geekcodesteam.app.permission.MIPUSH_RECEIVE"
+        android:protectionLevel="signature" />
+    <permission
+        android:name="com.github.geekcodesteam.app.push.permission.MESSAGE"
+        android:protectionLevel="signature" />
+    <permission
+        android:name="com.github.geekcodesteam.app.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.github.geekcodesteam.app.permission.RECEIVE_MSG" />
+    <uses-permission android:name="com.github.geekcodesteam.app.permission.INCOMING_CALL" />
+    <uses-permission android:name="com.github.geekcodesteam.app.permission.MIPUSH_RECEIVE" />
+<!--    <uses-permission android:name="{package}.push.permission.MESSAGE" />-->
+<!--    <uses-permission android:name="{package}.permission.C2D_MESSAGE" /> &lt;!&ndash; 兼容 Flyme5 以下版本，魅族内部接入 PushSDK 必填，不然无法收到消息 &ndash;&gt;-->
+    <uses-permission android:name="com.meizu.flyme.push.permission.RECEIVE" /> <!-- 兼容 Flyme3 配置权限 -->
+    <uses-permission android:name="com.meizu.c2dm.permission.RECEIVE" /> <!-- 华为 接收PUSH TOKEN的广播以及PUSH消息需要定义该权限 ${PACKAGE_NAME} 要替换上您应用的包名 -->
+<!--    <permission-->
+<!--        android:name="com.github.geekcodesteam.app.permission.PROCESS_PUSH_MSG"-->
+<!--        android:protectionLevel="signatureOrSystem" /> &lt;!&ndash; 接收PUSH TOKEN的广播以及PUSH消息需要定义该权限 ${PACKAGE_NAME} 要替换上您应用的包名 &ndash;&gt;-->
+<!--    <uses-permission android:name="com.github.geekcodesteam.app.permission.PROCESS_PUSH_MSG" />-->
+
+
+    <application
+        android:supportsRtl="true">
+<!--        android:allowBackup="true"-->
+
+        <!-- // *****************************ECSDK核心服务类 End******************************************* -->
+        <receiver
+            android:name="com.yuntongxun.im.service.YuntxNotifyReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.github.geekcodesteam.app.action.VOIP_CALL" />
+                <action android:name="com.github.geekcodesteam.app.action.MESSAGE" />
+                <action android:name="com.github.geekcodesteam.app.action.NOTIFICATION_CLICK" />
+                <action android:name="com.github.geekcodesteam.app.action.PERSON_VERSION" />
+                <action android:name="com.github.geekcodesteam.app.action.SOFT_UPDATER" />
+            </intent-filter>
+        </receiver> <!-- // 应用处理程序逻辑服务 -->
+
+        <service
+            android:name="com.yuntongxun.im.service.YuntxNotifyReceiver$NotifyService"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+        <activity
+            android:name=".ui.LauncherUI"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/im_app_name"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden"
+            android:exported="false">
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--                <category android:name="android.intent.category.MULTIWINDOW_LAUNCHER" />-->
+<!--            </intent-filter>-->
+            <intent-filter>
+                <action android:name="${applicationId}.hs.act.slbapp.IMLauncherUI" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ui.LoginActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/YuntxTheme"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+
+        <activity
+            android:name="com.rongxin.im.dome.activity.ConfActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.rongxin.im.dome.activity.ContactsListActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.rongxin.im.dome.activity.ContactActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.rongxin.im.dome.activity.SettingCommonActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.rongxin.im.dome.activity.CreatingSingChatUI"
+            android:screenOrientation="portrait" />
+
+
+    </application>
+
+</manifest>

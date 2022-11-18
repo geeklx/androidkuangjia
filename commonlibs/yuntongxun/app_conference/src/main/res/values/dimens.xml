@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="OneDPPadding">1.0dip</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="ytx_bottom_tab_bar_height">54.0dip</dimen>
+    <dimen name="ytx_splash_title_size">38sp</dimen>
+</resources>

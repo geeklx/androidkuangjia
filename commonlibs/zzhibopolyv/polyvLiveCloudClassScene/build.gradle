@@ -1,0 +1,40 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 30
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 30
+        consumerProguardFiles "proguard-rules.pro"
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        main {
+            res.srcDirs = [
+                    'src/main/res',
+                    'src/main/res/layouts/chatroom',
+                    'src/main/res/layouts/pagemenu',
+                    'src/main/res/layouts/interact',
+                    'src/main/res/layouts/linkmic',
+                    'src/main/res/layouts/player',
+                    'src/main/res/layouts/ppt',
+                    'src/main/res/layouts/liveroom'
+            ]
+        }
+    }
+    lint {
+        abortOnError false
+        checkReleaseBuilds false
+    }
+    namespace 'com.easefun.polyv.livecloudclass'
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    api project(':commonlibs:zzhibopolyv:polyvLiveCommonModul')
+}

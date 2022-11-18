@@ -1,0 +1,47 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 30
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 30
+        consumerProguardFiles "proguard-rules.pro"
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        main {
+            res.srcDirs (
+                    'src/main/res',
+                    'src/main/res/layouts/chatroom',
+                    'src/main/res/layouts/player',
+                    'src/main/res/layouts/commodity',
+                    'src/main/res/layouts/reward',
+                    'src/main/res/layouts/more',
+                    'src/main/res/layouts/page',
+                    'src/main/res/layouts/widget'
+            )
+        }
+    }
+    lint {
+        abortOnError false
+        checkReleaseBuilds false
+    }
+    namespace 'com.easefun.polyv.liveecommerce'
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    api project(':commonlibs:zzhibopolyv:polyvLiveCommonModul')
+    //下拉刷新&上拉加载更多控件
+    api 'me.dkzwm.widget.srl:core:1.6.6.4'
+    api 'me.dkzwm.widget.srl:ext-util:1.6.6.4'
+    api 'me.dkzwm.widget.srl:ext-material:1.6.6.4'
+    api 'me.dkzwm.widget.srl:ext-horizontal:1.6.6.4'
+    api 'me.dkzwm.widget.srl:ext-classics:1.6.6.4'
+    api 'me.dkzwm.widget.srl:ext-two-level:1.6.6.4'
+}

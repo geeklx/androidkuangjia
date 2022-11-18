@@ -1,0 +1,164 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-parcelize'
+def config = rootProject.ext //
+def library = rootProject.ext.dependencies //
+android {
+    namespace 'com.fosung.lighthouse.dtsxbb'
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    packagingOptions {
+        jniLibs {
+            pickFirsts += ['lib/*/libRSSupport.so', 'lib/*/librsjni_androidx.so', 'lib/*/librsjni.so']
+        }
+    }
+    kotlinOptions {
+        suppressWarnings = true
+        jvmTarget = "11"
+    }
+    //    ndkVersion "23.0.7599858" // e.g.,  ndkVersion '21.3.6528147'
+    compileSdkVersion config.compileSdkVersion
+//    buildToolsVersion config.buildToolsVersion
+    defaultConfig {
+        applicationId "com.fosung.lighthouse.dtsxbb"
+        minSdkVersion config.minSdkVersion
+        targetSdkVersion config.targetSdkVersion
+        versionCode config.appversionCode
+        versionName config.appversionName
+        multiDexEnabled true
+        renderscriptTargetApi 19
+        renderscriptSupportModeEnabled true
+        externalNativeBuild {
+            cmake {
+//                version "3.18.1"
+                cppFlags "-std=c++11 -frtti -fexceptions"
+                arguments "-DANDROID_ARM_NEON=TRUE",
+                        "-DANDROID_CPP_FEATURES=rtti exceptions"
+//                abiFilters /*'armeabi-v7a',*/ 'arm64-v8a'
+            }
+        }
+        ndk {
+            abiFilters /*'armeabi-v7a',*/ 'arm64-v8a'
+        }
+    }
+    externalNativeBuild {
+        cmake {
+            path "src/main/cpp/CMakeLists.txt"
+//            version "3.18.1"
+        }
+    }
+    flavorDimensions "keep"
+    productFlavors {
+        bxn_nation {
+            dimension "keep"
+            applicationId "com.fosung.lighthouse.dtsxbb"
+            manifestPlaceholders = [
+                    app_name: "星火移动端框架",
+                    app_icon: "@mipmap/icon1",
+//                    package       : "com.fosung.lighthouse.dt2"
+            ]
+        }
+        bxnt_nation {
+            dimension "keep"
+            applicationId "com.fosung.lighthouse.dtsxbb"
+            manifestPlaceholders = [
+                    app_name: "星火移动端框架-测试",
+                    app_icon: "@mipmap/icon1",
+//                    package       : "com.fosung.lighthouse.dt2"
+            ]
+        }
+        bxny_nation {
+            dimension "keep"
+            applicationId "com.fosung.lighthouse.dtsxbb"
+            manifestPlaceholders = [
+                    app_name: "星火移动端框架-预生产",
+                    app_icon: "@mipmap/icon1",
+//                    package       : "com.fosung.lighthouse.dt2"
+            ]
+        }
+    }
+    android.applicationVariants.all { variant ->
+        def outputApkName = "${variant.flavorName}-${config.appversionCode}-release.apk"
+        variant.outputs.all {
+            outputFileName = outputApkName
+        }
+    }
+    signingConfigs {
+//        release {
+//            storeFile file('./../releasekey/firebox_keystore.jks')
+//            keyAlias 'haier'
+//            keyPassword 'android'
+//            storePassword 'android'
+//        }
+//        debug {
+//            storeFile file('./../releasekey/firebox_keystore.jks')
+//            keyAlias 'haier'
+//            keyPassword 'android'
+//            storePassword 'android'
+//        }
+        //TODO harmonybufen
+        release {
+            storeFile file('./../releasekey/harmonyandroid.jks')
+            keyAlias 'harmonyandroid'
+            keyPassword 'HarmonyAndroid'
+            storePassword 'HarmonyAndroid'
+        }
+        debug {
+            storeFile file('./../releasekey/harmonyandroid.jks')
+            keyAlias 'harmonyandroid'
+            keyPassword 'HarmonyAndroid'
+            storePassword 'HarmonyAndroid'
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+//            zipAlignEnabled false
+//            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+        debug {
+            minifyEnabled false
+//            zipAlignEnabled false
+//            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+    buildFeatures {
+        dataBinding = true
+        // for view binding :
+        // viewBinding = true
+    }
+    lint {
+        abortOnError false
+        checkReleaseBuilds false
+    }
+
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    // TODO 鸿蒙bufen
+    implementation files('./libs/abilityshell_ide_java.jar')
+    // TODO 支持分版本网络请求
+    bxnt_nationImplementation project(':ademo:appvariants')
+    bxny_nationImplementation project(':ademo:appvariants')
+    bxn_nationImplementation project(':ademo:appvariants')
+    // TODO 业务
+    implementation project(':ademo:appsplash')
+    implementation project(':ademo:appcommon')
+    implementation project(':ademo:appindex')
+    implementation project(':ademo:applogin')
+    implementation project(':ademo:appsearch')
+    implementation project(':ademo:appmy')
+
+}
+
+// TODO Wallet打包
+apply from: './multiple-channel.gradle'
+// TODO mob
+apply from: './../../MobSDK.gradle'

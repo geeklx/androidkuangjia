@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RadioGroup
+        android:id="@+id/svpn_auth_tabheader"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:paddingBottom="0dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="0dp">
+
+        <RadioButton
+            style="@style/AuthTabHeaderIndicator"
+            android:id="@+id/svpn_userAuth_tabheader"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:text="@string/str_tab_sms"
+            android:checked="true"/>
+
+
+    </RadioGroup>
+
+    <LinearLayout
+        android:background="@drawable/shape_corner"
+        android:id="@+id/svpn_userAuth_layout"
+        android:layout_gravity="center_vertical"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="vertical">
+
+        <com.sangfor.sdkdemo.utils.SFEditText
+            android:id="@+id/svpn_username_editView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:drawableLeft="@mipmap/icon_user"
+            android:drawablePadding="15dp"
+            android:hint="手机号"
+            android:textSize="16dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:paddingTop="10dp"
+            android:singleLine="true"/>
+    </LinearLayout>
+
+
+</LinearLayout>
+
+

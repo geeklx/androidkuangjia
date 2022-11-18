@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ecdemo="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+	android:background="@drawable/login_background"
+    android:orientation="vertical" >
+    
+	<ScrollView 
+		android:layout_width="match_parent"
+    	android:layout_height="match_parent"
+    	android:scrollbars="none">
+    	    	    	
+       <LinearLayout 
+			android:layout_width="match_parent"
+	    	android:layout_height="wrap_content"
+	    	android:orientation="vertical">
+	    	<com.yuntongxun.plugin.common.view.YTXSettingItem
+	            android:id="@+id/show_notify"
+	            style="@style/settings_item_layout_single"
+	            android:layout_marginTop="@dimen/NormalPadding"
+	            ecdemo:item_showDivider="true"
+	            ecdemo:item_titleText="接收新消息通知"
+	            ecdemo:item_accessoryType="switchbutton" />
+	        
+	        <com.yuntongxun.plugin.common.view.YTXSettingItem
+	            android:id="@+id/audio"
+	            style="@style/settings_item_layout_single"
+	            ecdemo:item_showDivider="true"
+	            ecdemo:item_titleText="声音"
+	            ecdemo:item_accessoryType="switchbutton" />
+	        	        
+	        <com.yuntongxun.plugin.common.view.YTXSettingItem
+	            android:id="@+id/vibrate"
+	            style="@style/settings_item_layout_single"
+	            ecdemo:item_showDivider="false"
+	            ecdemo:item_titleText="振动"
+	            ecdemo:item_accessoryType="switchbutton" />
+	        
+	        <com.yuntongxun.plugin.common.view.YTXSettingItem
+	            android:id="@+id/headSet"
+	            style="@style/settings_item_layout_single"
+	            android:layout_marginTop="@dimen/NormalPadding"
+	            ecdemo:item_showDivider="true"
+	            ecdemo:item_titleText="使用听筒播放声音"
+	            ecdemo:item_accessoryType="switchbutton" />
+	        	                    
+	        <com.yuntongxun.plugin.common.view.YTXSettingItem
+	            android:id="@+id/clear"
+	            style="@style/settings_item_layout_single"
+	            ecdemo:item_showDivider="false"
+	            ecdemo:item_titleText="清空聊天记录"
+				android:layout_marginBottom="@dimen/NormalPadding" />
+
+
+		</LinearLayout>
+	</ScrollView>
+</LinearLayout>

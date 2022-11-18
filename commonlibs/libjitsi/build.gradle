@@ -1,0 +1,19 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-parcelize'
+apply from: './../../commonlibs1.gradle'
+def librarys = rootProject.ext.dependencies //
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    // Jitsi Meet
+//    api('org.jitsi.react:jitsi-meet-sdk:5.1.0') { transitive = true }
+//    api 'org.webrtc:google-webrtc:1.0.+'
+    api('org.jitsi.react:jitsi-meet-sdk:5.1.0') {
+        transitive = true
+//        exclude group: 'com.facebook.react', module: 'react-native-webrtc'
+
+    }
+}
+// mob
+apply from: './../../MobSDK.gradle'

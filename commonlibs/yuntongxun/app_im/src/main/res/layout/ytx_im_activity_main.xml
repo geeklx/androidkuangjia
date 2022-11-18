@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    style="@style/NavPage"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="28dp"
+    android:paddingTop="20dp"
+    android:paddingRight="28dp"
+    android:paddingBottom="20dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_show_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/myChatting"
+                style="@style/CCPBigGreenButton"
+                android:layout_marginTop="20dp"
+                android:text="@string/ytx_my_communication" />
+
+            <Button
+                android:id="@+id/chattingOneBtn"
+                style="@style/CCPBigGreenButton"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:text="@string/ytx_open_chat" />
+
+
+            <Button
+                android:id="@+id/chattinggroupBtn"
+                style="@style/CCPBigGreenButton"
+                android:layout_marginTop="20dp"
+                android:text="@string/ytx_create_group" />
+
+
+            <Button
+                android:id="@+id/setting"
+                style="@style/CCPBigGreenButton"
+                android:layout_marginTop="20dp"
+                android:text="@string/ytx_setting"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/getPersonInfo"
+                style="@style/CCPBigGreenButton"
+                android:layout_marginTop="20dp"
+                android:text="@string/ytx_get_userinfo"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/main_open_btn"
+                style="@style/CCPBigGreenButton"
+                android:layout_marginTop="20dp"
+                android:text="打开通讯录" />
+
+            <Button
+                android:id="@+id/main_at_msg_btn"
+                style="@style/CCPBigGreenButton"
+                android:layout_marginTop="20dp"
+                android:text="查询7天内所有@我的消息"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/conf_btn"
+                style="@style/CCPBigGreenButton"
+                android:layout_marginTop="20dp"
+                android:text="会议"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/logout"
+                style="@style/CCPBigGreenButton"
+                android:layout_marginTop="20dp"
+                android:text="@string/ytx_exit" />
+
+            <TextView
+                android:id="@+id/version_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:text=""
+                android:textColor="@color/black"
+                android:textSize="@dimen/NormalTextSize" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

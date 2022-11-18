@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.sangfor.sdkdemo">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+
+    <!--    android:name=".SFApplication"-->
+    <!--    android:preserveLegacyExternalStorage="true"-->
+    <!--    android:requestLegacyExternalStorage="true"-->
+    <!--    android:usesCleartextTraffic="true"-->
+    <application
+        android:allowBackup="true"
+        android:supportsRtl="true">
+        <activity android:name=".view.SpaConfigActivity" />
+        <activity
+            android:name=".view.EntryActivity"
+            android:exported="true"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="${applicationId}.hs.act.slbapp.EntryActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.AuthSuccessActivity"
+            android:launchMode="singleTask" />
+        <activity android:name=".view.LogTestActivity" />
+        <activity android:name=".view.FileTestActivtiy" />
+        <activity android:name=".view.UdpTestActivity" />
+        <activity android:name=".view.PrimarySmsLoginActivity" />
+        <activity
+            android:name=".primary.PrimaryAuthActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".primary.SecondAuthActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".primary.SpaAuthActivity"
+            android:launchMode="singleTask" />
+
+    </application>
+
+</manifest>

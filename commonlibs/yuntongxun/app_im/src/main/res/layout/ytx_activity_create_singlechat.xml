@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_main2"
+    style="@style/NavPage"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="28dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="消息接收人"
+            android:textColor="@color/normal_text_color"
+            android:textSize="@dimen/NormalTextSize" />
+
+        <com.yuntongxun.plugin.common.common.base.YTXCCPClearEditText
+            android:id="@+id/et_account"
+            style="@style/EditTextStyle"
+            android:layout_width="match_parent"
+            android:layout_marginTop="12dp"
+            android:hint="@string/ytx_please_entry_to_account"
+            android:inputType="text" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/btn_cancle"
+            style="@style/CCPBigGreenButton"
+            android:layout_marginTop="@dimen/NormalPadding"
+            android:layout_weight="1"
+            android:text="取消" />
+        <Button
+            android:id="@+id/btn_chat"
+            style="@style/CCPBigGreenButton"
+            android:layout_marginTop="@dimen/NormalPadding"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1"
+            android:text="开始聊天" />
+    </LinearLayout>
+
+
+    </LinearLayout>
+
+</RelativeLayout>

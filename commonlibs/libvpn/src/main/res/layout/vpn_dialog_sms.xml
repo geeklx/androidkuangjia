@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="10dp"
+   >
+    <TextView
+        android:layout_marginLeft="5dp"
+        android:padding="5dp"
+        android:id="@+id/tv_tel"
+        android:text="手机号："
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_marginLeft="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="5dp">
+
+        <EditText
+            android:id="@+id/et_verficationCode"
+            android:layout_weight="0.55"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit_bg"
+            android:hint="验证码"
+            android:maxLength="6"
+            android:singleLine="true" />
+        <Button
+            android:layout_marginLeft="10dp"
+            android:id="@+id/bt_getVerficationCode"
+            android:text="30s后重新发送"
+            android:layout_weight="0.45"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"/>
+
+    </LinearLayout>
+
+</LinearLayout>

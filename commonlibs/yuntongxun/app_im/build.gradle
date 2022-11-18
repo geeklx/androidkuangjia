@@ -1,0 +1,58 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-parcelize'
+apply from: './../../../commonlibs1.gradle'
+
+android {
+    lint {
+        abortOnError false
+        checkReleaseBuilds false
+    }
+    namespace 'com.rongxin.im.dome'
+}
+def librarys = rootProject.ext.dependencies //
+//android {
+//    defaultConfig {
+//        javaCompileOptions {
+//            annotationProcessorOptions {
+//                arguments = [AROUTER_MODULE_NAME: project.getName()]
+//            }
+//        }
+//    }
+//}
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+//    implementation 'com.github.GeekCodesTeam.geeklibs:libgeek:3.8.4'
+    api 'com.github.geeklx.libbase2:libbase:2.3.1'//核心库
+    //
+//    api 'top.zibin:Luban:1.1.8'
+    api "jp.wasabeef:glide-transformations:4.3.0"
+//    api "com.danikula:videocache:2.7.1"
+//    api 'com.belerweb:pinyin4j:2.5.1'
+//    api 'io.jsonwebtoken:jjwt-api:0.11.2'
+//    api 'io.jsonwebtoken:jjwt-impl:0.11.2'
+//    api('io.jsonwebtoken:jjwt-orgjson:0.11.2') {
+//        exclude group: 'org.json', module: 'json'
+//    }
+    api "com.jakewharton.rxbinding2:rxbinding:2.0.0"
+    api "com.davemorrissey.labs:subsampling-scale-image-view:3.10.0"
+    api "com.trello.rxlifecycle3:rxlifecycle:3.0.0"
+    api "com.trello.rxlifecycle3:rxlifecycle-components:3.0.0"
+//    api "com.alibaba:arouter-api:1.5.2"
+//    annotationProcessor "com.alibaba:arouter-compiler:1.5.2"
+    api "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.5.21"
+    api "com.tencent.wcdb:wcdb-android:1.0.6.2"
+    api "com.tencent.map.geolocation:TencentLocationSdk-openplatform:7.2.6"
+    //
+//    api 'com.github.JiangJun919690767.rongxin_ability_sdk:im_wrap:v0.0.19'
+    api 'org.webrtc:google-webrtc:1.0.+'
+    api('com.github.yuntongxun-rongxin.rongxin_ability_sdk:im_wrap:v0.0.53') {
+        exclude group: 'com.danikula', module: 'videocache'
+        exclude group: 'com.belerweb', module: 'pinyin4j'
+        exclude group: 'io.jsonwebtoken', module: 'jjwt'
+//        exclude group: 'com.scwang.smartrefresh', module: 'SmartRefreshLayout'
+//        exclude group: 'com.flyco.tablayout', module: 'FlycoTabLayout_Lib'
+//        exclude group: 'com.github.bumptech.glide'
+//        exclude group: 'com.bumptech.glide', module: 'glide'
+    }
+}

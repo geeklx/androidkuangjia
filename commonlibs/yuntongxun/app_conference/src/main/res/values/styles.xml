@@ -1,0 +1,26 @@
+<resources>
+
+        <!--<item name="android:actionBarTheme">@style/conf_noactionbar</item>-->
+    <style name="MainLauncher" parent="@style/YuntxTheme" >
+        <item name="android:windowDisablePreview">true</item>
+    </style>
+
+
+    <style name="Theme.Light.FullScreenDialogAct" parent="@style/BaseDialog">
+        <item name="android:windowBackground">@drawable/transparent</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:textSize">16.0sp</item>
+        <item name="android:textColor">#ff555555</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowSoftInputMode">adjustPan</item>
+    </style>
+
+
+
+
+
+
+</resources>

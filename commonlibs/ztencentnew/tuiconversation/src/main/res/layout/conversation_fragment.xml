@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="100mm"
+        android:background="#E60000" />
+
+    <com.tencent.qcloud.tuikit.tuiconversation.ui.view.ConversationLayout
+        android:id="@+id/conversation_layout"
+        android:layout_width="match_parent"
+        android:background="#F1F2F4"
+        android:layout_height="match_parent"
+        android:layout_marginTop="30mm" />
+
+</RelativeLayout>

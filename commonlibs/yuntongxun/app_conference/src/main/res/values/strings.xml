@@ -1,0 +1,24 @@
+<resources>
+    <string name="conf_app_name">会议插件</string>
+
+    <string name="ytx_str_splash_title">网络会议</string>
+    <string name="yhc_conf_meeting_setting">会议设置</string>
+    <string name="yhc_conf_logout">退出登录</string>
+    <string name="posting_logout">正在退出，请稍后</string>
+    <string name="settings_close">关闭</string>
+    <string name="logout_menu_exit_hint">关闭后你将不会收到新的消息</string>
+    <string name="settings_logout">退出登录</string>
+    <string name="logout_menu_logout_hint">注销或切换至其他帐号登录</string>
+    <string name="yhc_conf_connecting">正在连接</string>
+    <string name="yhc_conf_join_failed_try_again">加入失败,请稍后重试</string>
+    <string name="yhc_conf_login_error">登入失败</string>
+    <string name="yhc_conf_started_meeting">开始会议</string>
+    <string name="yhc_conf_historical_meeting">历史会议</string>
+    <string name="app_kickoff_msg">你的账号已在其他地方登陆,请注意账号安全。如果这不是你的操作,你的密码可能已泄露,建议你联系管理员修改密码</string>
+    <string name="yhc_conf_Remote_login">异地登录</string>
+    <string name="ytx_unread_count_overt_100">…</string>
+    <string name="main_add_contact">添加联系人</string>
+    <string name="main_plus_chat">发起群聊</string>
+    <string name="ytx_str_history_conference_list">历史会议</string>
+
+</resources>

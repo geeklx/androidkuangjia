@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_preview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/down_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/login_background"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/LargePadding"
+        android:paddingTop="@dimen/LargestPadding"
+        android:paddingRight="@dimen/LargePadding"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/fileIcon"
+            android:layout_width="50dp"
+            android:layout_height="50dp" />
+
+        <TextView
+            android:id="@+id/fileName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/LargerPadding"
+            android:textColor="@color/black"
+            android:textSize="@dimen/BigTextSize" />
+
+
+        <Button
+            android:id="@+id/openBtn"
+            style="@style/CCPBigButton"
+            android:layout_marginTop="@dimen/LargerPadding"
+            android:background="@drawable/yh_blue_tbn_style"
+            android:text="@string/ytx_open_file"
+            android:visibility="visible" />
+
+    </LinearLayout>
+</LinearLayout>

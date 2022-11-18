@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:ecdemo="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#e7eaef"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+
+        <com.yuntongxun.plugin.common.view.YTXConfSettingItem
+            android:visibility="gone"
+            android:id="@+id/self_voice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="@color/white"
+            app:item_show_divider_conf="true"
+            app:item_thumb_drawable="@drawable/ksw_md_thumb"
+            app:item_titleText_conf="@string/str_self_voice" />
+
+        <com.yuntongxun.plugin.common.view.YTXConfSettingItem
+            android:visibility="gone"
+            android:id="@+id/self_video"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            app:item_show_divider_conf="true"
+            app:item_thumb_drawable="@drawable/ksw_md_thumb"
+            app:item_titleText_conf="@string/str_self_video" />
+
+
+
+        <ImageView
+            android:visibility="gone"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/yh_setting_shape" />
+
+        <com.yuntongxun.plugin.common.view.YTXConfSettingItem
+            android:id="@+id/logout_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:visibility="visible"
+            app:item_show_divider_conf="false"
+            app:item_thumb_drawable="@null"
+            app:item_titleText_conf="@string/yhc_conf_logout"
+            />
+
+        <ImageView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/yh_setting_shape" />
+
+        <com.yuntongxun.plugin.common.view.YTXConfSettingItem
+            android:visibility="gone"
+
+            android:id="@+id/other_voice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            app:item_show_divider_conf="true"
+            app:item_thumb_drawable="@drawable/ksw_md_thumb"
+            app:item_titleText_conf="@string/other_person_enter_conf_mute" />
+
+        <com.yuntongxun.plugin.common.view.YTXConfSettingItem
+            android:visibility="gone"
+
+            android:id="@+id/other_video"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            app:item_show_divider_conf="true"
+            app:item_thumb_drawable="@drawable/ksw_md_thumb"
+            app:item_titleText_conf="@string/other_person_enter_conf_video" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/yh_setting_shape"
+            android:visibility="gone" />
+
+        <com.yuntongxun.plugin.common.view.YTXConfSettingItem
+            android:id="@+id/conf_state_ssrc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:visibility="gone"
+            app:item_show_divider_conf="true"
+            app:item_thumb_drawable="@drawable/ksw_md_thumb"
+            app:item_titleText_conf="显示VideoSsrc" />
+
+
+        <com.yuntongxun.plugin.common.view.YTXConfSettingItem
+            android:id="@+id/conf_state_report"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:visibility="gone"
+            app:item_show_divider_conf="false"
+            app:item_thumb_drawable="@drawable/ksw_md_thumb"
+            app:item_titleText_conf="显示视频统计信息" />
+
+        <ImageView
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/yh_setting_shape" />
+
+        <com.yuntongxun.plugin.common.view.YTXConfSettingItem
+            android:id="@+id/audio_mode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:visibility="gone"
+            app:item_show_divider_conf="true"
+            app:item_thumb_drawable="@drawable/ksw_md_thumb"
+            app:item_titleText_conf="声音模式" />
+
+        <com.yuntongxun.plugin.common.view.YTXConfSettingItem
+            android:id="@+id/audio_agc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:visibility="gone"
+            app:item_show_divider_conf="true"
+            app:item_thumb_drawable="@drawable/ksw_md_thumb"
+            app:item_titleText_conf="自动增益" />
+
+        <com.yuntongxun.plugin.common.view.YTXConfSettingItem
+            android:id="@+id/audio_ec"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:visibility="gone"
+            app:item_show_divider_conf="true"
+            app:item_thumb_drawable="@drawable/ksw_md_thumb"
+            app:item_titleText_conf="回音消除" />
+
+        <com.yuntongxun.plugin.common.view.YTXConfSettingItem
+            android:id="@+id/audio_ns"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:visibility="gone"
+            app:item_show_divider_conf="false"
+            app:item_thumb_drawable="@drawable/ksw_md_thumb"
+            app:item_titleText_conf="静音抑制" />
+
+        <ImageView
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/yh_setting_shape" />
+        <com.yuntongxun.plugin.common.view.YTXConfSettingItem
+            android:id="@+id/yhc_layout_rs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:visibility="visible"
+            app:item_show_divider_conf="true"
+            app:item_thumb_drawable="@null"
+            app:item_titleText_conf="会议布局模式"
+            app:item_sub_titleText_conf="容视"/>
+
+        <com.yuntongxun.plugin.common.view.YTXConfSettingItem
+            android:id="@+id/yhc_layout_userinfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:visibility="visible"
+            app:item_show_divider_conf="true"
+            app:item_thumb_drawable="@null"
+            app:item_titleText_conf="用户id"
+            app:item_sub_titleText_conf="--"/>
+
+    </LinearLayout>
+
+</ScrollView>

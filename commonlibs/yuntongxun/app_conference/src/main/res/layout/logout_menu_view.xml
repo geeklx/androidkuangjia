@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/menu_exit"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:minHeight="@dimen/NormalListHeight"
+        android:orientation="horizontal"
+        android:paddingRight="@dimen/SmallPadding"
+        android:paddingLeft="@dimen/NormalPadding" >
+
+        <ImageView
+            android:layout_width="@dimen/MiniAvatarSize"
+            android:layout_height="@dimen/MiniAvatarSize"
+            android:layout_marginRight="@dimen/LargePadding"
+            android:src="@drawable/menu_exit_icon" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/settings_close"
+                android:textColor="@color/normal_text_color"
+                android:textSize="@dimen/NormalTextSize" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/logout_menu_exit_hint"
+                android:textColor="@color/hint_text_color"
+                android:textSize="@dimen/SmallestTextSize" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/DividerSmallHeight"
+        android:background="@color/small_line_color" />
+
+    <LinearLayout
+        android:id="@+id/menu_logout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:minHeight="@dimen/NormalListHeight"
+        android:orientation="horizontal"
+        android:paddingRight="@dimen/SmallPadding"
+        android:paddingLeft="@dimen/NormalPadding" >
+
+        <ImageView
+            android:layout_width="@dimen/MiniAvatarSize"
+            android:layout_height="@dimen/MiniAvatarSize"
+            android:layout_marginRight="@dimen/LargePadding"
+            android:src="@drawable/menu_logout_icon" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/settings_logout"
+                android:textColor="@color/normal_text_color"
+                android:textSize="@dimen/NormalTextSize" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/logout_menu_logout_hint"
+                android:textColor="@color/hint_text_color"
+                android:textSize="@dimen/SmallestTextSize" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

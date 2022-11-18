@@ -1,0 +1,234 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/navpage"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/NormalPadding" >
+
+
+
+        <ScrollView
+            android:id="@+id/ytx_scrollView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <View
+                    android:id="@+id/ytx_status_bar_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.0dp"/>
+
+          <RelativeLayout
+              android:id="@+id/login_re"
+              android:layout_width="match_parent"
+              android:layout_marginTop="20dp"
+              android:layout_marginLeft="@dimen/NormalPadding"
+              android:layout_height="wrap_content">
+              <LinearLayout
+                  android:layout_width="wrap_content"
+                  android:orientation="vertical"
+                  android:layout_marginTop="@dimen/InputEditTextMinHeight"
+                  android:layout_marginLeft="@dimen/NormalPadding"
+                  android:layout_height="wrap_content">
+                  <ImageView
+                      android:layout_width="wrap_content"
+                      android:src="@mipmap/ytx_theme_icon_launcher"
+                      android:layout_height="wrap_content"/>
+
+                  <TextView
+                      android:layout_width="wrap_content"
+                      android:text="@string/str_login_welcome"
+                      android:textSize="22dp"
+                      android:layout_marginTop="@dimen/InputEditTextMinHeight"
+                      android:textColor="@color/black"
+                      android:layout_height="wrap_content"/>
+                  <TextView
+                      android:layout_width="wrap_content"
+                      android:text="@string/str_login_tip"
+                       android:textSize="@dimen/popup_menu_image_margin_right"
+                      android:textColor="@color/login_hint"
+                      android:layout_height="wrap_content"/>
+              </LinearLayout>
+
+          <ImageView
+              android:layout_width="wrap_content"
+               android:src="@drawable/login_bg"
+              android:layout_alignParentRight="true"
+              android:layout_height="wrap_content"/>
+
+          </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/email_login_form"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/NormalPadding"
+                    android:layout_marginRight="@dimen/NormalPadding"
+                    android:orientation="vertical"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:padding="@dimen/BasicPaddingSize">
+                    <LinearLayout
+                        android:id="@+id/login_num_ll"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/NormalPadding"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="@dimen/NormalPadding"
+                            android:text="@string/account"
+                            android:visibility="visible"
+                            android:textSize="@dimen/bladeview_fontsize" />
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            >
+                            <com.yuntongxun.plugin.common.common.base.YTXCCPClearEditText
+                                android:id="@+id/previous_login_num"
+                                style="@style/CCPFormInputView"
+                                android:background="@null" />
+                            <TextView
+                                android:id="@+id/tv_select_accout_type"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/mobile_name"
+                                android:drawableRight="@drawable/ic_load_more"
+                                android:visibility="visible"
+                                android:textSize="14sp"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="30dp"/>
+                        </RelativeLayout>>
+
+                    </LinearLayout>
+
+
+
+                    <LinearLayout
+                        android:id="@+id/verify_code_ll"
+                        android:layout_width="match_parent"
+                        android:layout_height="49dip"
+                        android:layout_marginTop="@dimen/NormalPadding"
+                        android:orientation="horizontal"
+                        android:visibility="gone">
+
+                        <com.yuntongxun.plugin.common.common.base.YTXCCPClearEditText
+                            android:id="@+id/verify_code"
+                            style="@style/CCPFormInputView"
+                            android:layout_width="0.0dp"
+                            android:layout_weight="1.0"
+                            android:hint="@string/str_write_pic_verify_code_hx"
+                            android:inputType="number" />
+
+                        <Button
+                            android:id="@+id/get_verify_code"
+                            style="@style/CCPBigGreenButton"
+                            android:layout_width="wrap_content"
+                            android:layout_marginLeft="@dimen/SmallPadding"
+                            android:text="@string/login_get_verification_code" />
+                    </LinearLayout>
+                    <TextView
+                        android:id="@+id/password_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="@dimen/NormalPadding"
+                        android:text="@string/str_password_tip"
+                        android:visibility="visible"
+                        android:textSize="@dimen/bladeview_fontsize" />
+                    <com.yuntongxun.plugin.common.common.base.YTXCCPClearEditText
+                        android:id="@+id/password"
+                        android:inputType="none"
+                        style="@style/CCPLineEditPass"
+                        android:background="@null"
+                        android:layout_marginTop="@dimen/NormalPadding" />
+
+                    <com.yuntongxun.plugin.common.common.base.YTXCCPClearEditText
+                        android:id="@+id/invite_code"
+                        style="@style/CCPFormInputView"
+                        android:layout_marginTop="@dimen/SmallPadding"
+                        android:hint="@string/login_prompt_invite_code_hint" />
+
+                    <LinearLayout
+                        android:id="@+id/verifyCodeLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/SmallPadding"
+                        android:visibility="gone"
+                        android:orientation="horizontal">
+
+                        <com.yuntongxun.plugin.common.common.base.YTXCCPClearEditText
+                            android:id="@+id/verifyCodeEt"
+                            style="@style/CCPLineEditText"
+                            android:layout_width="0dip"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:hint="@string/str_write_pic_verify_code"
+                            android:visibility="visible" />
+
+                        <com.yuntongxun.plugin.login.baseview.YTXVerifyCodeView
+                            android:id="@+id/verifyCodeView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/SmallPadding" />
+
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/sign_re"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/LargePadding"
+                    android:layout_marginLeft="@dimen/LargePadding"
+                    android:orientation="horizontal"
+                    android:layout_marginRight="@dimen/LargePadding">
+
+
+
+                    <TextView
+                        android:id="@+id/tv_forgetPwd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="@string/str_forget_psw"
+                        android:textColor="@color/ytx_color" />
+
+                    <ImageView
+                        android:id="@+id/login_iv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:src="@mipmap/arrow_disable" />
+                </RelativeLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+        <RelativeLayout
+            android:id="@+id/fix_bottom_lv"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="@dimen/InputEditTextMinHeight"
+                android:gravity="center"
+                android:minWidth="@dimen/NormalButtonWidth"
+                android:text="@string/app_version"
+                android:visibility="gone"
+                android:textSize="12sp" />
+        </RelativeLayout>
+</LinearLayout>

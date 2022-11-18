@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activityRootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+    <!--<com.yuntongxun.plugin.common.ui.base.RecyclerViewToolbar-->
+    <!--android:id="@+id/recycler_view_toolbar"-->
+    <!--android:fitsSystemWindows="true"-->
+    <!--android:layout_width="fill_parent"-->
+    <!--android:layout_height="wrap_content"/>-->
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/view_toolbar"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/action_bar_height"
+        android:background="@color/yh_main_color"
+        android:fitsSystemWindows="true"
+        android:minHeight="@dimen/action_bar_height"
+        app:contentInsetStart="0dp"
+        app:navigationIcon="@null"
+        app:theme="@style/YuntxActionBar">
+        <RelativeLayout
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent">
+
+            <TextView
+                android:text="@string/app_set"
+                android:paddingLeft="@dimen/NormallyPadding"
+                android:id="@+id/left_setting"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <com.flyco.tablayout.SlidingTabLayout
+                android:id="@+id/tab_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@color/yh_main_color"
+                android:visibility="visible"
+                android:layout_centerHorizontal="true"
+                android:layout_centerInParent="true"
+                app:tl_indicator_corner_radius="1.5dp"
+                app:tl_indicator_height="3dp"
+                app:tl_indicator_width="30dp"
+                app:tl_textsize="17sp"
+                app:tl_tab_padding="10dp"
+                app:tl_indicator_width_equal_title = "false"
+                app:tl_indicator_color = "@color/red"/>
+
+            <TextView
+                android:id="@+id/yhc_voip_call"
+                android:text="点对点"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:layout_alignParentRight="true"
+                android:paddingRight="@dimen/NormallyPadding"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <com.yuntongxun.plugin.common.common.view.CCPCustomViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/view_toolbar" />
+
+
+</RelativeLayout>

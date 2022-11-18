@@ -1,0 +1,12 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-parcelize'
+apply from: './../../commonlibs1.gradle'
+def librarys = rootProject.ext.dependencies //
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    api project(':libsCenterNew:libvpnsdk')
+}
+// mob
+apply from: './../../MobSDK.gradle'

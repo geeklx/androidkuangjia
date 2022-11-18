@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/YuntxOnePx"
+        android:layout_gravity="center_vertical"
+        android:background="@color/ytx_dialog_line" />
+
+    <GridView
+        android:id="@+id/ytx_grid_view"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="@dimen/LargerPadding"
+        android:layout_marginRight="@dimen/LargerPadding"
+        android:background="@null"
+        android:cacheColorHint="#00000000"
+        android:divider="@null"
+        android:dividerHeight="0.0px"
+        android:fadingEdgeLength="0.0dip"
+        android:gravity="center"
+        android:numColumns="4"
+        android:paddingBottom="1.0dip"
+        android:paddingTop="1.0dip" />
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/YuntxOnePx"
+        android:layout_gravity="center_vertical"
+        android:background="@color/ytx_dialog_line" />
+</LinearLayout>

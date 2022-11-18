@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:padding="@dimen/LargePadding">
+
+        <EditText
+            android:id="@+id/user_id1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="第一个成员userid" />
+
+        <EditText
+            android:id="@+id/user_name1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:hint="第一个成员名字" />
+
+        <EditText
+            android:id="@+id/user_phone1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:visibility="gone"
+            android:hint="第一个成员电话" />
+
+        <EditText
+            android:id="@+id/user_id2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/LargestPadding"
+            android:hint="第二个成员userid" />
+
+        <EditText
+            android:id="@+id/user_name2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:hint="第二个成员名字" />
+
+        <EditText
+            android:id="@+id/user_phone2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:visibility="gone"
+            android:hint="第二个成员电话" />
+
+        <EditText
+            android:id="@+id/user_id3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/LargestPadding"
+            android:hint="第三个成员userid" />
+
+        <EditText
+            android:id="@+id/user_name3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:hint="第三个成员名字" />
+
+        <EditText
+            android:id="@+id/user_phone3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:visibility="gone"
+            android:hint="第三个成员电话" />
+
+        <Button
+            android:id="@+id/sure_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/LargestPadding"
+            android:background="@drawable/yh_blue_tbn_style"
+            android:text="确    定"
+            android:textColor="@color/white"
+            android:textSize="@dimen/ld_text_size_16" />
+
+    </LinearLayout>
+</ScrollView>

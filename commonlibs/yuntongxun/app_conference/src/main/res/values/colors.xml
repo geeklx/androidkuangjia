@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--新皮肤的颜色 topbar 标题文字颜色-->
+
+    <!-- Android standard ICS color -->
+
+
+    <color name="text_disabled">#ffa8a8a8</color>
+</resources>

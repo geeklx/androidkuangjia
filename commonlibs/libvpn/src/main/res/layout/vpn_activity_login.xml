@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_login"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:focusable="true"
+    android:focusableInTouchMode="true" >
+
+    <LinearLayout
+        android:id="@+id/svpn_url_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/svpn_ip_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="VPN地址："
+            android:textSize="18sp"
+            android:textColor="@android:color/black"
+            android:padding="5dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp">
+
+            <EditText
+                android:id="@+id/vpn_addr_editView"
+                android:background="@drawable/shape_corner"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:hint="@string/str_svpn_ip"
+                android:textSize="18sp"
+                android:textColor="@android:color/black"
+                android:singleLine="true"
+                android:padding="5dp" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/svpn_auth_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_below="@id/svpn_url_layout"
+        android:layout_marginTop="30dp">
+
+        <include layout="@layout/vpn_auth_layout"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/svpn_login_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/svpn_auth_layout"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/auth_button_login"
+        android:text="登 录"
+        android:textColor="#ffffff"
+        android:layout_marginTop="10dp"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/set_spa_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/svpn_login_button"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/auth_button_login"
+        android:text="Spa配置"
+        android:textColor="#ffffff"
+        android:layout_marginTop="10dp"
+        android:textSize="20sp"
+        android:onClick="changeMode"/>
+
+    <Button
+        android:id="@+id/svpn_primary_sms_login_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/set_spa_button"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/auth_button_login"
+        android:text="短信主认证"
+        android:textColor="#ffffff"
+        android:layout_marginTop="10dp"
+        android:textSize="20sp"
+        android:onClick="changeMode"/>
+
+</RelativeLayout>

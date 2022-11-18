@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">SDK Demo</string>
+    <string name="info">提示</string>
+    <string name="phone_number">手机号：</string>
+    <string name="after_time_resend">秒后重新发送</string>
+    <string name="get_phone_number_failed">手机号：无法获取</string>
+    <string name="reget_sms_code_success">重新获取短信验证码成功</string>
+    <string name="reget_sms_code_failed">重新获取短信验证码失败，失败信息： </string>
+    <string name="waiting">请稍候...</string>
+    <string name="auth_success">认证成功</string>
+    <string name="vpn_status_online">VPN状态变为：在线</string>
+    <string name="vpn_status_offline">VPN状态切换为：离线</string>
+    <string name="vpn_status_reconnect">VPN状态切换为：正在重连</string>
+    <string name="please_check_input_url">输入的服务器地址错误，请检查输入是否有误</string>
+    <string name="ticket_auth_failed">免密认证失败</string>
+
+    <string name="file_test">文件测试</string>
+    <string name="udp_test">udp测试</string>
+    <string name="log_test">日志测试</string>
+    <string name="directory">目录</string>
+    <string name="file">文件</string>
+    <string name="agree">同意</string>
+    <string name="disagree">拒绝</string>
+    <string name="request_session_can_you_agree">"'%s'申请获取'%s'的网关登录信息，是否同意？"</string>
+
+</resources>

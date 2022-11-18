@@ -1,0 +1,53 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-parcelize'
+apply from: './../../../commonlibs1.gradle'
+
+android {
+    lint {
+        abortOnError false
+        checkReleaseBuilds false
+    }
+    namespace 'com.yuntongxun.youhui'
+}
+def librarys = rootProject.ext.dependencies //
+//android {
+//    defaultConfig {
+//        javaCompileOptions {
+//            annotationProcessorOptions {
+//                arguments = [AROUTER_MODULE_NAME: project.getName()]
+//            }
+//        }
+//    }
+//}
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+//    implementation 'com.github.GeekCodesTeam.geeklibs:libgeek:3.5.6'
+//    implementation 'com.github.GeekCodesTeam:geeklibs:3.8.0'
+    api 'com.github.geeklx.libbase2:libbase:2.3.1'//核心库
+//    api 'top.zibin:Luban:1.1.8'
+    //
+    api 'com.tencent.bugly:crashreport:latest.release'
+    //其中latest.release指代最新Bugly SDK版本号，也可以指定明确的版本号，例如2.1.9
+    api 'com.tencent.bugly:nativecrashreport:latest.release'
+    api "jp.wasabeef:glide-transformations:4.3.0"
+    api "com.jakewharton.rxbinding2:rxbinding:2.0.0"
+    api "com.davemorrissey.labs:subsampling-scale-image-view:3.10.0"
+//    api 'com.alibaba:arouter-api:1.5.2'
+//    annotationProcessor 'com.alibaba:arouter-compiler:1.5.2'
+    annotationProcessor "org.greenrobot:eventbus-annotation-processor:3.2.0"
+    api "com.trello.rxlifecycle3:rxlifecycle:3.0.0"
+    api "com.trello.rxlifecycle3:rxlifecycle-components:3.0.0"
+//    api 'com.github.JiangJun919690767.rongxin_ability_sdk:conf_wrap:v0.0.9'
+//    api('com.github.JiangJun919690767.rongxin_ability_sdk:conf_wrap:v0.0.16') {
+    api 'org.webrtc:google-webrtc:1.0.+'
+    api('com.github.yuntongxun-rongxin.rongxin_ability_sdk:im_wrap:v0.0.53') {
+        exclude group: 'com.danikula', module: 'videocache'
+        exclude group: 'com.belerweb', module: 'pinyin4j'
+        exclude group: 'io.jsonwebtoken', module: 'jjwt'
+//        exclude group: 'com.scwang.smartrefresh', module: 'SmartRefreshLayout'
+//        exclude group: 'com.flyco.tablayout', module: 'FlycoTabLayout_Lib'
+//        exclude group: 'com.github.bumptech.glide'
+//        exclude group: 'com.bumptech.glide', module: 'glide'
+    }
+}

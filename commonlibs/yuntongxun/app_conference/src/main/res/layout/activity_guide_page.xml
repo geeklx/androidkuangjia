@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:CircleIndicator="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/conf_running_parent_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/conf_guide_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </FrameLayout>
+
+    <!--<FrameLayout-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_gravity="center_horizontal|bottom"-->
+        <!--android:layout_marginBottom="100dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:visibility="gone"-->
+        <!--android:background="@drawable/yh_guide_join_conf_shape"-->
+        <!--android:orientation="horizontal">-->
+
+        <!--<Button-->
+            <!--android:background="@drawable/yh_guide_join_conf"-->
+            <!--android:id="@+id/guide_join"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:gravity="center"-->
+            <!--android:text="加 入 会 议"-->
+            <!--android:textColor="@color/white" />-->
+    <!--</FrameLayout>-->
+
+
+
+
+    
+    <Button
+        android:id="@+id/guide_login"
+        android:text="登录"
+        android:textSize="20sp"
+        android:layout_gravity="bottom"
+        android:textColor="@color/white"
+        android:background="@drawable/yh_guild_login_bg"
+        android:layout_width="match_parent"
+        android:layout_height="75dp" />
+
+</FrameLayout>

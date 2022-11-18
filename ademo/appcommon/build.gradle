@@ -1,0 +1,38 @@
+apply from: './../../commonlibs2.gradle'
+def librarys = rootProject.ext.dependencies //
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    // 核心库bufen
+//    api 'com.github.GeekCodesTeam.geeklibs:libgeek:3.5.6'
+    api 'com.github.geeklx.libbase1:zdkplayer:2.1.1'//核心库
+    api 'com.github.geeklx.libbase1:libyanzheng:2.1.1'//核心库
+    api 'com.github.geeklx.libbase1:libshadowlayout:2.1.1'//核心库
+//    api 'com.github.geeklx.libbase1:libocr:2.0.1'
+    api 'com.github.geeklx.libbase2:libbase:2.3.1'//核心库
+    api 'com.github.geeklx.libbase2:libutils:2.3.1'//核心库
+    api 'com.github.geeklx.libbase2:libotherlibs:2.3.1'//核心库
+    api 'com.github.MachineHou:Aspectjrt:1.0.8'//核心库
+    // 支持分版本网络请求bufen
+    bxnt_nationImplementation project(':ademo:zbiz1')
+    bxny_nationImplementation project(':ademo:zbiz1')
+    bxn_nationImplementation project(':ademo:zbiz1')
+    // yewu
+    // TencentIm
+    api project(':commonlibs:ztencentnew:tencentimnew')
+//    api project(':commonlibs:libvpn')
+    // 容联云通讯视频会议
+    api project(':commonlibs:yuntongxun:app_conference')
+    api project(':commonlibs:yuntongxun:app_im')
+    // jitsi https://github.com/jitsi/jitsi-meet-sdk-samples
+//    api project(':commonlibs:libjitsi')
+
+}
+android {
+    lint {
+        abortOnError false
+        checkReleaseBuilds false
+    }
+    namespace 'com.geek.common'
+}
+// TODO mob
+apply from: './../../MobSDK.gradle'

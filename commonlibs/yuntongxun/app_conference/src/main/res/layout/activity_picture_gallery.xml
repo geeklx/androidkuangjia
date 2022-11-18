@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#ff171b19">
+
+    <com.yuntongxun.plugin.common.common.view.HackyViewPager
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/black" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentTop="true"
+        android:gravity="center_vertical"
+        android:padding="@dimen/SmallPadding"
+        android:layout_marginTop="@dimen/SmallPadding">
+
+        <TextView
+            android:id="@+id/indicator"
+            android:textSize="@dimen/BiggerTextSize"
+            android:textColor="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/topLayout"
+        android:background="#5e171b19"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="60.0dip"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/delIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_margin="@dimen/LargerPadding"
+            android:src="@drawable/wbss_delete_icon"/>
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

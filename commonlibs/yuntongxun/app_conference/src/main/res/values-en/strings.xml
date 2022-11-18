@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+ <!--        <string name="app_name"> there will be a meeting plugin </string>-->
+
+         <string name="ytx_str_splash_title">There will be a web conference</string>
+         <string name="yhc_conf_meeting_setting">Conference Settings</string>
+
+
+</resources>
