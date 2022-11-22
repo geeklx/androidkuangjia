@@ -55,7 +55,7 @@ android {
             dimension "keep"
             applicationId "com.fosung.lighthouse.dtsxbb"
             manifestPlaceholders = [
-                    app_name: "星火移动端框架",
+                    app_name: "移动端框架",
                     app_icon: "@mipmap/icon1",
 //                    package       : "com.fosung.lighthouse.dt2"
             ]
@@ -64,7 +64,7 @@ android {
             dimension "keep"
             applicationId "com.fosung.lighthouse.dtsxbb"
             manifestPlaceholders = [
-                    app_name: "星火移动端框架-测试",
+                    app_name: "移动端框架-测试",
                     app_icon: "@mipmap/icon1",
 //                    package       : "com.fosung.lighthouse.dt2"
             ]
@@ -73,7 +73,7 @@ android {
             dimension "keep"
             applicationId "com.fosung.lighthouse.dtsxbb"
             manifestPlaceholders = [
-                    app_name: "星火移动端框架-预生产",
+                    app_name: "移动端框架-预生产",
                     app_icon: "@mipmap/icon1",
 //                    package       : "com.fosung.lighthouse.dt2"
             ]

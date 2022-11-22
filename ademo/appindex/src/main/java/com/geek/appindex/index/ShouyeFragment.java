@@ -74,30 +74,6 @@ public class ShouyeFragment extends SlbBaseLazyFragmentNew {
         }
     }
 
-//
-//    @Override
-//    public void onAttachFragment(Fragment fragment) {
-//        if (mFragment1 == null && fragment instanceof ShouyeF1) {
-//            mFragment1 = (ShouyeF1) fragment;
-//        }
-//        if (mFragment2 == null && fragment instanceof ShouyeF2) {
-//            mFragment2 = (ShouyeF2) fragment;
-//        }
-//        if (mFragment3 == null && fragment instanceof ShouyeF3) {
-//            mFragment3 = (ShouyeF3) fragment;
-//        }
-//        if (mFragment4 == null && fragment instanceof ShouyeF4) {
-//            mFragment4 = (ShouyeF4) fragment;
-//        }
-//    }
-
-    public TextView tv_theme1;
-
-    @Override
-    public void onResume() {
-
-        super.onResume();
-    }
 
     public static ShouyeFragment getInstance(Bundle bundle) {
         ShouyeFragment mEasyWebFragment = new ShouyeFragment();
@@ -108,17 +84,8 @@ public class ShouyeFragment extends SlbBaseLazyFragmentNew {
 
     }
 
-
     private void initFragments(Bundle savedInstanceState) {
-//        // 测试
-//        mNavigationList = new ArrayList<>();
-//        mNavigationList.add(new ShouyeFragmentBean("11", "", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-11-15/3515304962944931528.png", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-11-15/3515303549380602766.png", "首页", ShouyeFragmentFactory.TAG_shouye, true));
-//        mNavigationList.add(new ShouyeFragmentBean("22", "", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-11-15/3515304962944931528.png", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-11-15/3515303549380602766.png", "消息", ShouyeFragmentFactory.TAG_xiaoxi, false));
-//        mNavigationList.add(new ShouyeFragmentBean("33", "", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-11-15/3515304962944931528.png", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-11-15/3515303549380602766.png", "联系人", ShouyeFragmentFactory.TAG_people, false));
-//        mNavigationList.add(new ShouyeFragmentBean("44", "", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-11-15/3515304962944931528.png", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-11-15/3515303549380602766.png", "我的", ShouyeFragmentFactory.TAG_my, false));
-//        mNavigationList.add(new ShouyeFragmentBean("55", "", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-11-15/3515304962944931528.png", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-11-15/3515303549380602766.png", "框架1", ShouyeFragmentFactory.TAG_kuangjia1, false));
-//        mNavigationList.add(new ShouyeFragmentBean("66", "", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-11-15/3515304962944931528.png", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-11-15/3515303549380602766.png", "框架2", ShouyeFragmentFactory.TAG_kuangjia2, false));
-        if (getArguments() != null) {
+      if (getArguments() != null) {
             mNavigationList = (List<BjyyBeanYewu3>) getArguments().getSerializable("tablayoutId");
         }
         if (mNavigationList != null && mNavigationList.size() > 0) {
@@ -314,7 +281,7 @@ public class ShouyeFragment extends SlbBaseLazyFragmentNew {
             if ((System.currentTimeMillis() - exitTime) < 1500) {
                 ActivityUtils.finishAllActivities();
             } else {
-                ToastUtils.showLong("再次点击退出程序哟 ~");
+                ToastUtils.showLong("再次点击退出程序");
                 exitTime = System.currentTimeMillis();
             }
 //        }

@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -13,7 +14,9 @@ import androidx.annotation.Nullable;
 import com.blankj.utilcode.util.AppUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.geek.appindex.R;
+import com.geek.appindex.news.fragment.TZGGFragment2;
 import com.geek.appindex.tyxsbofangqi.VideoPlayerAct;
+import com.geek.biz1.bean.BjyyBeanYewu3;
 import com.geek.libbase.base.SlbBaseLazyFragmentNew;
 import com.geek.libbase.utils.CommonUtils;
 import com.geek.libutils.app.LocalBroadcastManagers;
@@ -68,6 +71,14 @@ public class ShouyeF1 extends SlbBaseLazyFragmentNew implements View.OnClickList
         }
     }
 
+    public static ShouyeF1 getInstance(BjyyBeanYewu3 bean) {
+        ShouyeF1 fragment = new ShouyeF1();
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("feileiBean", bean);
+        fragment.setArguments(bundle);
+        return fragment;
+    }
+
     public static ShouyeF1 getInstance(Bundle bundle) {
         ShouyeF1 mEasyWebFragment = new ShouyeF1();
         if (bundle != null) {
@@ -102,6 +113,8 @@ public class ShouyeF1 extends SlbBaseLazyFragmentNew implements View.OnClickList
         super.onResume();
     }
 
+    private BjyyBeanYewu3 feileiBean;
+
     @Override
     public void onCreate(@Nullable Bundle bundle) {
         super.onCreate(bundle);
@@ -109,6 +122,10 @@ public class ShouyeF1 extends SlbBaseLazyFragmentNew implements View.OnClickList
         if (getArguments() != null) {
             tablayoutId = getArguments().getString("tablayoutId");
             MyLogUtil.e("tablayoutId->", "onCreate->" + tablayoutId);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                feileiBean = getArguments().getSerializable("feileiBean",BjyyBeanYewu3.class);
+                MyLogUtil.e("tablayoutId->", "onCreate->" + feileiBean.getId());
+            }
         }
     }
 

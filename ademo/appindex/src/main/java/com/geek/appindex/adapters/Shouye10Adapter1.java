@@ -9,6 +9,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.geek.appcommon.wechat.fragment.H5WebFragment;
+import com.geek.appindex.index.fragment.ShouyeF1;
+import com.geek.appindex.index.fragment.ShouyeF3;
 import com.geek.appindex.news.fragment.DJDTFragment2;
 import com.geek.appindex.news.fragment.RecommandFragment2;
 import com.geek.appindex.news.fragment.TZGGFragment2;
@@ -27,15 +29,15 @@ public class Shouye10Adapter1<T> extends FragmentPagerAdapter {
     private FragmentManager fm;
 
     //推荐
-    private static final String TAG_RECOMMAND = "com.geek.appindex.news.fragment.RecommandFragment";
+    public static final String TAG_RECOMMAND = "com.geek.appindex.news.fragment.RecommandFragment";
     //党建动态
-    private static final String TAG_DJDT = "com.geek.appindex.news.fragment.DJDTFragment";
+    public static final String TAG_DJDT = "com.geek.appindex.news.fragment.DJDTFragment";
     //工作通知
-    private static final String TAG_TZGG = "com.geek.appindex.news.fragment.TZGGFragment";
+    public static final String TAG_TZGG = "com.geek.appindex.news.fragment.TZGGFragment";
     //乡镇要闻
-    private static final String TAG_XZYW = "com.geek.appindex.news.fragment.XZYWFragment";
+    public static final String TAG_XZYW = "com.geek.appindex.news.fragment.XZYWFragment";
     //政策文件
-    private static final String TAG_ZCWJ = "com.geek.appindex.news.fragment.ZCWJFragment";
+    public static final String TAG_ZCWJ = "com.geek.appindex.news.fragment.ZCWJFragment";
 
     public Shouye10Adapter1(FragmentManager fm, Context context, String[] titles, List<T> bean, int behavior) {
         super(fm, behavior);
@@ -64,10 +66,10 @@ public class Shouye10Adapter1<T> extends FragmentPagerAdapter {
         switch (url.trim()) {
             case TAG_RECOMMAND:
                 //return RecommandFragment.Companion.getInstance(fenleiAct1CateBean1);
-                return RecommandFragment2.getInstance(fenleiAct1CateBean1);
+                return ShouyeF1.getInstance(fenleiAct1CateBean1);
             case TAG_DJDT:
                 //return DJDTFragment.Companion.getInstance(fenleiAct1CateBean1);
-                return DJDTFragment2.getInstance(fenleiAct1CateBean1);
+                return ShouyeF3.getInstance(fenleiAct1CateBean1);
             case TAG_TZGG:
                 //return TZGGFragment.Companion.getInstance(fenleiAct1CateBean1);
                 return TZGGFragment2.getInstance(fenleiAct1CateBean1);
@@ -81,6 +83,26 @@ public class Shouye10Adapter1<T> extends FragmentPagerAdapter {
                 //return RecommandFragment.Companion.getInstance(fenleiAct1CateBean1);
                 return RecommandFragment2.getInstance(fenleiAct1CateBean1);
         }
+//        switch (url.trim()) {
+//            case TAG_RECOMMAND:
+//                //return RecommandFragment.Companion.getInstance(fenleiAct1CateBean1);
+//                return RecommandFragment2.getInstance(fenleiAct1CateBean1);
+//            case TAG_DJDT:
+//                //return DJDTFragment.Companion.getInstance(fenleiAct1CateBean1);
+//                return DJDTFragment2.getInstance(fenleiAct1CateBean1);
+//            case TAG_TZGG:
+//                //return TZGGFragment.Companion.getInstance(fenleiAct1CateBean1);
+//                return TZGGFragment2.getInstance(fenleiAct1CateBean1);
+//            case TAG_XZYW:
+//                // return XZYWFragment.Companion.getInstance(fenleiAct1CateBean1);
+//                return XZYWFragment2.getInstance(fenleiAct1CateBean1);
+//            case TAG_ZCWJ:
+//                //return ZCWJFragment.Companion.getInstance(fenleiAct1CateBean1);
+//                return ZCWJFragment2.getInstance(fenleiAct1CateBean1);
+//            default:
+//                //return RecommandFragment.Companion.getInstance(fenleiAct1CateBean1);
+//                return RecommandFragment2.getInstance(fenleiAct1CateBean1);
+//        }
 
     }
 

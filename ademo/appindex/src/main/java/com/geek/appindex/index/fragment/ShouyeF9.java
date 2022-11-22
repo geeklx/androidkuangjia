@@ -25,7 +25,6 @@ import com.blankj.utilcode.util.PhoneUtils;
 import com.blankj.utilcode.util.SPUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.geek.liblocations.LocationBean;
 import com.geek.appcommon.AppCommonUtils;
 import com.geek.appcommon.popview.BlockPuzzleDialog;
 import com.geek.appindex.R;
@@ -55,6 +54,7 @@ import com.geek.libbase.base.SlbBaseLazyFragmentNew;
 import com.geek.libbase.viewpager2.bean.DataBean;
 import com.geek.libbase.widgets.XRecyclerView;
 import com.geek.libglide47.base.GlideRoundImageView;
+import com.geek.liblocations.LocationBean;
 import com.geek.libutils.app.LocalBroadcastManagers;
 import com.geek.libutils.app.MyLogUtil;
 import com.geek.libutils.data.LocationUtils;
@@ -403,7 +403,7 @@ public class ShouyeF9 extends SlbBaseLazyFragmentNew implements FsyyyView, FWech
             public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
                 BjyyActFragment251Bean addressBean = (BjyyActFragment251Bean) adapter.getItem(position);
                 currentId = addressBean.getmBean().getId();
-                if (TextUtils.isEmpty(addressBean.getmBean().getImg())){
+                if (TextUtils.isEmpty(addressBean.getmBean().getImg())) {
                     // 一级分类标题跳转bufen
                     return;
                 }
@@ -600,12 +600,22 @@ public class ShouyeF9 extends SlbBaseLazyFragmentNew implements FsyyyView, FWech
 
     @Override
     public void OnFBannerNodata(String bean) {
-        ToastUtils.showLong(bean);
+//        ToastUtils.showLong(bean);
+        fBannerBean = new FBannerBean();
+        List<BjyyBeanYewu3> mlist = new ArrayList<>();
+        mlist.add(new BjyyBeanYewu3("", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-12-20/3521862286564142395.png", "", "", false));
+        fBannerBean.setData(mlist);
+        set_lunbo_data();
     }
 
     @Override
     public void OnFBannerFail(String msg) {
-        ToastUtils.showLong(msg);
+//        ToastUtils.showLong(msg);
+        fBannerBean = new FBannerBean();
+        List<BjyyBeanYewu3> mlist = new ArrayList<>();
+        mlist.add(new BjyyBeanYewu3("", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-12-20/3521862286564142395.png", "", "", false));
+        fBannerBean.setData(mlist);
+        set_lunbo_data();
     }
 
     @Override
@@ -711,7 +721,7 @@ public class ShouyeF9 extends SlbBaseLazyFragmentNew implements FsyyyView, FWech
 //                    HiosHelperNew.resolveAd(getActivity(), getActivity(), addressBean.getmBean().getUrl());
         } else {
             ToastUtils.showLong("地址配置错误");
-            HiosHelperNew.resolveAd(getActivity(), getActivity(), bean.getAddress().replace("null", ""));
+//            HiosHelperNew.resolveAd(getActivity(), getActivity(), bean.getAddress().replace("null", ""));
         }
 
     }

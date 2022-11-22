@@ -172,6 +172,7 @@ public class XZYWFragment2 extends SlbBaseLazyFragmentNew implements Classificat
         }
     }
 
+    @Override
     protected void initData() {
         mPresenter = new ClassificationPresenter();
         mPresenter.onCreate(this);
@@ -260,6 +261,7 @@ public class XZYWFragment2 extends SlbBaseLazyFragmentNew implements Classificat
         }
     }
 
+    @Override
     public void onDestroy() {
         super.onDestroy();
         if (mPresenter != null) {

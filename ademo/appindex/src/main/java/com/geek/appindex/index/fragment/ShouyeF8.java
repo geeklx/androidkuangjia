@@ -601,12 +601,22 @@ public class ShouyeF8 extends SlbBaseLazyFragmentNew implements FsyyyView, FWech
 
     @Override
     public void OnFBannerNodata(String bean) {
-        ToastUtils.showLong(bean);
+//        ToastUtils.showLong(bean);
+        fBannerBean = new FBannerBean();
+        List<BjyyBeanYewu3> mlist = new ArrayList<>();
+        mlist.add(new BjyyBeanYewu3("","http://119.188.115.252:8090/resource-handle/uploads/image/2021-12-20/3521862286564142395.png","","",false));
+        fBannerBean.setData(mlist);
+        set_lunbo_data();
     }
 
     @Override
     public void OnFBannerFail(String msg) {
-        ToastUtils.showLong(msg);
+//        ToastUtils.showLong(msg);
+        fBannerBean = new FBannerBean();
+        List<BjyyBeanYewu3> mlist = new ArrayList<>();
+        mlist.add(new BjyyBeanYewu3("","http://119.188.115.252:8090/resource-handle/uploads/image/2021-12-20/3521862286564142395.png","","",false));
+        fBannerBean.setData(mlist);
+        set_lunbo_data();
     }
 
     @Override
@@ -727,7 +737,7 @@ public class ShouyeF8 extends SlbBaseLazyFragmentNew implements FsyyyView, FWech
 //                    HiosHelperNew.resolveAd(getActivity(), getActivity(), addressBean.getmBean().getUrl());
         } else {
             ToastUtils.showLong("地址配置错误");
-            HiosHelperNew.resolveAd(getActivity(), getActivity(), bean.getAddress().replace("null", ""));
+//            HiosHelperNew.resolveAd(getActivity(), getActivity(), bean.getAddress().replace("null", ""));
         }
 
     }

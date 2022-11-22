@@ -132,7 +132,7 @@ public class WeChatH5JsWebActivity extends BaseAgentWebActivityJs2 {
             tv1.setVisibility(View.GONE);
             tv11.setVisibility(View.GONE);
         }
-        toolBars.setVisibility(!isHideBar ? View.GONE : View.VISIBLE);
+        toolBars.setVisibility(isHideBar ? View.GONE : View.VISIBLE);
 //        toolBars.setVisibility(View.GONE);
 //        mTitleTextView.setText("灯塔有声");
     }

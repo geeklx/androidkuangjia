@@ -51,7 +51,9 @@ public class DiyStyleTextView extends AppCompatTextView {
 
     private CharSequence setText(CharSequence text, Boolean flag) {
         if (TextUtils.isEmpty(text)) {
-            if (flag) super.setText(text);
+            if (flag) {
+                super.setText(text);
+            }
             return text;
         }
         SpannableStringBuilder styledText = new SpannableStringBuilder(text);
@@ -76,7 +78,9 @@ public class DiyStyleTextView extends AppCompatTextView {
                 );
             }
         }
-        if (flag) super.setText(styledText);
+        if (flag) {
+            super.setText(styledText);
+        }
         return styledText;
     }
 

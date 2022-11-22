@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.blankj.utilcode.util.AppUtils;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
@@ -32,6 +33,13 @@ public class AppCommonUtils {
     public static final String intent_id = "query1";
     public static final String intent_title = "query2";
     public static final String intent_count = "query3";
+    public static final String hios_scheme1 = "https://";
+    public static final String hios_scheme2 = "http://";
+    public static final String hios_scheme3 = "app://";
+    public static final String hios_scheme4 = "dataability://";
+    public static final String hios_host1 = "cs.znclass.com/";
+//    public static final String hios_path1 = AppUtils.getAppPackageName();
+    public static final String hios_path1 = "com.fosung.lighthouse.dtsxbb";
 
     public static void addSeletorFromNet(final String pic1, final String pic2, final ImageView imageView) {
         if (imageView == null || TextUtils.isEmpty(pic1)) {

@@ -15,6 +15,7 @@ import androidx.annotation.Nullable;
 import com.blankj.utilcode.util.AppUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.geek.appindex.R;
+import com.geek.biz1.bean.BjyyBeanYewu3;
 import com.geek.libbase.base.SlbBaseLazyFragmentNew;
 import com.geek.libbase.plugin.PluginManager;
 import com.geek.libbase.utils.ApkDownloadUtils;
@@ -47,6 +48,15 @@ public class ShouyeF3 extends SlbBaseLazyFragmentNew {
             } catch (Exception ignored) {
             }
         }
+    }
+
+
+    public static ShouyeF3 getInstance(BjyyBeanYewu3 bean) {
+        ShouyeF3 fragment = new ShouyeF3();
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("feileiBean", bean);
+        fragment.setArguments(bundle);
+        return fragment;
     }
 
     public static ShouyeF3 getInstance(Bundle bundle) {
@@ -301,7 +311,7 @@ public class ShouyeF3 extends SlbBaseLazyFragmentNew {
         rootView.findViewById(R.id.tv22).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(AppUtils.getAppPackageName() + ".hs.act.slbapp.PictureSelectorSimpleActivity"));
+//                startActivity(new Intent(AppUtils.getAppPackageName() + ".hs.act.slbapp.PictureSelectorSimpleActivity"));
             }
         });
         rootView.findViewById(R.id.tv23).setOnClickListener(new View.OnClickListener() {

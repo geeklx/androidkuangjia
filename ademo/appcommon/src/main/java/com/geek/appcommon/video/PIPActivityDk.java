@@ -28,6 +28,7 @@ public class PIPActivityDk extends BaseActivityDk {
     public PIPActivityDk() {
     }
 
+    @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.setContentView(R.layout.activity_pipdk);
@@ -57,6 +58,7 @@ public class PIPActivityDk extends BaseActivityDk {
         playerContainer.addView(videoView);
     }
 
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
             this.finish();
@@ -65,21 +67,25 @@ public class PIPActivityDk extends BaseActivityDk {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
     protected void onPause() {
         super.onPause();
         this.mPIPManager.pause();
     }
 
+    @Override
     protected void onResume() {
         super.onResume();
         this.mPIPManager.resume();
     }
 
+    @Override
     protected void onDestroy() {
         super.onDestroy();
         this.mPIPManager.reset();
     }
 
+    @Override
     public void onBackPressed() {
         if (!this.mPIPManager.onBackPress()) {
             super.onBackPressed();
@@ -88,6 +94,7 @@ public class PIPActivityDk extends BaseActivityDk {
 
     public void startFloatWindow(View view) {
         XXPermissions.with(this).permission("android.permission.SYSTEM_ALERT_WINDOW").request(new OnPermissionCallback() {
+            @Override
             public void onGranted(List<String> permissions, boolean all) {
                 PIPActivityDk.this.mPIPManager.startFloatWindow();
                 PIPActivityDk.this.mPIPManager.resume();

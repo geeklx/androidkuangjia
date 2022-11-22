@@ -40,7 +40,7 @@
                     android:layout_marginTop="12mm"
                     android:layout_marginRight="12mm"
                     android:gravity="left"
-                    android:text="1.灯塔2.0动态化开发实例-首页动态化部署"
+                    android:text="1.app动态化开发实例-首页动态化部署"
                     android:textColor="@color/gray4A4A4A"
                     android:textSize="12mm" />
 
@@ -52,7 +52,7 @@
                     android:layout_marginTop="12mm"
                     android:layout_marginRight="12mm"
                     android:gravity="left"
-                    android:text="2.灯塔2.0动态化开发实例-统一学时进度播放器"
+                    android:text="2.app动态化开发实例-统一学时进度播放器"
                     android:textColor="@color/gray4A4A4A"
                     android:textSize="12mm" />
 
@@ -64,7 +64,7 @@
                     android:layout_marginTop="12mm"
                     android:layout_marginRight="12mm"
                     android:gravity="left"
-                    android:text="3.灯塔2.0动态化开发实例-定制化扫码"
+                    android:text="3.app动态化开发实例-定制化扫码"
                     android:textColor="@color/gray4A4A4A"
                     android:textSize="12mm" />
 
@@ -76,7 +76,7 @@
                     android:layout_marginTop="12mm"
                     android:layout_marginRight="12mm"
                     android:gravity="left"
-                    android:text="4.灯塔2.0动态化开发实例-腾讯即时通讯"
+                    android:text="4.app动态化开发实例-腾讯即时通讯"
                     android:textColor="@color/gray4A4A4A"
                     android:textSize="12mm" />
 
@@ -88,7 +88,7 @@
                     android:layout_marginTop="12mm"
                     android:layout_marginRight="12mm"
                     android:gravity="left"
-                    android:text="5.灯塔2.0动态化开发实例-小程序组件"
+                    android:text="5.app动态化开发实例-小程序组件"
                     android:textColor="@color/gray4A4A4A"
                     android:textSize="12mm" />
 
@@ -100,7 +100,7 @@
                     android:layout_marginTop="12mm"
                     android:layout_marginRight="12mm"
                     android:gravity="left"
-                    android:text="6.灯塔2.0动态化开发实例-播放器组件"
+                    android:text="6.app动态化开发实例-播放器组件"
                     android:textColor="@color/gray4A4A4A"
                     android:textSize="12mm" />
 
@@ -113,7 +113,7 @@
                     android:layout_marginTop="12mm"
                     android:layout_marginRight="12mm"
                     android:gravity="left"
-                    android:text="7.灯塔2.0动态化开发实例-好视通视频会议组件"
+                    android:text="7.app动态化开发实例-好视通视频会议组件"
                     android:textColor="@color/gray4A4A4A"
                     android:textSize="12mm" />
 
@@ -125,7 +125,7 @@
                     android:layout_marginTop="12mm"
                     android:layout_marginRight="12mm"
                     android:gravity="left"
-                    android:text="8.灯塔2.0动态化开发实例-编辑应用组件"
+                    android:text="8.app动态化开发实例-编辑应用组件"
                     android:textColor="@color/gray4A4A4A"
                     android:textSize="12mm" />
 
@@ -137,7 +137,7 @@
                     android:layout_marginTop="12mm"
                     android:layout_marginRight="12mm"
                     android:gravity="left"
-                    android:text="9.灯塔2.0动态化开发实例-3D党员信息列表业务组件"
+                    android:text="9.app动态化开发实例-3D党员信息列表业务组件"
                     android:textColor="@color/gray4A4A4A"
                     android:textSize="12mm" />
 
@@ -149,7 +149,7 @@
                     android:layout_marginTop="12mm"
                     android:layout_marginRight="12mm"
                     android:gravity="left"
-                    android:text="10.灯塔2.0动态化开发实例-党员信息卡片业务组件"
+                    android:text="10.app动态化开发实例-党员信息卡片业务组件"
                     android:textColor="@color/gray4A4A4A"
                     android:textSize="12mm" />
 
@@ -161,7 +161,7 @@
                     android:layout_marginTop="12mm"
                     android:layout_marginRight="12mm"
                     android:gravity="left"
-                    android:text="11.灯塔2.0动态化开发实例-3D党员信息列表动态版本业务组件"
+                    android:text="11.app动态化开发实例-3D党员信息列表动态版本业务组件"
                     android:textColor="@color/gray4A4A4A"
                     android:textSize="12mm" />
 
@@ -181,7 +181,7 @@
                     android:layout_marginTop="12mm"
                     android:layout_marginRight="12mm"
                     android:gravity="left"
-                    android:text="12.灯塔2.0动态化开发实例-党员位置地图业务组件"
+                    android:text="12.app动态化开发实例-党员位置地图业务组件"
                     android:textColor="@color/gray4A4A4A"
                     android:textSize="12mm" />
 
@@ -193,7 +193,7 @@
                     android:layout_marginTop="12mm"
                     android:layout_marginRight="12mm"
                     android:gravity="left"
-                    android:text="13.灯塔2.0动态化开发实例-APP升级业务组件"
+                    android:text="13.app动态化开发实例-APP升级业务组件"
                     android:textColor="@color/gray4A4A4A"
                     android:textSize="12mm" />
 
@@ -205,7 +205,7 @@
                     android:layout_marginTop="12mm"
                     android:layout_marginRight="12mm"
                     android:gravity="left"
-                    android:text="14.灯塔2.0动态化开发实例-统一弹窗样式1业务组件"
+                    android:text="14.app动态化开发实例-统一弹窗样式1业务组件"
                     android:textColor="@color/gray4A4A4A"
                     android:textSize="12mm" />
 
@@ -217,7 +217,7 @@
                     android:layout_marginTop="12mm"
                     android:layout_marginRight="12mm"
                     android:gravity="left"
-                    android:text="15.灯塔2.0动态化开发实例-统一弹窗样式2业务组件"
+                    android:text="15.app动态化开发实例-统一弹窗样式2业务组件"
                     android:textColor="@color/gray4A4A4A"
                     android:textSize="12mm" />
 
@@ -229,7 +229,7 @@
                     android:layout_marginTop="12mm"
                     android:layout_marginRight="12mm"
                     android:gravity="left"
-                    android:text="16.灯塔2.0动态化开发实例-统一搜索业务组件"
+                    android:text="16.app动态化开发实例-统一搜索业务组件"
                     android:textColor="@color/gray4A4A4A"
                     android:textSize="12mm" />
 
@@ -241,7 +241,7 @@
                     android:layout_marginTop="12mm"
                     android:layout_marginRight="12mm"
                     android:gravity="left"
-                    android:text="17.灯塔2.0动态化开发实例-统一WebView业务组件"
+                    android:text="17.app动态化开发实例-统一WebView业务组件"
                     android:textColor="@color/gray4A4A4A"
                     android:textSize="12mm" />
 
@@ -253,7 +253,7 @@
                     android:layout_marginTop="12mm"
                     android:layout_marginRight="12mm"
                     android:gravity="left"
-                    android:text="18.灯塔2.0动态化开发实例-二级分类组件1"
+                    android:text="18.app动态化开发实例-二级分类组件1"
                     android:textColor="@color/gray4A4A4A"
                     android:textSize="12mm" />
             </LinearLayout>

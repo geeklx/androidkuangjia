@@ -27,10 +27,12 @@ public class TikTokListFragmentDk extends BaseFragmentDk {
     public TikTokListFragmentDk() {
     }
 
+    @Override
     protected int getLayoutResId() {
         return R.layout.fragment_tiktok_listdk;
     }
 
+    @Override
     protected void initView() {
         super.initView();
         this.mRecyclerView = (RecyclerView) this.findViewById(R.id.rv_tiktok);
@@ -41,6 +43,7 @@ public class TikTokListFragmentDk extends BaseFragmentDk {
         final PopupMenu menu = new PopupMenu(this.getContext(), this.mSwitchImpl);
         menu.inflate(R.menu.tiktok_impl_menu);
         menu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
             public boolean onMenuItemClick(MenuItem item) {
                 TikTokListFragmentDk.this.mAdapter.setImpl(item.getItemId());
                 int itemId = item.getItemId();
@@ -56,6 +59,7 @@ public class TikTokListFragmentDk extends BaseFragmentDk {
             }
         });
         this.mSwitchImpl.setOnClickListener(new View.OnClickListener() {
+            @Override
             public void onClick(View v) {
                 menu.show();
             }
@@ -64,17 +68,21 @@ public class TikTokListFragmentDk extends BaseFragmentDk {
         this.mSwitchImpl.setText("VerticalViewPager");
     }
 
+    @Override
     protected boolean isLazyLoad() {
         return true;
     }
 
+    @Override
     protected void initData() {
         super.initData();
         (new Thread(new Runnable() {
+            @Override
             public void run() {
                 List<TiktokBeanDk> tiktokBeans = DataUtilDk.getTiktokDataFromAssets(TikTokListFragmentDk.this.getActivity());
                 TikTokListFragmentDk.this.data.addAll(tiktokBeans);
                 TikTokListFragmentDk.this.mRecyclerView.post(new Runnable() {
+                    @Override
                     public void run() {
                         TikTokListFragmentDk.this.mAdapter.notifyDataSetChanged();
                     }

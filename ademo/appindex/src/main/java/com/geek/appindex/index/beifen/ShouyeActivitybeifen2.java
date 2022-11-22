@@ -1,4 +1,4 @@
-package com.geek.appindex.index;
+package com.geek.appindex.index.beifen;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -12,6 +12,7 @@ import android.os.Looper;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -23,6 +24,7 @@ import com.blankj.utilcode.util.ToastUtils;
 import com.geek.appcommon.AppCommonUtils;
 import com.geek.appcommon.SlbBase;
 import com.geek.appindex.R;
+import com.geek.appindex.index.ShouyeFragment;
 import com.geek.appindex.index.fragment.ShouyeF1;
 import com.geek.appindex.index.fragment.ShouyeF5;
 import com.geek.appindex.index.fragment.ShouyeF6;
@@ -34,6 +36,7 @@ import com.geek.biz1.view.FCate1View;
 import com.geek.biz1.view.FshengjiView;
 import com.geek.libbase.base.SlbBaseLazyFragmentNew;
 import com.geek.libbase.plugins.PluginManager;
+import com.geek.liblanguage.MultiLanguages;
 import com.geek.liblocations.LocListener;
 import com.geek.liblocations.LocUtil;
 import com.geek.liblocations.LocationBean;
@@ -82,7 +85,7 @@ import java.util.List;
 
 import me.jessyan.autosize.AutoSizeCompat;
 
-public class ShouyeActivity extends SlbBase implements FshengjiView, FCate1View {
+public class ShouyeActivitybeifen2 extends SlbBase implements FshengjiView, FCate1View {
 
     private FshengjiPresenter fshengjiPresenter;
     private FCate1Presenter fCate1Presenter;
@@ -93,16 +96,44 @@ public class ShouyeActivity extends SlbBase implements FshengjiView, FCate1View 
     private String updateInfo = "";
     private String md5 = "";
     private String appPackageName = "";
+    private int current_pos = 0;
+//    private String istag;
 
-    @Override
-    public Resources getResources() {
-        //需要升级到 v1.1.2 及以上版本才能使用 AutoSizeCompat
-        if (Looper.myLooper() == Looper.getMainLooper()) {
-            AutoSizeCompat.autoConvertDensityOfGlobal((super.getResources()));//如果没有自定义需求用这个方法
-            AutoSizeCompat.autoConvertDensity((super.getResources()), 667, false);//如果有自定义需求就用这个方法
+    private MessageReceiverIndex mMessageReceiver;
+
+    public class MessageReceiverIndex extends BroadcastReceiver {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            try {
+                if ("ShouyeActivity".equals(intent.getAction())) {
+//                    String updatedata = intent.getStringExtra("updatedata");
+//                    if (updatedata != null && !"".equals(updatedata)) {
+//                        istag = updatedata;
+//                    }
+                    //点击item
+                    if (intent.getIntExtra("id", -1) != -1) {
+                        current_pos = intent.getIntExtra("id", 0);
+
+                    }
+                    if (!TextUtils.isEmpty(intent.getStringExtra("mobid"))) {
+//                        mAdapter.setHongdiao_count(intent.getStringExtra("mobid"));
+//                        mAdapter.notifyDataSetChanged();
+                    }
+                }
+            } catch (Exception e) {
+            }
         }
-        return super.getResources();
     }
+
+    //
+    private final static String ACTION = "com.example.receiver.action";
+    public BroadcastReceiver mReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Toast.makeText(ShouyeActivitybeifen2.this, "我是宿主，收到插件消息", Toast.LENGTH_SHORT).show();
+        }
+    };
 
     private final Shortcut.Callback callback = new Shortcut.Callback() {
         @Override
@@ -116,11 +147,11 @@ public class ShouyeActivity extends SlbBase implements FshengjiView, FCate1View 
         }
     };
 
-    private UpdateAppReceiver updateAppReceiver = new UpdateAppReceiver();
+    UpdateAppReceiver updateAppReceiver = new UpdateAppReceiver();
 
     private void get_loc() {
         //
-        LocUtil.getLocation(ShouyeActivity.this, new LocListener() {
+        LocUtil.getLocation(ShouyeActivitybeifen2.this, new LocListener() {
 
             @Override
             public void success(LocationBean model) {
@@ -132,7 +163,7 @@ public class ShouyeActivity extends SlbBase implements FshengjiView, FCate1View 
                 Intent msgIntent = new Intent();
                 msgIntent.setAction("gongzuotai");
                 msgIntent.putExtra("dingwei", model.getCity());
-                LocalBroadcastManagers.getInstance(ShouyeActivity.this).sendBroadcast(msgIntent);
+                LocalBroadcastManagers.getInstance(ShouyeActivitybeifen2.this).sendBroadcast(msgIntent);
             }
 
             @Override
@@ -143,15 +174,42 @@ public class ShouyeActivity extends SlbBase implements FshengjiView, FCate1View 
         });
     }
 
+    @Override
+    public Resources getResources() {
+        //需要升级到 v1.1.2 及以上版本才能使用 AutoSizeCompat
+        if (Looper.myLooper() == Looper.getMainLooper()) {
+            AutoSizeCompat.autoConvertDensityOfGlobal((super.getResources()));//如果没有自定义需求用这个方法
+            AutoSizeCompat.autoConvertDensity((super.getResources()), 667, false);//如果有自定义需求就用这个方法
+        }
+        return super.getResources();
+    }
 
     @Override
     protected void onResume() {
+        MultiLanguages.attach(getApplicationContext());
         updateAppReceiver.setBr(this);
         PgyerSDKManager.checkSoftwareUpdate(this);
         Shortcut.getSingleInstance().addShortcutCallback(callback);
+        //initPop();
+        //
+//        if (!LocationUtils2.isGpsEnabled()) {
+//            LocationUtils2.openGpsSettings();
+//        } else {
+//            get_loc();
+//        }
         get_loc();
+//        if (!SlbLoginUtil.get().isUserLogin()) {
+//            mTabLayout_2.setCurrentTab(current_pos);
+//        }
+//        if (istag != null && !"".equals(istag)) {
+//            if (fCate1Presenter != null) {
+//                if (istag.equals("1")) {
+//                    fCate1Presenter.getcate1list(AppCommonUtils.auth_url + "/navgation",
+//                            "", "10", "1", "", AppCommonUtils.get_location_cityname(), "");
+//                }
+//            }
+//        }
         mUserInfo = UserInfo.getInstance();
-        // 腾讯Imbufen
         if (mUserInfo != null && mUserInfo.isAutoLogin()) {
             TUIUtils.login(mUserInfo.getUserId(), mUserInfo.getUserSig(), new V2TIMCallback() {
                 @Override
@@ -237,7 +295,7 @@ public class ShouyeActivity extends SlbBase implements FshengjiView, FCate1View 
 //        api.sendReq(req);
         //
 //        String url = "https://cx.o2o.bailingjk.net/wechat/#/main/medicalIndex?publicNoCode=jksd_0011&type=1&patientId=&language=";
-//        HiosHelperNew.resolveAd(ShouyeActivity.this,ShouyeActivity.this,url);
+//        HiosHelper.resolveAd(ShouyeActivity.this,ShouyeActivity.this,url);
     }
 
     private UserInfo mUserInfo;
@@ -254,20 +312,67 @@ public class ShouyeActivity extends SlbBase implements FshengjiView, FCate1View 
         if (fCate1Presenter != null) {
             fCate1Presenter.onDestory();
         }
+        LocalBroadcastManagers.getInstance(getApplicationContext()).unregisterReceiver(mMessageReceiver);
         super.onDestroy();
     }
+
+    public TextView tv_theme1;
+    private static final String SAVED_CURRENT_ID = "currentIdxzbb1";
+    private boolean SAVED_CURRENT_ID2;
+    public static final List<String> PAGE_TAGS = new ArrayList<>();
+    private List<Class<? extends Fragment>> fragmentClasses = Arrays.asList(ShouyeF5.class,
+            TUIConversationFragment.class, ShouyeF6.class, TUIContactFragment.class, ShouyeF1.class); //自定义的Fragment，主要目的是在初始化时能够通过循环初始化，与重建时的恢复统一
+    private List<Fragment> fragments = new ArrayList<>();
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-
+        outState.putBoolean(SAVED_CURRENT_ID, true);
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
+        if (savedInstanceState != null) {
+            theme = savedInstanceState.getInt(KEY);
+            setTheme(theme > 0 ? theme : R.style.AppThemeBaseAppcommon);
+        }
         super.onCreate(savedInstanceState);
+        // 插件bufen
+        PluginManager.getInstance().setContext(this);
+        //宿主中正常注册广播
+        registerReceiver(mReceiver, new IntentFilter(ACTION));
         //
         prepareThirdPushToken();
+
+        //通道消息
+//        ChannelMessage();
+        //
+//        tv_theme1 = findViewById(R.id.tv_theme1);
+//        tv_theme1.setVisibility(View.GONE);
+//        tv_theme1.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                //
+////                if (tv_theme1.getText().toString().startsWith("自定义")) {
+////                    tv_theme1.setText("默认主题");
+////                    theme = R.style.AppThemeBaseAppcommon;
+////                } else if (tv_theme1.getText().toString().startsWith("默认")) {
+////                    tv_theme1.setText("自定义主题");
+////                    theme = R.style.AppThemeBaseAppcommon2;
+////                }
+////                recreate();
+//                //
+////                String url = "dataability://cs.znclass.com/com.github.geekcodesteam.app.hs.act.slbapp.ShouyeCateAct1?query1={s}1&query2={s}本地应用&query3={s}5";
+////                String url = "dataability://com.github.geekcodesteam.app.hs.act.slbapp.ShouyeCateAct1{act}?query1={s}1&query2={s}本地应用&query3={s}5";
+////                HiosHelperNew.resolveAd(ShouyeActivity.this, ShouyeActivity.this, url);
+//                startActivity(new Intent(AppUtils.getAppPackageName() + ".hs.act.slbapp.Dt10Act"));
+//            }
+//        });
+//        if (theme == R.style.AppThemeBaseAppcommon) {
+//            tv_theme1.setText("默认主题");
+//        } else if (theme == R.style.AppThemeBaseAppcommon2) {
+//            tv_theme1.setText("自定义主题");
+//        }
 
     }
 
@@ -321,19 +426,19 @@ public class ShouyeActivity extends SlbBase implements FshengjiView, FCate1View 
         if (pluginExtra != null && !"".equals(pluginExtra)) {
             if (pluginExtra.equals("公告推送")) {
                 MyLogUtil.e("aaaaaa", "公告推送: " + pluginExtra);
-                Intent intent0 = new Intent(com.blankj.utilcode.util.AppUtils.getAppPackageName() + ".hs.act.slbapp.AdNaticeActivity");
+                Intent intent0 = new Intent(AppUtils.getAppPackageName() + ".hs.act.slbapp.AdNaticeActivity");
                 intent0.putExtra("url1", "https://www.baidu.com/");
                 intent0.putExtra("content", "公告摘要描述公告摘要描述公告，摘要描述公告摘要描述公告摘要描述公告摘要描述公告摘要描述，公告摘要描述公告摘要描述公告摘要描述公告摘要描述，公告摘要描述公告摘要描述公告摘要描述公告摘要描述");
                 startActivity(intent0);
             } else if (pluginExtra.equals("推送通知")) {
                 MyLogUtil.e("aaaaaa", "推送通知: " + pluginExtra);
-                Intent intent1 = new Intent(com.blankj.utilcode.util.AppUtils.getAppPackageName() + ".hs.act.slbapp.AdPushNaticeActivity");
+                Intent intent1 = new Intent(AppUtils.getAppPackageName() + ".hs.act.slbapp.AdPushNaticeActivity");
                 intent1.putExtra("url1", "https://www.baidu.com/");
                 intent1.putExtra("content", "公告摘要描述公告摘要描述公告，公告摘要描述公告摘要描述公告摘要描述公告摘要描述");
                 startActivity(intent1);
             } else if (pluginExtra.equals("业务推送")) {
                 MyLogUtil.e("aaaaaa", "业务推送: " + pluginExtra);
-                Intent intent2 = new Intent(com.blankj.utilcode.util.AppUtils.getAppPackageName() + ".hs.act.slbapp.AdBusinessNaticeActivity");
+                Intent intent2 = new Intent(AppUtils.getAppPackageName() + ".hs.act.slbapp.AdBusinessNaticeActivity");
                 intent2.putExtra("url1", "https://www.baidu.com/");
                 intent2.putExtra("content", "公告摘要描述公告摘要描述公告，摘要描述公告摘要描述公告摘要描述公告摘要描述公告摘要描述，公告摘要描述公告摘要描述公告摘要描述公告摘要描述，公告摘要描述公告摘要描述公告摘要描述公告摘要描述");
                 startActivity(intent2);
@@ -373,8 +478,8 @@ public class ShouyeActivity extends SlbBase implements FshengjiView, FCate1View 
                 public void run() {
                     try {
                         // read from agconnect-services.json
-                        String appId = AGConnectServicesConfig.fromContext(ShouyeActivity.this).getString("client/app_id");
-                        String token = HmsInstanceId.getInstance(ShouyeActivity.this).getToken(appId, "HCM");
+                        String appId = AGConnectServicesConfig.fromContext(ShouyeActivitybeifen2.this).getString("client/app_id");
+                        String token = HmsInstanceId.getInstance(ShouyeActivitybeifen2.this).getToken(appId, "HCM");
                         DemoLog.e("TencentIM", "huawei get token:" + token);
                         if (!TextUtils.isEmpty(token)) {
                             ThirdPushTokenMgr.getInstance().setThirdPushToken(token);
@@ -424,7 +529,13 @@ public class ShouyeActivity extends SlbBase implements FshengjiView, FCate1View 
     @Override
     protected void setup(@Nullable Bundle savedInstanceState) {
         super.setup(savedInstanceState);
-//        findview();
+//        if (savedInstanceState != null) {
+//            boolean cachedId = savedInstanceState.getBoolean(SAVED_CURRENT_ID, false);
+//            if (cachedId) {
+//                return;
+//            }
+//        }
+        findview();
 //        onclick();
         doNetWork();
     }
@@ -450,6 +561,15 @@ public class ShouyeActivity extends SlbBase implements FshengjiView, FCate1View 
         }
     }
 
+    private void findview() {
+        mMessageReceiver = new MessageReceiverIndex();
+        IntentFilter filter = new IntentFilter();
+        filter.setPriority(IntentFilter.SYSTEM_HIGH_PRIORITY);
+        filter.addAction("ShouyeActivity");
+        LocalBroadcastManagers.getInstance(getApplicationContext()).registerReceiver(mMessageReceiver, filter);
+
+    }
+
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
@@ -457,7 +577,7 @@ public class ShouyeActivity extends SlbBase implements FshengjiView, FCate1View 
             Intent msgIntent = new Intent();
             msgIntent.setAction("ShouyeFragment");
             msgIntent.putExtra("query1", "0");
-            LocalBroadcastManagers.getInstance(ShouyeActivity.this).sendBroadcast(msgIntent);
+            LocalBroadcastManagers.getInstance(ShouyeActivitybeifen2.this).sendBroadcast(msgIntent);
             return true;
         }
         return super.onKeyDown(keyCode, event);
@@ -484,6 +604,116 @@ public class ShouyeActivity extends SlbBase implements FshengjiView, FCate1View 
         }
     }
 
+//    private BasePopupView loadingPopup = null;
+
+//    //隐私政策
+//    private void initPop() {
+//        if (!MmkvUtils.getInstance().get_xiancheng_bool(CommonUtils.MMKV_forceLogin)) {
+//            if (loadingPopup != null) {
+//                if (!loadingPopup.isShow()) {
+//                    loadingPopup.show();
+//                }
+//                return;
+//            }
+//            loadingPopup = new XPopup.Builder(this)
+//                    .isDestroyOnDismiss(false) //对于只使用一次的弹窗，推荐设置这个
+////              .isViewMode(true)
+//                    .dismissOnTouchOutside(false)
+//                    .asCustom(new CenterPopupView(this) {
+//                        private TextView tvContent;
+//                        private CheckBox radAgreement;
+//                        private TextView btnClose;
+//                        private TextView btnOk;
+//
+//                        @Override
+//                        protected int getImplLayoutId() {
+//                            return R.layout.dialog_agreement1;
+//                        }
+//
+//                        @Override
+//                        protected void onCreate() {
+//                            super.onCreate();
+//                            tvContent = findViewById(R.id.tv_content);
+//                            radAgreement = findViewById(R.id.rad_agreement);
+//                            btnClose = findViewById(R.id.btn_cancle);
+//                            btnOk = findViewById(R.id.btn_ok);
+//                            FinitBean fconfigBean = MmkvUtils.getInstance().get_common_json("config", FinitBean.class);
+//                            tvContent.setText(SpannableStringUtils.getInstance(ShouyeActivity.this)
+//                                    .getBuilder("欢迎使用移动端平台！灯塔非常重视您的隐私保护和个人信息保护。在您使用移动端平台前，请认真阅读")
+//                                    .append("《用户须知》")
+//                                    .setClickSpan(new ClickableSpan() {
+//                                        @Override
+//                                        public void onClick(View widget) {
+//                                            HiosHelperNew.resolveAd(ShouyeActivity.this, ShouyeActivity.this, fconfigBean.getUser());
+//                                        }
+//
+//                                        @Override
+//                                        public void updateDrawState(TextPaint ds) {
+//                                            ds.setColor(ContextCompat.getColor(BaseApp.get(), R.color.red));
+//                                            ds.setUnderlineText(false);
+//                                        }
+//                                    })
+//                                    .append("及")
+//                                    .append("《隐私权政策》")
+//                                    .setClickSpan(new ClickableSpan() {
+//                                        @Override
+//                                        public void onClick(View widget) {
+////                                        Uri url = Uri.parse("http://blog.51cto.com/liangxiao");
+////                                        Intent intent = new Intent(Intent.ACTION_VIEW);
+////                                        intent.setData(url);
+////                                        startActivity(intent);
+////                                        HiosHelper.resolveAd(SlbLoginActivity.this, SlbLoginActivity.this, MmkvUtils.getInstance().get_common(CommonUtils.MMKV_privacyPolicy));
+//                                            HiosHelperNew.resolveAd(ShouyeActivity.this, ShouyeActivity.this, fconfigBean.getPrivacy());
+//                                        }
+//
+//                                        @Override
+//                                        public void updateDrawState(TextPaint ds) {
+//                                            ds.setColor(ContextCompat.getColor(ShouyeActivity.this, R.color.red));
+//                                            ds.setUnderlineText(false);
+//                                        }
+//                                    })
+//                                    .append("，您同意并接受全部条款后方可使用。")
+//                                    .create());
+//                            tvContent.setMovementMethod(LinkMovementMethod.getInstance());
+//                            BounceView.addAnimTo(btnOk);
+//                            BounceView.addAnimTo(btnClose);
+//                            btnOk.setOnClickListener(new OnClickListener() {
+//                                @Override
+//                                public void onClick(View v) {
+//                                    if (!radAgreement.isChecked()) {
+//                                        com.hjq.toast.ToastUtils.show("请勾选用户须知及隐私权政策");
+//                                        return;
+//                                    }
+//                                    dismiss();
+//                                    MmkvUtils.getInstance().set_xiancheng(CommonUtils.MMKV_forceLogin, true);
+//                                }
+//                            });
+//                            btnClose.setOnClickListener(new OnClickListener() {
+//                                @Override
+//                                public void onClick(View v) {
+//                                    dismiss();
+//                                    ActivityUtils.finishAllActivities();
+//                                    finish();
+//                                }
+//                            });
+//                        }
+//                        //        @Override
+//                        //        protected int getMaxHeight() {
+//                        //            return 200;
+//                        //        }
+//                        //
+//                        //返回0表示让宽度撑满window，或者你可以返回一个任意宽度
+//                        //        @Override
+//                        //        protected int getMaxWidth() {
+//                        //            return 1200;
+//                        //        }
+//                    });
+//            if (!loadingPopup.isShow()) {
+//                loadingPopup.show();
+//            }
+//        }
+//    }
+
     @Override
     public void OnFshengjiSuccess(FshengjiBean bean) {
         apkPath = bean.getApkPath();
@@ -494,7 +724,7 @@ public class ShouyeActivity extends SlbBase implements FshengjiView, FCate1View 
         if (TextUtils.isEmpty(apkPath)) {
             return;
         }
-        UpdateAppUtils.from(ShouyeActivity.this)
+        UpdateAppUtils.from(ShouyeActivitybeifen2.this)
                 .serverVersionCode(serverVersionCode)
                 .serverVersionName(serverVersionName)
                 .downloadPath("apks/" + getPackageName() + ".apk")

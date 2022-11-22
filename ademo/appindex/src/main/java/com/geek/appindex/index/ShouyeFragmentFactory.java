@@ -7,19 +7,15 @@ import androidx.annotation.RequiresApi;
 import androidx.collection.SparseArrayCompat;
 import androidx.fragment.app.Fragment;
 
+import com.geek.appcommon.AppCommonUtils;
 import com.geek.appcommon.wechat.fragment.H5WebFragment;
 import com.geek.appcommon.ytx.YHCReserveListFragment2;
 import com.geek.appcommon.ytx.im.RxContactHomeFragment;
 import com.geek.appindex.index.fragment.Shouye10;
-import com.geek.appindex.index.fragment.ShouyeF1;
-import com.geek.appindex.index.fragment.ShouyeF3;
-import com.geek.appindex.index.fragment.ShouyeF5;
-import com.geek.appindex.index.fragment.ShouyeF6;
 import com.geek.appindex.index.fragment.ShouyeF8;
 import com.geek.appindex.index.fragment.ShouyeF9;
 import com.geek.biz1.bean.BjyyBeanYewu3;
 import com.geek.libutils.data.MmkvUtils;
-import com.tencent.qcloud.tuikit.tuicontact.ui.pages.TUIContactFragment;
 import com.tencent.qcloud.tuikit.tuiconversation.ui.page.TUIConversationFragment;
 
 import java.util.ArrayList;
@@ -41,6 +37,32 @@ public class ShouyeFragmentFactory {
     public static final String TAG_shuzixiangcun = "com.geek.appindex.index.activity.GztFragmentShuzixiangcunAct";
     public static final String TAG_dangjianyinling = "com.geek.appindex.index.activity.GztFragmentDangjianyinlingAct";
 
+    //    app://cs.znclass.com/com.fosung.lighthouse.dtsxbb.hs.act.slbapp.shouye?query1=11111AppUtils.getAppPackageName() + ".hs.act.slbapp.shouye";
+    public static final String TAG_f1 =
+            AppCommonUtils.hios_scheme3 +
+                    AppCommonUtils.hios_host1 +
+                    AppCommonUtils.hios_path1 +
+                    ".hs.act.slbapp.shouye";// 首页1
+    public static final String TAG_f2 =
+            AppCommonUtils.hios_scheme3 +
+                    AppCommonUtils.hios_host1 +
+                    AppCommonUtils.hios_path1 +
+                    ".hs.act.slbapp.yingyong";// 首页2
+    public static final String TAG_f3 =
+            AppCommonUtils.hios_scheme3 +
+                    AppCommonUtils.hios_host1 +
+                    AppCommonUtils.hios_path1 +
+                    ".hs.act.slbapp.wode";// 首页3
+    public static final String TAG_f4 =
+            AppCommonUtils.hios_scheme3 +
+                    AppCommonUtils.hios_host1 +
+                    AppCommonUtils.hios_path1 +
+                    ".hs.act.slbapp.other1?condition=login";// 首页4
+    public static final String TAG_f5 =
+            AppCommonUtils.hios_scheme3 +
+                    AppCommonUtils.hios_host1 +
+                    AppCommonUtils.hios_path1 +
+                    ".hs.act.slbapp.other2?condition=login";// 首页5
 
     /**
      * Class初始化
@@ -127,33 +149,51 @@ public class ShouyeFragmentFactory {
             return H5WebFragment.class;
         }
         switch (url.trim()) {
-            case ShouyeFragmentFactory.TAG_shouye:
-                return ShouyeF5.class;
-            case ShouyeFragmentFactory.TAG_xiaoxi:
+            case ShouyeFragmentFactory.TAG_f1:
+                return Shouye10.class;
+            case ShouyeFragmentFactory.TAG_f2:
+                return ShouyeF9.class;
+            case ShouyeFragmentFactory.TAG_f3:
+                return ShouyeF8.class;
+            case ShouyeFragmentFactory.TAG_f4:
                 MmkvUtils.getInstance().set_common("choose_im", ShouyeFragmentFactory.TAG_people);
                 return TUIConversationFragment.class;
             case ShouyeFragmentFactory.TAG_xiaoxi2:
                 MmkvUtils.getInstance().set_common("choose_im", ShouyeFragmentFactory.TAG_people2);
                 return RxContactHomeFragment.class;
-            case ShouyeFragmentFactory.TAG_people:
-                return TUIContactFragment.class;
-            case ShouyeFragmentFactory.TAG_huiyi:
+            case ShouyeFragmentFactory.TAG_f5:
                 return YHCReserveListFragment2.class;
-            case ShouyeFragmentFactory.TAG_my:
-                return ShouyeF6.class;
-            case ShouyeFragmentFactory.TAG_kuangjia1:
-                return ShouyeF1.class;
-            case ShouyeFragmentFactory.TAG_kuangjia2:
-                return ShouyeF3.class;
-            case ShouyeFragmentFactory.TAG_zixun:
-                return Shouye10.class;
-            case ShouyeFragmentFactory.TAG_shuzixiangcun:
-                return ShouyeF9.class;
-            case ShouyeFragmentFactory.TAG_dangjianyinling:
-                return ShouyeF8.class;
             default:
-                return ShouyeF5.class;
+                return H5WebFragment.class;
         }
+//        switch (url.trim()) {
+//            case ShouyeFragmentFactory.TAG_shouye:
+//                return ShouyeF5.class;
+//            case ShouyeFragmentFactory.TAG_xiaoxi:
+//                MmkvUtils.getInstance().set_common("choose_im", ShouyeFragmentFactory.TAG_people);
+//                return TUIConversationFragment.class;
+//            case ShouyeFragmentFactory.TAG_xiaoxi2:
+//                MmkvUtils.getInstance().set_common("choose_im", ShouyeFragmentFactory.TAG_people2);
+//                return RxContactHomeFragment.class;
+//            case ShouyeFragmentFactory.TAG_people:
+//                return TUIContactFragment.class;
+//            case ShouyeFragmentFactory.TAG_huiyi:
+//                return YHCReserveListFragment2.class;
+//            case ShouyeFragmentFactory.TAG_my:
+//                return ShouyeF6.class;
+//            case ShouyeFragmentFactory.TAG_kuangjia1:
+//                return ShouyeF1.class;
+//            case ShouyeFragmentFactory.TAG_kuangjia2:
+//                return ShouyeF3.class;
+//            case ShouyeFragmentFactory.TAG_zixun:
+//                return Shouye10.class;
+//            case ShouyeFragmentFactory.TAG_shuzixiangcun:
+//                return ShouyeF9.class;
+//            case ShouyeFragmentFactory.TAG_dangjianyinling:
+//                return ShouyeF8.class;
+//            default:
+//                return ShouyeF5.class;
+//        }
     }
 
 

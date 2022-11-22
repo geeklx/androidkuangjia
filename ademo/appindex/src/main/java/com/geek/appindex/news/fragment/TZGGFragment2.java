@@ -153,12 +153,14 @@ public class TZGGFragment2 extends SlbBaseLazyFragmentNew implements Classificat
 
     }
 
+    @Override
     public void initData() {
         mPresenter = new ClassificationPresenter();
         mPresenter.onCreate(this);
         loadData();
     }
 
+    @Override
     public void onDestroy() {
         super.onDestroy();
         if (mPresenter != null) {

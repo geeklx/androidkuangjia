@@ -32,6 +32,7 @@ public class FBannerPresenter extends Presenter<FBannerView> {
                     return;
                 }
                 if (response.body() == null) {
+                    getView().OnFBannerNodata("response.body().none()");
                     return;
                 }
                 if (!response.body().isSuccess()) {

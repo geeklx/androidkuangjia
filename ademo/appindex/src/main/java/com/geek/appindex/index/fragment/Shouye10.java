@@ -150,9 +150,9 @@ public class Shouye10 extends SlbBaseLazyFragmentNewCate implements View.OnClick
         List<FenleiAct1CateBean1> mList = new ArrayList<>();
         mList.add(new FenleiAct1CateBean1("id1", "推荐", "com.geek.appindex.news.fragment.RecommandFragment", "http://119.188.115.252:8090/resource-handle/uploads/image/ic_table_2_u.png", com.geek.libbase.R.drawable.slb_run1, 0, false));
         mList.add(new FenleiAct1CateBean1("id2", "党建动态", "com.geek.appindex.news.fragment.DJDTFragment", "http://119.188.115.252:8090/resource-handle/uploads/image/ic_table_2_u.png", com.geek.libbase.R.drawable.slb_run1, 0, false));
-        mList.add(new FenleiAct1CateBean1("id3", "通知公告", "com.geek.appindex.news.fragment.TZGGFragment", "http://119.188.115.252:8090/resource-handle/uploads/image/ic_table_2_u.png", com.geek.libbase.R.drawable.slb_run1, 0, false));
-        mList.add(new FenleiAct1CateBean1("id4", "乡镇要闻", "com.geek.appindex.news.fragment.XZYWFragment", "http://119.188.115.252:8090/resource-handle/uploads/image/ic_table_2_u.png", com.geek.libbase.R.drawable.slb_run1, 0, false));
-        mList.add(new FenleiAct1CateBean1("id5", "政策文件", "com.geek.appindex.news.fragment.ZCWJFragment", "http://119.188.115.252:8090/resource-handle/uploads/image/ic_table_2_u.png", com.geek.libbase.R.drawable.slb_run1, 0, false));
+//        mList.add(new FenleiAct1CateBean1("id3", "通知公告", "com.geek.appindex.news.fragment.TZGGFragment", "http://119.188.115.252:8090/resource-handle/uploads/image/ic_table_2_u.png", com.geek.libbase.R.drawable.slb_run1, 0, false));
+//        mList.add(new FenleiAct1CateBean1("id4", "乡镇要闻", "com.geek.appindex.news.fragment.XZYWFragment", "http://119.188.115.252:8090/resource-handle/uploads/image/ic_table_2_u.png", com.geek.libbase.R.drawable.slb_run1, 0, false));
+//        mList.add(new FenleiAct1CateBean1("id5", "政策文件", "com.geek.appindex.news.fragment.ZCWJFragment", "http://119.188.115.252:8090/resource-handle/uploads/image/ic_table_2_u.png", com.geek.libbase.R.drawable.slb_run1, 0, false));
 
 //        mList.add(new FenleiAct1CateBean1("id1", "全部", "http://119.188.115.252:8090/resource-handle/uploads/image/ic_table_2.png", "http://119.188.115.252:8090/resource-handle/uploads/image/ic_table_2_u.png", com.geek.libbase.R.drawable.slb_run1, 0, false));
 //        mList.add(new FenleiAct1CateBean1("id2", "自建栏目1", "http://119.188.115.252:8090/resource-handle/uploads/image/ic_table_2.png", "http://119.188.115.252:8090/resource-handle/uploads/image/ic_table_2_u.png", com.geek.libbase.R.drawable.slb_run1, 0, false));
@@ -161,6 +161,13 @@ public class Shouye10 extends SlbBaseLazyFragmentNewCate implements View.OnClick
 //        mList.add(new FenleiAct1CateBean1("id5", "自建栏目4", "http://119.188.115.252:8090/resource-handle/uploads/image/ic_table_2.png", "http://119.188.115.252:8090/resource-handle/uploads/image/ic_table_2_u.png", com.geek.libbase.R.drawable.slb_run1, 0, false));
 //        mList.add(new FenleiAct1CateBean1("id6", "自建栏目5", "http://119.188.115.252:8090/resource-handle/uploads/image/ic_table_2.png", "http://119.188.115.252:8090/resource-handle/uploads/image/ic_table_2_u.png", com.geek.libbase.R.drawable.slb_run1, 0, false));
 //        mList.add(new FenleiAct1CateBean1("id7", "自建栏目6", "http://119.188.115.252:8090/resource-handle/uploads/image/ic_table_2.png", "http://119.188.115.252:8090/resource-handle/uploads/image/ic_table_2_u.png", com.geek.libbase.R.drawable.slb_run1, 0, false));
+        return mList;
+    }
+
+    public List<BjyyBeanYewu3> addList2() {
+        List<BjyyBeanYewu3> mList = new ArrayList<>();
+        mList.add(new BjyyBeanYewu3("id1", "", "com.geek.appindex.news.fragment.RecommandFragment", "http://119.188.115.252:8090/resource-handle/uploads/image/ic_table_2_u.png", "推荐", Shouye10Adapter1.TAG_RECOMMAND, false));
+        mList.add(new BjyyBeanYewu3("id2", "", "com.geek.appindex.news.fragment.DJDTFragment", "http://119.188.115.252:8090/resource-handle/uploads/image/ic_table_2_u.png", "党建动态", Shouye10Adapter1.TAG_DJDT, false));
         return mList;
     }
 
@@ -272,7 +279,8 @@ public class Shouye10 extends SlbBaseLazyFragmentNewCate implements View.OnClick
     public void OnCate1Success(String authorizedType, BjyyBeanYewu4 bean) {
         //MProgressDialog.dismissProgress();
         emptyView.success();
-        setNewData(bean.getData());
+//        setNewData(bean.getData());
+        setNewData(addList2());
     }
 
     @Override
