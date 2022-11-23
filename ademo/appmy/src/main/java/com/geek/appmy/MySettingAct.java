@@ -36,7 +36,7 @@ import com.tencent.qcloud.tuicore.util.ToastUtil;
 
 import java.util.Locale;
 
-@SwipeBack(value = true)
+//@SwipeBack(value = true)
 public class MySettingAct extends SlbBaseActivity {
 
     private TextView tv_left;
@@ -95,8 +95,7 @@ public class MySettingAct extends SlbBaseActivity {
                     @Override
                     public void run() {
                         showlogin();
-                        HiosHelperNew.resolveAd(MySettingAct.this, MySettingAct.this,
-                                "dataability://" + AppUtils.getAppPackageName() + ".hs.act.slbapp.MySettingAqAct{act}");
+                        HiosHelperNew.resolveAd(MySettingAct.this, MySettingAct.this, "dataability://" + AppUtils.getAppPackageName() + ".hs.act.slbapp.MySettingAqAct{act}");
                     }
                 });
 //                HiosHelperNew.resolveAd(MySettingAct.this, MySettingAct.this,
@@ -116,52 +115,48 @@ public class MySettingAct extends SlbBaseActivity {
                 // 语言切换
 
                 int aaa = Integer.parseInt(MmkvUtils.getInstance().get_common("yuyanqiehuan", "0"));
-                new XPopup.Builder(MySettingAct.this)
-                        .isDestroyOnDismiss(true) //对于只使用一次的弹窗，推荐设置这个
-                        .asBottomList("请选择切换的语言", new String[]{"跟随系统", "简体中文", "繁体中文", "英语"},
-                                null, aaa,
-                                new OnSelectListener() {
-                                    @Override
-                                    public void onSelect(int position, String text) {
-                                        // 是否需要重启
-                                        boolean restart = false;
-                                        if (position == 0) {
-                                            // 跟随系统
-                                            restart = MultiLanguages.setSystemLanguage(MySettingAct.this);
-                                        } else if (position == 1) {
-                                            // 简体中文
-                                            restart = MultiLanguages.setAppLanguage(MySettingAct.this, Locale.CHINA);
-                                        } else if (position == 2) {
-                                            // 繁体中文
-                                            restart = MultiLanguages.setAppLanguage(MySettingAct.this, Locale.TAIWAN);
-                                        } else if (position == 3) {
-                                            // 英语
-                                            restart = MultiLanguages.setAppLanguage(MySettingAct.this, Locale.ENGLISH);
-                                        }
-                                        if (restart) {
+                new XPopup.Builder(MySettingAct.this).isDestroyOnDismiss(true) //对于只使用一次的弹窗，推荐设置这个
+                        .asBottomList("请选择切换的语言", new String[]{"跟随系统", "简体中文", "繁体中文", "英语"}, null, aaa, new OnSelectListener() {
+                            @Override
+                            public void onSelect(int position, String text) {
+                                // 是否需要重启
+                                boolean restart = false;
+                                if (position == 0) {
+                                    // 跟随系统
+                                    restart = MultiLanguages.setSystemLanguage(MySettingAct.this);
+                                } else if (position == 1) {
+                                    // 简体中文
+                                    restart = MultiLanguages.setAppLanguage(MySettingAct.this, Locale.CHINA);
+                                } else if (position == 2) {
+                                    // 繁体中文
+                                    restart = MultiLanguages.setAppLanguage(MySettingAct.this, Locale.TAIWAN);
+                                } else if (position == 3) {
+                                    // 英语
+                                    restart = MultiLanguages.setAppLanguage(MySettingAct.this, Locale.ENGLISH);
+                                }
+                                if (restart) {
 //                                        tv_jtzw1.setText(getApplication().getResources().getString(R.string.current_language));
-                                            MmkvUtils.getInstance().set_common("yuyanqiehuan", position + "");
+                                    MmkvUtils.getInstance().set_common("yuyanqiehuan", position + "");
 //                                            //TODO 发送广播bufen
 //                                            Intent msgIntent = new Intent();
 //                                            msgIntent.setAction("ShouyeActivity");
 //                                            msgIntent.putExtra("id", 0);
 //                                            LocalBroadcastManagers.getInstance(MySettingAct.this).sendBroadcast(msgIntent);
-                                            // 1.使用recreate来重启Activity的效果差，有闪屏的缺陷
-                                            // recreate();
+                                    // 1.使用recreate来重启Activity的效果差，有闪屏的缺陷
+                                    // recreate();
 
-                                            // 2.使用常规startActivity来重启Activity，有从左向右的切换动画，稍微比recreate的效果好一点，但是这种并不是最佳的效果
-                                            // startActivity(new Intent(this, LanguageActivity.class));
-                                            // finish();
+                                    // 2.使用常规startActivity来重启Activity，有从左向右的切换动画，稍微比recreate的效果好一点，但是这种并不是最佳的效果
+                                    // startActivity(new Intent(this, LanguageActivity.class));
+                                    // finish();
 
-                                            // 3.我们可以充分运用 Activity 跳转动画，在跳转的时候设置一个渐变的效果，相比前面的两种带来的体验是最佳的
-                                            ActivityUtils.finishAllActivities();
-                                            startActivity(new Intent(AppUtils.getAppPackageName() + ".hs.act.slbapp.WelComeActivity"));
-                                            overridePendingTransition(R.anim.activity_alpha_in, R.anim.activity_alpha_out);
-                                            finish();
-                                        }
-                                    }
-                                })
-                        .show();
+                                    // 3.我们可以充分运用 Activity 跳转动画，在跳转的时候设置一个渐变的效果，相比前面的两种带来的体验是最佳的
+                                    ActivityUtils.finishAllActivities();
+                                    startActivity(new Intent(AppUtils.getAppPackageName() + ".hs.act.slbapp.WelComeActivity"));
+                                    overridePendingTransition(R.anim.activity_alpha_in, R.anim.activity_alpha_out);
+                                    finish();
+                                }
+                            }
+                        }).show();
             }
         });
         rl4.setOnClickListener(new OnMultiClickListener() {
@@ -170,43 +165,37 @@ public class MySettingAct extends SlbBaseActivity {
                 // 清除缓存
                 new XPopup.Builder(MySettingAct.this)
 //                    .autoOpenSoftInput(true)
-                        .maxWidth((int) (XPopupUtils.getWindowWidth(MySettingAct.this) * 0.8f))
-                        .dismissOnTouchOutside(false)
-                        .isDestroyOnDismiss(true) //对于只使用一次的弹窗，推荐设置这个
-                        .asConfirm("提示", "缓存大小为" + CacheUtil.getTotalCacheSize(BaseApp.get()) + ",确定要清理吗?",
-                                "取消", "确定",
-                                new OnConfirmListener() {
-                                    @Override
-                                    public void onConfirm() {
+                        .maxWidth((int) (XPopupUtils.getWindowWidth(MySettingAct.this) * 0.8f)).dismissOnTouchOutside(false).isDestroyOnDismiss(true) //对于只使用一次的弹窗，推荐设置这个
+                        .asConfirm("提示", "缓存大小为" + CacheUtil.getTotalCacheSize(BaseApp.get()) + ",确定要清理吗?", "取消", "确定", new OnConfirmListener() {
+                            @Override
+                            public void onConfirm() {
 //                                        ToastUtils.showLong("确定");
-                                        CacheUtil.clearAllCache(BaseApp.get());
-                                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
-                                            @Override
-                                            public void run() {
-                                                try {
-                                                    tv_qchc1.setText(CacheUtil.getTotalCacheSize(BaseApp.get()));
-                                                } catch (Exception e) {
-                                                    tv_qchc1.setText("");
-                                                }
-                                            }
-                                        }, 500);
-                                    }
-                                }, new OnCancelListener() {
+                                CacheUtil.clearAllCache(BaseApp.get());
+                                new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
                                     @Override
-                                    public void onCancel() {
+                                    public void run() {
+                                        try {
+                                            tv_qchc1.setText(CacheUtil.getTotalCacheSize(BaseApp.get()));
+                                        } catch (Exception e) {
+                                            tv_qchc1.setText("");
+                                        }
+                                    }
+                                }, 500);
+                            }
+                        }, new OnCancelListener() {
+                            @Override
+                            public void onCancel() {
 //                                        ToastUtils.showLong("取消");
 
-                                    }
-                                }, false, R.layout.app_maintain_confim_popup)
-                        .show(); //最后一个参数绑定已有布局
+                            }
+                        }, false, R.layout.app_maintain_confim_popup).show(); //最后一个参数绑定已有布局
             }
         });
         rl5.setOnClickListener(new OnMultiClickListener() {
             @Override
             public void onMultiClick(View v) {
                 // 关于
-                HiosHelperNew.resolveAd(MySettingAct.this, MySettingAct.this,
-                        "dataability://" + AppUtils.getAppPackageName() + ".hs.act.slbapp.MySettingAboutAct{act}");
+                HiosHelperNew.resolveAd(MySettingAct.this, MySettingAct.this, "dataability://" + AppUtils.getAppPackageName() + ".hs.act.slbapp.MySettingAboutAct{act}");
             }
         });
         rl7.setOnClickListener(new OnMultiClickListener() {
@@ -231,9 +220,9 @@ public class MySettingAct extends SlbBaseActivity {
                         logoutThread.start();
                         UserInfo.getInstance().setToken("");
                         UserInfo.getInstance().setAutoLogin(false);
-                        Bundle bundle = new Bundle();
-                        bundle.putBoolean(TUIKitConstants.LOGOUT, true);
-                        TUIUtils.startActivity("LoginForDevActivity", bundle);
+//                        Bundle bundle = new Bundle();
+//                        bundle.putBoolean(TUIKitConstants.LOGOUT, true);
+//                        TUIUtils.startActivity("LoginForDevActivity", bundle);
                         finish();
 //                        ToastUtils.showLong("已退出");
                     }

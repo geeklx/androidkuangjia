@@ -12,6 +12,7 @@ import com.blankj.utilcode.util.SPUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.geek.appcommon.AppCommonUtils;
 import com.geek.appcommon.SlbBase;
+import com.geek.appcommon.SlbBase2;
 import com.geek.biz1.bean.FconfigBean;
 import com.geek.biz1.presenter.Fconfig1Presenter;
 import com.geek.biz1.presenter.FtipsPresenter;
@@ -25,7 +26,7 @@ import com.lxj.xpopup.impl.LoadingPopupView;
 import com.yuntongxun.confwrap.WrapManager;
 import com.yuntongxun.ecsdk.ECDevice;
 
-public class SlbLoginOutActivity extends SlbBase implements Fconfig1View, FtipsView {
+public class SlbLoginOutActivity extends SlbBase2 implements Fconfig1View, FtipsView {
 
     private LinearLayout ll_cancel;
     private LinearLayout ll_ok;
@@ -35,17 +36,27 @@ public class SlbLoginOutActivity extends SlbBase implements Fconfig1View, FtipsV
     private String url;
 
     @Override
-    protected int getLayoutId() {
-        return R.layout.activity_slbloginout;
-    }
-
-    @Override
-    protected void setup(@Nullable Bundle savedInstanceState) {
-        super.setup(savedInstanceState);
+    public void onCreate(Bundle savedInstanceState) {
+        getTheme().applyStyle(R.style.ThemeTransparent2, true);
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_slbloginout);
         findview();
         onclick();
         donetwork();
     }
+
+//    @Override
+//    protected int getLayoutId() {
+//        return R.layout.activity_slbloginout;
+//    }
+//
+//    @Override
+//    protected void setup(@Nullable Bundle savedInstanceState) {
+//        super.setup(savedInstanceState);
+//        findview();
+//        onclick();
+//        donetwork();
+//    }
 
 
     private void donetwork() {
@@ -122,7 +133,6 @@ public class SlbLoginOutActivity extends SlbBase implements Fconfig1View, FtipsV
 
     @Override
     protected void onDestroy() {
-        hideSoftKeyboard();
         if (fconfig1Presenter != null) {
             fconfig1Presenter.onDestory();
         }
@@ -132,17 +142,17 @@ public class SlbLoginOutActivity extends SlbBase implements Fconfig1View, FtipsV
         super.onDestroy();
     }
 
-    /**
-     * 隐藏软键盘
-     */
-    @Override
-    protected void hideSoftKeyboard() {
-        if (getCurrentFocus() != null) {
-            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-            imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
-                    InputMethodManager.HIDE_NOT_ALWAYS);
-        }
-    }
+//    /**
+//     * 隐藏软键盘
+//     */
+//    @Override
+//    protected void hideSoftKeyboard() {
+//        if (getCurrentFocus() != null) {
+//            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+//            imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
+//                    InputMethodManager.HIDE_NOT_ALWAYS);
+//        }
+//    }
 
     // 退出登录bufen
 //    @Override
@@ -209,5 +219,10 @@ public class SlbLoginOutActivity extends SlbBase implements Fconfig1View, FtipsV
         ToastUtils.showLong(msg);
         loadingPopupView.dismiss();
 //        donetloginout();
+    }
+
+    @Override
+    public String getIdentifier() {
+        return null;
     }
 }

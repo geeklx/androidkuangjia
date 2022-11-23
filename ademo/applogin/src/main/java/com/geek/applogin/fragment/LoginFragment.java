@@ -454,8 +454,8 @@ public class LoginFragment extends SlbBaseLazyFragmentNew implements View.OnClic
 
     private void donetwork() {
         //
-//        edt1.setText("15552553199");
-//        edt2.setText("Fosung@501");
+        edt1.setText("15137615080");
+        edt2.setText("123456");
         //
 //        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
 //            tv_tips12.setText(Html.fromHtml("登录即代表您同意" + "<font color=\"#4EC0FF\">用户协议</font>" + "和" + "<font color=\"#4EC0FF\">隐私政策</font>", Html.FROM_HTML_MODE_COMPACT));
