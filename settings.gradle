@@ -1,0 +1,67 @@
+//dependencyResolutionManagement {
+//    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+//    repositories {
+//        google()
+//        mavenCentral()
+////        jcenter() // Warning: this repository is going to shut down soon
+//
+//    }
+//}
+rootProject.name = "fsjxappkuangjia-android"
+// start aar
+include ':libsCenter', ':biz-libs'
+// end aar
+
+// start aar
+include ':libsCenterNew',
+        ':libsCenterNew:libocrsdk',
+        ':libsCenterNew:alipaysdk',
+        ':libsCenterNew:hooklistenerlib2',
+        ':libsCenterNew:libmvpaar',
+        ':libsCenterNew:libretrofitaar',
+        ':libsCenterNew:haoshitong',
+        ':libsCenterNew:libvpnsdk'
+//        ':libsCenterNew:opendroid2'
+// end aar
+
+// start app11
+include ':ademo',
+        ':ademo:app',
+        ':ademo:appcommon',
+        ':ademo:appsplash',
+        ':ademo:applogin',
+        ':ademo:appsearch',
+//        ':ademo:appplugin',
+        ':ademo:appindex',
+//        ':ademo:appindexdt',
+//        ':ademo:appindexdtcate',
+        ':ademo:zbiz1',
+        ':ademo:appmy',
+        ':ademo:appvariants'
+
+// start app11
+
+
+//include ':commonbiz',
+//        ':commonbiz:bizfxzteachercomm'
+
+// commonlibs
+include ':commonlibs',
+        ':commonlibs:zzhibopolyv:polyvLiveCloudClassScene',
+        ':commonlibs:zzhibopolyv:polyvLiveCommonModul',
+        ':commonlibs:zzhibopolyv:polyvLiveEcommerceScene',
+        ':commonlibs:zzhibopolyv:polyvLiveStreamerScene',
+        ':commonlibs:zzhibopolyv:demo',
+//        ':commonlibs:libvpn',
+        ':commonlibs:yuntongxun:app_conference',
+        ':commonlibs:yuntongxun:app_im',
+        ':commonlibs:ztencentnew:tuicalling',
+        ':commonlibs:ztencentnew:tuichat',
+        ':commonlibs:ztencentnew:tuicontact',
+        ':commonlibs:ztencentnew:tuiconversation',
+        ':commonlibs:ztencentnew:tuicore',
+        ':commonlibs:ztencentnew:tuigroup',
+        ':commonlibs:ztencentnew:tuisearch',
+        ':commonlibs:ztencentnew:tencentimnew'
+// commonlibs
+

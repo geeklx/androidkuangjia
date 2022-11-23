@@ -1,7 +1,7 @@
 *.iml
 .gradle
 /local.properties
-/settings.gradle
+#/settings.gradle
 .DS_Store
 /build
 /yewulibs-demo1/atinkerbakApk/
