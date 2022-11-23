@@ -1,6 +1,5 @@
-package com.geek.appcommon.share;
+package com.geek.appcommon.sharepop;
 
-import android.app.Activity;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
@@ -29,7 +28,7 @@ import cn.sharesdk.tencent.qq.QQ;
 import cn.sharesdk.wechat.friends.Wechat;
 import cn.sharesdk.wechat.moments.WechatMoments;
 
-public class FSharePopupView extends BottomPopupView implements View.OnClickListener{
+public class FSharePopupView extends BottomPopupView implements View.OnClickListener {
 
     private Context context;
     private FShareBean fShareBean;

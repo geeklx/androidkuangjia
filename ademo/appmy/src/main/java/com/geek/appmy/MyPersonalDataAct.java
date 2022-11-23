@@ -4,18 +4,12 @@ import static androidx.core.content.PermissionChecker.PERMISSION_GRANTED;
 
 import android.Manifest;
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -24,16 +18,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-import androidx.fragment.app.Fragment;
 
 import com.blankj.utilcode.util.AppUtils;
 import com.blankj.utilcode.util.BarUtils;
 import com.blankj.utilcode.util.ToastUtils;
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.target.CustomTarget;
-import com.bumptech.glide.request.transition.Transition;
 import com.geek.appcommon.AppCommonUtils;
-import com.geek.appcommon.DemoXPopupListener;
+import com.geek.appcommon.interfaces.CommonXPopupListener;
 import com.geek.appcommon.SlbBase;
 import com.geek.appcommon.bean.AuthorStatus;
 import com.geek.appcommon.util.ImageLoaderUtils;
@@ -58,29 +48,22 @@ import com.geek.libswipebacklayout.SwipeBack;
 import com.geek.libutils.SlbLoginUtil;
 import com.geek.libutils.app.LocalBroadcastManagers;
 import com.geek.libutils.data.MmkvUtils;
-import com.luck.picture.lib.animators.AnimationType;
 import com.luck.picture.lib.app.PictureAppMaster;
 import com.luck.picture.lib.basic.PictureSelector;
-import com.luck.picture.lib.config.PictureConfig;
 import com.luck.picture.lib.config.PictureMimeType;
 import com.luck.picture.lib.config.SelectMimeType;
 import com.luck.picture.lib.config.SelectModeConfig;
-import com.luck.picture.lib.engine.CropFileEngine;
 import com.luck.picture.lib.entity.LocalMedia;
 import com.luck.picture.lib.entity.MediaExtraInfo;
 import com.luck.picture.lib.interfaces.OnResultCallbackListener;
-import com.luck.picture.lib.style.PictureWindowAnimationStyle;
 import com.luck.picture.lib.utils.MediaUtils;
 import com.lxj.xpopup.XPopup;
 import com.lxj.xpopup.interfaces.OnInputConfirmListener;
 import com.lxj.xpopup.interfaces.OnSelectListener;
 import com.lxj.xpopup.util.XPopupUtils;
-import com.yalantis.ucrop.UCrop;
-import com.yalantis.ucrop.UCropImageEngine;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.List;
 
 import cc.shinichi.library.ImagePreview;
 import cc.shinichi.library.tool.image.DownloadPictureUtil;
@@ -282,7 +265,7 @@ public class MyPersonalDataAct extends SlbBase implements Ffile1View, Fconfig1Vi
                 .isDestroyOnDismiss(true) //对于只使用一次的弹窗，推荐设置这个
                 .autoOpenSoftInput(true)
                 .isDarkTheme(false)
-                .setPopupCallback(new DemoXPopupListener())
+                .setPopupCallback(new CommonXPopupListener())
 //                        .autoFocusEditText(false) //是否让弹窗内的EditText自动获取焦点，默认是true
                 //.moveUpToKeyboard(false)   //是否移动到软键盘上面，默认为true
                 .asInputConfirm(title, null, null, hint,

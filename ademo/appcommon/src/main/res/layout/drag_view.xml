@@ -30,7 +30,7 @@
             android:background="@drawable/drag_flash" />
 
 
-        <com.geek.appcommon.popview.DiyStyleTextView
+        <com.geek.appcommon.huadongyanzhengpop.DiyStyleTextView
             android:id="@+id/drag_tv_tips"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

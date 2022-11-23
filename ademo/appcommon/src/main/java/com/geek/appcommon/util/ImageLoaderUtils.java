@@ -21,11 +21,6 @@ import com.yalantis.ucrop.UCropImageEngine;
 
 import java.util.ArrayList;
 
-/**
- * @author：luck
- * @date：2021/7/14 3:15 PM
- * @describe：ImageLoaderUtils
- */
 public class ImageLoaderUtils {
 
     public static boolean assertValidRequest(Context context) {

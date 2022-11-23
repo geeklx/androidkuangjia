@@ -37,7 +37,7 @@ import com.geek.appcommon.AppCommonUtils;
 import com.geek.appcommon.SlbBase;
 import com.geek.appcommon.bean.AuthorStatus;
 import com.geek.appcommon.util.ImageLoaderUtils;
-import com.geek.appcommon.util.MprogressDialogUtils;
+import com.geek.appcommon.util.MProgressDialogUtils;
 import com.geek.appmy.widgets.BottomListPopupView1;
 import com.geek.appmy.widgets.XpopOnCancelListener;
 import com.geek.appmy.widgets.XpopOnSelectListener;
@@ -60,14 +60,12 @@ import com.haier.cellarette.baselibrary.toasts3.MProgressDialog;
 import com.luck.picture.lib.animators.AnimationType;
 import com.luck.picture.lib.app.PictureAppMaster;
 import com.luck.picture.lib.basic.PictureSelector;
-import com.luck.picture.lib.config.PictureConfig;
 import com.luck.picture.lib.config.PictureMimeType;
 import com.luck.picture.lib.config.SelectMimeType;
 import com.luck.picture.lib.config.SelectModeConfig;
 import com.luck.picture.lib.entity.LocalMedia;
 import com.luck.picture.lib.entity.MediaExtraInfo;
 import com.luck.picture.lib.interfaces.OnResultCallbackListener;
-import com.luck.picture.lib.style.PictureWindowAnimationStyle;
 import com.luck.picture.lib.utils.MediaUtils;
 import com.lxj.xpopup.XPopup;
 import com.lxj.xpopup.core.BasePopupView;
@@ -75,7 +73,6 @@ import com.lxj.xpopup.core.BasePopupView;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import cc.shinichi.library.ImagePreview;
@@ -543,7 +540,7 @@ public class MySettingMyPhotoAct extends SlbBase implements Ffile1View, Fconfig1
                                         // TODO 可以通过PictureSelectorExternalUtils.getExifInterface();方法获取一些额外的资源信息，如旋转角度、经纬度等信息
                                     }
 
-                                    MprogressDialogUtils.showMprogressDialog(MySettingMyPhotoAct.this, "请稍等...");
+                                    MProgressDialogUtils.showMprogressDialog(MySettingMyPhotoAct.this, "请稍等...");
 
                                     imageUrl = result.get(0).getAvailablePath();
                                     popupView.dismiss();
@@ -603,7 +600,7 @@ public class MySettingMyPhotoAct extends SlbBase implements Ffile1View, Fconfig1
                                         // TODO 可以通过PictureSelectorExternalUtils.getExifInterface();方法获取一些额外的资源信息，如旋转角度、经纬度等信息
                                     }
 
-                                    MprogressDialogUtils.showMprogressDialog(MySettingMyPhotoAct.this, "请稍等...");
+                                    MProgressDialogUtils.showMprogressDialog(MySettingMyPhotoAct.this, "请稍等...");
 
                                     imageUrl = result.get(0).getAvailablePath();
                                     popupView.dismiss();

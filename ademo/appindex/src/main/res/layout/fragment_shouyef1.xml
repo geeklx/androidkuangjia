@@ -256,6 +256,30 @@
                     android:text="18.app动态化开发实例-二级分类组件1"
                     android:textColor="@color/gray4A4A4A"
                     android:textSize="12mm" />
+
+                <TextView
+                    android:id="@+id/shouyef1_tv19"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12mm"
+                    android:layout_marginTop="12mm"
+                    android:layout_marginRight="12mm"
+                    android:gravity="left"
+                    android:text="19.app动态化开发实例-业务视频轮播"
+                    android:textColor="@color/gray4A4A4A"
+                    android:textSize="12mm" />
+
+                <TextView
+                    android:id="@+id/shouyef1_tv20"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12mm"
+                    android:layout_marginTop="12mm"
+                    android:layout_marginRight="12mm"
+                    android:gravity="left"
+                    android:text="20.app动态化开发实例-业务弹窗2"
+                    android:textColor="@color/gray4A4A4A"
+                    android:textSize="12mm" />
             </LinearLayout>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

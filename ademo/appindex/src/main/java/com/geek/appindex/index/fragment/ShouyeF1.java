@@ -52,6 +52,8 @@ public class ShouyeF1 extends SlbBaseLazyFragmentNew implements View.OnClickList
     private TextView tv_center_content16;
     private TextView tv_center_content17;
     private TextView tv_center_content18;
+    private TextView tv_center_content19;
+    private TextView tv_center_content20;
     private MessageReceiverIndex mMessageReceiver;
 
     public class MessageReceiverIndex extends BroadcastReceiver {
@@ -169,6 +171,8 @@ public class ShouyeF1 extends SlbBaseLazyFragmentNew implements View.OnClickList
         tv_center_content16 = rootView.findViewById(R.id.shouyef1_tv16);
         tv_center_content17 = rootView.findViewById(R.id.shouyef1_tv17);
         tv_center_content18 = rootView.findViewById(R.id.shouyef1_tv18);
+        tv_center_content19 = rootView.findViewById(R.id.shouyef1_tv19);
+        tv_center_content20 = rootView.findViewById(R.id.shouyef1_tv20);
         tv_center_content1.setOnClickListener(this);
         tv_center_content2.setOnClickListener(this);
         tv_center_content3.setOnClickListener(this);
@@ -187,6 +191,8 @@ public class ShouyeF1 extends SlbBaseLazyFragmentNew implements View.OnClickList
         tv_center_content16.setOnClickListener(this);
         tv_center_content17.setOnClickListener(this);
         tv_center_content18.setOnClickListener(this);
+        tv_center_content19.setOnClickListener(this);
+        tv_center_content20.setOnClickListener(this);
         donetwork();
     }
 
@@ -310,6 +316,12 @@ public class ShouyeF1 extends SlbBaseLazyFragmentNew implements View.OnClickList
         }
         if (id == R.id.shouyef1_tv18) {
             startActivity(new Intent(AppUtils.getAppPackageName() + ".hs.act.FenleiAct"));
+        }
+        if (id == R.id.shouyef1_tv19) {
+            startActivity(new Intent(AppUtils.getAppPackageName() + ".hs.act.slbapp.PIPActivityDk"));
+        }
+        if (id == R.id.shouyef1_tv20) {
+            startActivity(new Intent(AppUtils.getAppPackageName() + ".hs.act.slbapp.PopviewDemoAct"));
         }
     }
 

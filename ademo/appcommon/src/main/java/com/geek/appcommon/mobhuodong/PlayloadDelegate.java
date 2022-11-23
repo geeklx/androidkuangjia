@@ -1,4 +1,4 @@
-package com.geek.appcommon.huodong;
+package com.geek.appcommon.mobhuodong;
 
 import android.content.Context;
 import android.content.Intent;

@@ -1,4 +1,4 @@
-package com.geek.appcommon;
+package com.geek.appcommon.interfaces;
 
 import android.util.Log;
 
@@ -6,7 +6,7 @@ import com.blankj.utilcode.util.ToastUtils;
 import com.lxj.xpopup.core.BasePopupView;
 import com.lxj.xpopup.interfaces.SimpleCallback;
 
-public class DemoXPopupListener extends SimpleCallback {
+public class CommonXPopupListener extends SimpleCallback {
         @Override
         public void onCreated(BasePopupView pv) {
             Log.e("tag", "onCreated");

@@ -1,11 +1,10 @@
-package com.geek.appcommon.huodong;
+package com.geek.appcommon.mobhuodong;
 
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -20,9 +19,9 @@ import com.haier.cellarette.baselibrary.btnonclick.view.BounceView;
 import me.jessyan.autosize.AutoSizeCompat;
 
 /**
- * 业务推送通知
+ * 允许推送通知
  */
-public class AdBusinessNaticeActivity extends SlbBaseActivity {
+public class AdPushNaticeActivity extends SlbBaseActivity {
 
     @Override
     public Resources getResources() {
@@ -34,13 +33,12 @@ public class AdBusinessNaticeActivity extends SlbBaseActivity {
 
     @Override
     protected int getLayoutId() {
-        return R.layout.activity_hios_ad_business_natice_activity;
+        return R.layout.activity_hios_adpush_natice_activity;
     }
 
     private TextView tvContent;//内容
     private TextView btnClose;//关闭
     private TextView btnOk;//确定确定
-    private ImageView ivCloseBusiness;//关闭业务推送
     private String Moburl1;//url
     private String Mobcontent;//内容
 
@@ -56,7 +54,6 @@ public class AdBusinessNaticeActivity extends SlbBaseActivity {
         Mobcontent = getIntent().getStringExtra("content");
         tvContent = findViewById(R.id.tv_content);
         btnClose = findViewById(R.id.btn_cancle);
-        ivCloseBusiness = findViewById(R.id.iv_close_business);
         btnOk = findViewById(R.id.btn_ok);
         /*第二种样式*/
         //btnClose.setBackgroundResource(R.drawable.common_dialog_notice1);
@@ -68,12 +65,12 @@ public class AdBusinessNaticeActivity extends SlbBaseActivity {
         tvContent.setMovementMethod(LinkMovementMethod.getInstance());
         BounceView.addAnimTo(btnOk);
         BounceView.addAnimTo(btnClose);
-        BounceView.addAnimTo(ivCloseBusiness);
         btnOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                HiosHelper.resolveAd(AdBusinessNaticeActivity.this, AdBusinessNaticeActivity.this, Moburl1);
+                HiosHelper.resolveAd(AdPushNaticeActivity.this, AdPushNaticeActivity.this, Moburl1);
                 finish();
+                return;
             }
         });
         btnClose.setOnClickListener(new View.OnClickListener() {
@@ -81,15 +78,10 @@ public class AdBusinessNaticeActivity extends SlbBaseActivity {
             public void onClick(View v) {
                 ToastUtils.showShort("点击了知道了");
                 finish();
+                return;
             }
         });
-        ivCloseBusiness.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ToastUtils.showShort("点击了叉号关闭");
-                finish();
-            }
-        });
+
         Log.e("gongshi", (Math.sqrt(Math.pow(667, 2) + (Math.pow(375, 2))) / 25.4 + ""));
 
     }

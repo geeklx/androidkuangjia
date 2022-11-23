@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -27,12 +26,10 @@ import com.blankj.utilcode.util.PhoneUtils;
 import com.blankj.utilcode.util.SPUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.geek.liblocations.LocationBean;
 import com.geek.appcommon.AppCommonUtils;
-import com.geek.appcommon.popview.BlockPuzzleDialog;
-import com.geek.appcommon.interfaces.OnProgress;
+import com.geek.appcommon.adapter.MkFLunboAdapter;
+import com.geek.appcommon.huadongyanzhengpop.BlockPuzzleDialog;
 import com.geek.appindex.R;
-import com.geek.appindex.adapters.MkFLunboAdapter;
 import com.geek.appindex.addrecycleview.BjyyAct;
 import com.geek.appindex.addrecycleview.fragment1.BjyyActFragment1;
 import com.geek.appindex.addrecycleview.fragment2.BjyyActFragment251Adapter;
@@ -56,6 +53,7 @@ import com.geek.biz1.view.FsyyyView;
 import com.geek.libbase.base.SlbBaseLazyFragmentNew;
 import com.geek.libbase.widgets.XRecyclerView;
 import com.geek.libglide47.base.GlideRoundImageView;
+import com.geek.liblocations.LocationBean;
 import com.geek.libutils.app.LocalBroadcastManagers;
 import com.geek.libutils.app.MyLogUtil;
 import com.geek.libutils.data.LocationUtils;
@@ -90,7 +88,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RequiresApi(api = Build.VERSION_CODES.M)
-public class ShouyeF8 extends SlbBaseLazyFragmentNew implements FsyyyView, FWechatJump1View, FAppCheckUseView, FBannerView, OnProgress {
+public class ShouyeF8 extends SlbBaseLazyFragmentNew implements FsyyyView, FWechatJump1View, FAppCheckUseView, FBannerView {
 
     public TextView tv1;
     public LxLinearLayout lxll1;
@@ -103,7 +101,6 @@ public class ShouyeF8 extends SlbBaseLazyFragmentNew implements FsyyyView, FWech
     public int spanCount = 4;// 几列数据
     public BjyyBeanYewu1 bjyyBeanYewu1;
     public Banner banner;
-    //public NestedScrollView mNestedScrollView;
     public View bgView;
     public ImageView ivContract;
     public ImageView ivMine;
@@ -333,11 +330,6 @@ public class ShouyeF8 extends SlbBaseLazyFragmentNew implements FsyyyView, FWech
         bgView = rootView.findViewById(R.id.view);
         ivContract = rootView.findViewById(R.id.ivContract1);
         ivMine = rootView.findViewById(R.id.ivMine);
-//        mNestedScrollView = rootView.findViewById(R.id.nestedScrollView);
-//        mNestedScrollView.setOnProgress(this);
-//        mNestedScrollView.setMaxContentTransY(SizeUtils.dp2px(100));
-//        mNestedScrollView.setMinContentTransY(SizeUtils.dp2px(0));
-        //mNestedScrollView.setOnScrollChangeListener(this);
         ExpandViewRect.expandViewTouchDelegate(ivContract, 20, 20, 20, 20);
         ExpandViewRect.expandViewTouchDelegate(ivMine, 20, 20, 20, 20);
         ivContract.setOnClickListener(v -> {
@@ -386,7 +378,7 @@ public class ShouyeF8 extends SlbBaseLazyFragmentNew implements FsyyyView, FWech
             public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
                 BjyyActFragment251Bean addressBean = (BjyyActFragment251Bean) adapter.getItem(position);
                 currentId = addressBean.getmBean().getId();
-                if (TextUtils.isEmpty(addressBean.getmBean().getImg())){
+                if (TextUtils.isEmpty(addressBean.getmBean().getImg())) {
                     // 一级分类标题跳转bufen
                     return;
                 }
@@ -604,7 +596,7 @@ public class ShouyeF8 extends SlbBaseLazyFragmentNew implements FsyyyView, FWech
 //        ToastUtils.showLong(bean);
         fBannerBean = new FBannerBean();
         List<BjyyBeanYewu3> mlist = new ArrayList<>();
-        mlist.add(new BjyyBeanYewu3("","http://119.188.115.252:8090/resource-handle/uploads/image/2021-12-20/3521862286564142395.png","","",false));
+        mlist.add(new BjyyBeanYewu3("", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-12-20/3521862286564142395.png", "", "", false));
         fBannerBean.setData(mlist);
         set_lunbo_data();
     }
@@ -614,22 +606,22 @@ public class ShouyeF8 extends SlbBaseLazyFragmentNew implements FsyyyView, FWech
 //        ToastUtils.showLong(msg);
         fBannerBean = new FBannerBean();
         List<BjyyBeanYewu3> mlist = new ArrayList<>();
-        mlist.add(new BjyyBeanYewu3("","http://119.188.115.252:8090/resource-handle/uploads/image/2021-12-20/3521862286564142395.png","","",false));
+        mlist.add(new BjyyBeanYewu3("", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-12-20/3521862286564142395.png", "", "", false));
         fBannerBean.setData(mlist);
         set_lunbo_data();
     }
 
-    @Override
-    public void onProgress(float percent) {
-        Log.e("progress", percent + "");
-        if (percent < 0.5) {
-            bgView.setVisibility(View.VISIBLE);
-        } else {
-            bgView.setVisibility(View.GONE);
-        }
-        banner.setAlpha(percent);
-        bgView.setAlpha(1 - percent);
-    }
+//    @Override
+//    public void onProgress(float percent) {
+//        Log.e("progress", percent + "");
+//        if (percent < 0.5) {
+//            bgView.setVisibility(View.VISIBLE);
+//        } else {
+//            bgView.setVisibility(View.GONE);
+//        }
+//        banner.setAlpha(percent);
+//        bgView.setAlpha(1 - percent);
+//    }
 
     @Override
     public void OnFWechatJump1Success(FWechatJumpBean bean) {
@@ -714,7 +706,7 @@ public class ShouyeF8 extends SlbBaseLazyFragmentNew implements FsyyyView, FWech
                         intent.putExtra(AgentWebFragment.URL_KEY, bean.getAddress());
                         startActivity(intent);
 //                    HiosHelperNew.resolveAd(getActivity(), getActivity(), addressBean.getmBean().getUrl());
-                    } else  {
+                    } else {
                         HiosHelperNew.resolveAd(getActivity(), getActivity(),
                                 bean.getAddress().replace(
                                         "com.fosung.lighthouse.dt2",

@@ -16,7 +16,7 @@ import com.blankj.utilcode.util.BarUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.example.slbyanzheng.zhiwen2.CustomDialog;
 import com.geek.appcommon.AppCommonUtils;
-import com.geek.appcommon.DemoXPopupListener;
+import com.geek.appcommon.interfaces.CommonXPopupListener;
 import com.geek.appcommon.SlbBase;
 import com.geek.appcommon.bean.AuthorStatus;
 import com.geek.biz1.bean.FaqzxBean;
@@ -30,13 +30,11 @@ import com.geek.biz1.view.FaqzxView;
 import com.geek.biz1.view.Fconfig1View;
 import com.geek.biz1.view.FgrxxView;
 import com.geek.biz1.view.FtipsView;
-import com.geek.libbase.base.SlbBaseActivity;
 import com.geek.libutils.app.LocalBroadcastManagers;
 import com.geek.libutils.app.MyLogUtil;
 import com.geek.libutils.data.MmkvUtils;
 import com.geek.libswipebacklayout.SwipeBack;
 import com.haier.cellarette.baselibrary.switchbutton.SwitchButtonK;
-import com.just.agentweb.geek.hois3.HiosHelperNew;
 import com.lib.lock.fingerprint.core.FingerprintCore;
 import com.lib.lock.fingerprint.core.MyListener;
 import com.lib.lock.fingerprint.utils.FingerprintUtil;
@@ -199,7 +197,7 @@ public class MySettingAqAct extends SlbBase implements Fconfig1View, FaqzxView, 
                         .isDestroyOnDismiss(true) //对于只使用一次的弹窗，推荐设置这个
                         .autoOpenSoftInput(true)
                         .isDarkTheme(false)
-                        .setPopupCallback(new DemoXPopupListener())
+                        .setPopupCallback(new CommonXPopupListener())
 //                        .autoFocusEditText(false) //是否让弹窗内的EditText自动获取焦点，默认是true
                         //.moveUpToKeyboard(false)   //是否移动到软键盘上面，默认为true
                         .asInputConfirm(getApplication().getResources().getString(R.string.applogin1),
@@ -227,7 +225,7 @@ public class MySettingAqAct extends SlbBase implements Fconfig1View, FaqzxView, 
                         .isDestroyOnDismiss(true) //对于只使用一次的弹窗，推荐设置这个
                         .autoOpenSoftInput(true)
                         .isDarkTheme(false)
-                        .setPopupCallback(new DemoXPopupListener())
+                        .setPopupCallback(new CommonXPopupListener())
 //                        .autoFocusEditText(false) //是否让弹窗内的EditText自动获取焦点，默认是true
                         //.moveUpToKeyboard(false)   //是否移动到软键盘上面，默认为true
                         .asInputConfirm(getApplication().getResources().getString(R.string.applogin1),
@@ -255,7 +253,7 @@ public class MySettingAqAct extends SlbBase implements Fconfig1View, FaqzxView, 
                         .isDestroyOnDismiss(true) //对于只使用一次的弹窗，推荐设置这个
                         .autoOpenSoftInput(true)
                         .isDarkTheme(false)
-                        .setPopupCallback(new DemoXPopupListener())
+                        .setPopupCallback(new CommonXPopupListener())
 //                        .autoFocusEditText(false) //是否让弹窗内的EditText自动获取焦点，默认是true
                         //.moveUpToKeyboard(false)   //是否移动到软键盘上面，默认为true
                         .asInputConfirm(getApplication().getResources().getString(R.string.applogin1),

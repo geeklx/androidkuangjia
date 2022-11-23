@@ -333,8 +333,8 @@ public class ShouyeActivitybeifen2 extends SlbBase implements FshengjiView, FCat
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         if (savedInstanceState != null) {
-            theme = savedInstanceState.getInt(KEY);
-            setTheme(theme > 0 ? theme : R.style.AppThemeBaseAppcommon);
+//            theme = savedInstanceState.getInt(KEY);
+//            setTheme(theme > 0 ? theme : R.style.AppThemeBaseAppcommon);
         }
         super.onCreate(savedInstanceState);
         // 插件bufen

@@ -1,6 +1,5 @@
 package com.geek.appcommon.wechat;
 
-import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
@@ -21,10 +20,9 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.PopupMenu;
 
 import com.blankj.utilcode.util.AppUtils;
-import com.blankj.utilcode.util.GsonUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.geek.appcommon.AppCommonUtils;
-import com.geek.appcommon.share.FSharePopupView;
+import com.geek.appcommon.sharepop.FSharePopupView;
 import com.geek.biz1.bean.FShareBean;
 import com.geek.biz1.bean.FgrxxBean;
 import com.geek.biz1.bean.FinitBean;

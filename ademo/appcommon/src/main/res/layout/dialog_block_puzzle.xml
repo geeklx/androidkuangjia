@@ -42,7 +42,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp">
 
-        <com.geek.appcommon.popview.DragImageView
+        <com.geek.appcommon.huadongyanzhengpop.DragImageView
             android:id="@+id/dragView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

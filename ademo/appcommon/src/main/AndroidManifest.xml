@@ -39,11 +39,8 @@
             android:exported="false" />
         <service android:name="com.geek.appcommon.service.MOBIDServicesBg" />
 
-        <activity android:name="com.geek.appcommon.CommonAct" />
-
-
         <activity
-            android:name="com.geek.appcommon.huodong.AdNaticeActivity"
+            android:name="com.geek.appcommon.mobhuodong.AdNaticeActivity"
             android:exported="true"
             android:theme="@style/ad_common_dialogstyle1">
             <intent-filter>
@@ -67,7 +64,7 @@
         </activity>
 
         <activity
-            android:name="com.geek.appcommon.huodong.AdPushNaticeActivity"
+            android:name="com.geek.appcommon.mobhuodong.AdPushNaticeActivity"
             android:exported="true"
             android:theme="@style/ad_common_dialogstyle1">
             <intent-filter>
@@ -90,7 +87,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.geek.appcommon.huodong.AdBusinessNaticeActivity"
+            android:name="com.geek.appcommon.mobhuodong.AdBusinessNaticeActivity"
             android:exported="true"
             android:theme="@style/ad_common_dialogstyle1">
             <intent-filter>
@@ -225,7 +222,7 @@
 
         <!--PopView TEST-->
         <activity
-            android:name="com.geek.appcommon.popview.PopviewDemoAct"
+            android:name="com.geek.appcommon.huadongyanzhengpop.PopviewDemoAct"
             android:exported="true">
             <intent-filter>
                 <action android:name="${applicationId}.hs.act.slbapp.PopviewDemoAct" />

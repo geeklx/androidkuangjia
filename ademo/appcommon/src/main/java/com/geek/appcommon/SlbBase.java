@@ -1,27 +1,13 @@
 package com.geek.appcommon;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.content.res.Resources;
 import android.os.Bundle;
-import android.os.Looper;
 
 import androidx.annotation.Nullable;
 
 import com.blankj.utilcode.util.BarUtils;
 import com.geek.libbase.base.SlbBaseActivity;
-import com.geek.libutils.SlbLoginUtil;
-import com.geek.libutils.app.LocalBroadcastManagers;
-
-import me.jessyan.autosize.AutoSizeCompat;
 
 public abstract class SlbBase extends SlbBaseActivity {
-
-    public int theme;
-    public static final String KEY = "current_theme";
-    public static final String TAG_TOKEN_ACTION = "TAG_TOKEN_ACTION";
 
 
     @Override
@@ -50,7 +36,7 @@ public abstract class SlbBase extends SlbBaseActivity {
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putInt(KEY, theme);
+
     }
 
     @Override

@@ -346,8 +346,8 @@ public class ShouyeActivitybeifen extends SlbBase implements FshengjiView {
             mFragment5 = (ShouyeF1) mFragmentManager.findFragmentByTag(LIST_TAG5);
 //            showFragment(false);
             // zhutibufen
-            theme = savedInstanceState.getInt(KEY);
-            setTheme(theme > 0 ? theme : R.style.AppThemeBaseAppcommon);
+//            theme = savedInstanceState.getInt(KEY);
+//            setTheme(theme > 0 ? theme : R.style.AppThemeBaseAppcommon);
         }
         super.onCreate(savedInstanceState);
         // 插件bufen
@@ -357,11 +357,11 @@ public class ShouyeActivitybeifen extends SlbBase implements FshengjiView {
         //
         prepareThirdPushToken();
         //
-        if (theme == R.style.AppThemeBaseAppcommon) {
-            tv_theme1.setText("默认主题");
-        } else if (theme == R.style.AppThemeBaseAppcommon2) {
-            tv_theme1.setText("自定义主题");
-        }
+//        if (theme == R.style.AppThemeBaseAppcommon) {
+//            tv_theme1.setText("默认主题");
+//        } else if (theme == R.style.AppThemeBaseAppcommon2) {
+//            tv_theme1.setText("自定义主题");
+//        }
         tv_theme1 = findViewById(R.id.tv_theme1);
         tv_theme1.setVisibility(View.GONE);
         tv_theme1.setOnClickListener(new View.OnClickListener() {

@@ -1,10 +1,5 @@
 package com.geek.appmy;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Matrix;
-import android.graphics.Rect;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.InputFilter;
@@ -14,47 +9,29 @@ import android.text.TextWatcher;
 import android.text.style.ClickableSpan;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 
 import com.blankj.utilcode.util.ToastUtils;
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.Request;
-import com.bumptech.glide.request.target.SizeReadyCallback;
-import com.bumptech.glide.request.target.Target;
-import com.bumptech.glide.request.transition.Transition;
 import com.geek.appcommon.AppCommonUtils;
 import com.geek.appcommon.bean.AuthorStatus;
-import com.geek.appcommon.util.MprogressDialogUtils;
+import com.geek.appcommon.util.MProgressDialogUtils;
 import com.geek.biz1.bean.FconfigBean;
 import com.geek.biz1.bean.FgrxxBean;
 import com.geek.biz1.presenter.Fconfig1Presenter;
-import com.geek.biz1.presenter.Ffile1Presenter;
 import com.geek.biz1.presenter.FgrxxPresenter;
 import com.geek.biz1.presenter.FtipsPresenter;
 import com.geek.biz1.view.Fconfig1View;
-import com.geek.biz1.view.Ffile1View;
 import com.geek.biz1.view.FgrxxView;
 import com.geek.biz1.view.FtipsView;
 import com.geek.libbase.base.SlbBaseActivity;
-import com.geek.libglide47.base.GlideImageView;
 import com.geek.libutils.app.BaseApp;
-import com.geek.libutils.app.LocalBroadcastManagers;
-import com.geek.libutils.app.MyLogUtil;
 import com.geek.libutils.data.MmkvUtils;
 import com.geek.libswipebacklayout.SwipeBack;
-import com.geek.zxinglibs3.saoma3zxing.encode.EncodingHandler;
-import com.google.zxing.WriterException;
 import com.haier.cellarette.baselibrary.toasts3.MProgressDialog;
 import com.haier.cellarette.baselibrary.zothers.SpannableStringUtils;
-import com.just.agentweb.geek.hois3.HiosHelperNew;
-import com.lxj.xpopup.util.XPopupUtils;
-
-import java.io.UnsupportedEncodingException;
 
 @SwipeBack(value = true)
 public class MySettingQmAct extends SlbBaseActivity implements Fconfig1View, FtipsView, FgrxxView {
@@ -145,7 +122,7 @@ public class MySettingQmAct extends SlbBaseActivity implements Fconfig1View, Fti
             public void onMultiClick(View v) {
                 if (!TextUtils.isEmpty(et_content.getText().toString().trim())) {
 
-                    MprogressDialogUtils.showMprogressDialog(MySettingQmAct.this, "请稍等...");
+                    MProgressDialogUtils.showMprogressDialog(MySettingQmAct.this, "请稍等...");
 
                     //修改签名
                     ftipsPresenter.gettips_img2(url, fgrxxBean.getId(), "", et_content.getText().toString().trim(), "", "", "");

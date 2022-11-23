@@ -1,8 +1,5 @@
 package com.geek.appcommon.bean;
 
-/**
- * author Bro0cL on 2016/1/26.
- */
 public class DwCity {
     private String name;
     private String province;
