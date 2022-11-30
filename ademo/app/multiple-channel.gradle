@@ -1,5 +1,7 @@
 apply plugin: 'walle'
-
+dependencies {
+    implementation 'com.github.Petterpx.walle:library:1.0.4'
+}
 walle {
     // 指定渠道包的输出路径 https://github.com/Meituan-Dianping/walle
     def path = project.getBuildDir().getPath()

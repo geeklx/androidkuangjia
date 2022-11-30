@@ -1,9 +1,7 @@
 package com.geek.applogin;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.LinearLayout;
 
 import androidx.annotation.Nullable;
@@ -12,13 +10,11 @@ import com.blankj.utilcode.util.SPUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.geek.appcommon.AppCommonUtils;
 import com.geek.appcommon.SlbBase;
-import com.geek.appcommon.SlbBase2;
 import com.geek.biz1.bean.FconfigBean;
 import com.geek.biz1.presenter.Fconfig1Presenter;
 import com.geek.biz1.presenter.FtipsPresenter;
 import com.geek.biz1.view.Fconfig1View;
 import com.geek.biz1.view.FtipsView;
-import com.geek.libbase.base.SlbBaseActivity;
 import com.geek.libutils.SlbLoginUtil;
 import com.geek.libutils.data.MmkvUtils;
 import com.lxj.xpopup.XPopup;
@@ -26,7 +22,7 @@ import com.lxj.xpopup.impl.LoadingPopupView;
 import com.yuntongxun.confwrap.WrapManager;
 import com.yuntongxun.ecsdk.ECDevice;
 
-public class SlbLoginOutActivity extends SlbBase2 implements Fconfig1View, FtipsView {
+public class SlbLoginOutActivity extends SlbBase implements Fconfig1View, FtipsView {
 
     private LinearLayout ll_cancel;
     private LinearLayout ll_ok;
@@ -39,24 +35,24 @@ public class SlbLoginOutActivity extends SlbBase2 implements Fconfig1View, Ftips
     public void onCreate(Bundle savedInstanceState) {
         getTheme().applyStyle(R.style.ThemeTransparent2, true);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_slbloginout);
+//        setContentView(R.layout.activity_slbloginout);
+//        findview();
+//        onclick();
+//        donetwork();
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_slbloginout;
+    }
+
+    @Override
+    protected void setup(@Nullable Bundle savedInstanceState) {
+        super.setup(savedInstanceState);
         findview();
         onclick();
         donetwork();
     }
-
-//    @Override
-//    protected int getLayoutId() {
-//        return R.layout.activity_slbloginout;
-//    }
-//
-//    @Override
-//    protected void setup(@Nullable Bundle savedInstanceState) {
-//        super.setup(savedInstanceState);
-//        findview();
-//        onclick();
-//        donetwork();
-//    }
 
 
     private void donetwork() {
