@@ -43,7 +43,7 @@ public class RetrofitNetNew2 {
 
         //设置 请求的缓存的大小跟位置
         File cacheFile = new File(Utils.getApp().getExternalFilesDir(null).getAbsolutePath(),
-                "RetrofitNetNewCache2");
+                "RetrofitNetNewCache");
         Cache cache = new Cache(cacheFile, 1024 * 1024 * 200); //200Mb 缓存的大小
         client = new OkHttpClient
                 .Builder()

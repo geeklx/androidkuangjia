@@ -36,7 +36,7 @@
             android:layout_height="50dp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="20dp"
-            android:background="@mipmap/icon_touchid" />
+            android:background="@mipmap/cat" />
 
         <LinearLayout
             android:layout_width="wrap_content"

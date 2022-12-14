@@ -3,9 +3,13 @@ package com.fosung.lighthouse.dtsxbb.cache;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.text.TextUtils;
 import android.util.Log;
 
 import com.blankj.utilcode.util.Utils;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -13,8 +17,14 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
+import java.nio.charset.Charset;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+
+import okhttp3.MediaType;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okio.Buffer;
 
 
 public final class CacheManager {
@@ -26,7 +36,7 @@ public final class CacheManager {
 
     private static final int DISK_CACHE_INDEX = 0;
 
-    private static final String CACHE_DIR = "RetrofitNetNew3";
+    private static final String CACHE_DIR = "RetrofitNetNewCache";
 
     private DiskLruCache mDiskLruCache;
 
@@ -218,4 +228,45 @@ public final class CacheManager {
         }
         return 0;
     }
+
+    public String huancun_getdata(Request request) {
+        // huancun
+        String url = request.url().toString();
+        RequestBody requestBody = request.body();
+        Charset charset = Charset.forName("UTF-8");
+        StringBuilder sb = new StringBuilder();
+        sb.append(url);
+        if (request.method().equals("POST")) {
+            MediaType contentType = requestBody.contentType();
+            if (contentType != null) {
+                charset = contentType.charset(Charset.forName("UTF-8"));
+            }
+            Buffer buffer = new Buffer();
+            try {
+                requestBody.writeTo(buffer);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            sb.append(buffer.readString(charset));
+            buffer.close();
+        }
+        String cache = CacheManager.getInstance().getCache(sb.toString());
+        Log.d(CacheManager.TAG, "get cache->" + cache);
+        return cache;
+    }
+
+    public String get_huancun_data(String cache) {
+        JSONObject jsonObject = null;
+        if (!TextUtils.isEmpty(cache)) {
+            try {
+                jsonObject = new JSONObject(cache).optJSONObject("data");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+        }
+        return jsonObject == null ? "" : jsonObject.toString();
+    }
+
+
 }

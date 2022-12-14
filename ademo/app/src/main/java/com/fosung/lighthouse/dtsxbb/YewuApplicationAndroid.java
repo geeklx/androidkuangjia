@@ -41,10 +41,10 @@ import com.tencent.imsdk.v2.V2TIMValueCallback;
 import com.tencent.qcloud.tim.demo.thirdpush.HUAWEIHmsMessageService;
 import com.tencent.qcloud.tim.demo.utils.DemoLog;
 import com.tencent.qcloud.tim.demo.utils.TUIUtils;
-import com.yuntongxun.confwrap.WrapManager;
-import com.yuntongxun.ecsdk.ECError;
-import com.yuntongxun.ecsdk.SdkErrorCode;
-import com.yuntongxun.plugin.common.YTXSDKCoreHelper;
+//import com.yuntongxun.confwrap.WrapManager;
+//import com.yuntongxun.ecsdk.ECError;
+//import com.yuntongxun.ecsdk.SdkErrorCode;
+//import com.yuntongxun.plugin.common.YTXSDKCoreHelper;
 
 import java.io.File;
 import java.net.Proxy;
@@ -100,7 +100,7 @@ public class YewuApplicationAndroid extends AndroidApplication {
 //        initTencentIM();
         initTencentIMNew();
         // 容联im
-        initrlytx();
+//        initrlytx();
         //
         initFileDownLoader();
 
@@ -217,39 +217,39 @@ public class YewuApplicationAndroid extends AndroidApplication {
 //      FileDownloadUtils.setDefaultSaveRootPath(get_file_url(this) + File.separator + "ota/download");
     }
 
-    private void initrlytx() {
-//        WrapManager.getInstance().app_init(this);
-        MyLogUtil.e("MobPush----getDeviceToken--ronglian", "容联初始化成功");
-        if (TextUtils.equals(BuildConfigyewu.versionNameConfig, "测试")) {
-            WrapManager.getInstance().app_init(this, "119.188.115.248", 7773, 18086);
-        } else if (TextUtils.equals(BuildConfigyewu.versionNameConfig, "线上")) {
-            WrapManager.getInstance().app_init(this, "119.188.115.251", 7773, 18086);
-        }
-        WrapManager.getInstance().setOnConnectStateListener(new YTXSDKCoreHelper.OnConnectStateListener() {
-            @Override
-            public void onConnectSuccess() {
-                //初始化成功
-            }
-
-            @Override
-            public void onConnectFailed(ECError error) {
-                //     用户被挤下线
-                if (error.errorCode == SdkErrorCode.SDK_KICKED_OFF) {
-//                    WrapManager.getInstance().onClearUserEdge(getApplicationContext());
-//                    //
-//                    Intent intent = new Intent(com.blankj.utilcode.util.AppUtils.getAppPackageName() + ".hs.act.slbapp.SlbLoginActivity");
-//                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                    intent.putExtra("LOGOUT", true);
-//                    startActivity(intent);
-                }
-                //      用户未登陆
-                if (error.errorCode == YTXSDKCoreHelper.SDK_UN_LOGIN) {
-
-                }
-            }
-        });
-
-    }
+//    private void initrlytx() {
+////        WrapManager.getInstance().app_init(this);
+//        MyLogUtil.e("MobPush----getDeviceToken--ronglian", "容联初始化成功");
+//        if (TextUtils.equals(BuildConfigyewu.versionNameConfig, "测试")) {
+//            WrapManager.getInstance().app_init(this, "119.188.115.248", 7773, 18086);
+//        } else if (TextUtils.equals(BuildConfigyewu.versionNameConfig, "线上")) {
+//            WrapManager.getInstance().app_init(this, "119.188.115.251", 7773, 18086);
+//        }
+//        WrapManager.getInstance().setOnConnectStateListener(new YTXSDKCoreHelper.OnConnectStateListener() {
+//            @Override
+//            public void onConnectSuccess() {
+//                //初始化成功
+//            }
+//
+//            @Override
+//            public void onConnectFailed(ECError error) {
+//                //     用户被挤下线
+//                if (error.errorCode == SdkErrorCode.SDK_KICKED_OFF) {
+////                    WrapManager.getInstance().onClearUserEdge(getApplicationContext());
+////                    //
+////                    Intent intent = new Intent(com.blankj.utilcode.util.AppUtils.getAppPackageName() + ".hs.act.slbapp.SlbLoginActivity");
+////                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+////                    intent.putExtra("LOGOUT", true);
+////                    startActivity(intent);
+//                }
+//                //      用户未登陆
+//                if (error.errorCode == YTXSDKCoreHelper.SDK_UN_LOGIN) {
+//
+//                }
+//            }
+//        });
+//
+//    }
 
     private void initTencentIMNew() {
         TUIUtils.init(this, 1400598372, null, null);

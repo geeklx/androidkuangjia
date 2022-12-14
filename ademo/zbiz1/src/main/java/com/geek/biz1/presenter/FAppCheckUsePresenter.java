@@ -4,17 +4,21 @@ import com.alibaba.fastjson.JSONObject;
 import com.blankj.utilcode.util.SPUtils;
 import com.fosung.lighthouse.dtsxbb.BuildConfigyewu;
 import com.fosung.lighthouse.dtsxbb.RetrofitNetNew2;
+import com.fosung.lighthouse.dtsxbb.cache.CacheManager;
 import com.geek.biz1.api.Biz2Api;
 import com.geek.biz1.bean.FAppCheckUseBean;
 import com.geek.biz1.bean.FgrxxBean;
+import com.geek.biz1.bean.FinitBean;
 import com.geek.biz1.view.FAppCheckUseView;
 import com.geek.libutils.data.MmkvUtils;
 import com.geek.libutils.libmvp.Presenter;
 import com.geek.libutils.libretrofit.BanbenUtils;
 import com.geek.libutils.libretrofit.ResponseSlbBean2;
+import com.google.gson.Gson;
 import com.tencent.mmkv.MMKV;
 
 import okhttp3.MediaType;
+import okhttp3.Request;
 import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -40,6 +44,15 @@ public class FAppCheckUsePresenter extends Presenter<FAppCheckUseView> {
                     return;
                 }
                 if (response.body() == null) {
+                    // 缓存bufen
+                    FAppCheckUseBean fbean = new Gson()
+                            .fromJson(CacheManager.getInstance()
+                                    .get_huancun_data(CacheManager.getInstance()
+                                            .huancun_getdata(call.request())), FAppCheckUseBean.class);
+                    if (fbean != null) {
+                        getView().OnFAppCheckUseSuccess(fbean);
+                        call.cancel();
+                    }
                     return;
                 }
                 if (!response.body().isSuccess()) {

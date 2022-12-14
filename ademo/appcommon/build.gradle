@@ -21,8 +21,8 @@ dependencies {
     api project(':commonlibs:ztencentnew:tencentimnew')
 //    api project(':commonlibs:libvpn')
     // 容联云通讯视频会议
-    api project(':commonlibs:yuntongxun:app_conference')
-    api project(':commonlibs:yuntongxun:app_im')
+//    api project(':commonlibs:yuntongxun:app_conference')
+//    api project(':commonlibs:yuntongxun:app_im')
     // jitsi https://github.com/jitsi/jitsi-meet-sdk-samples
 //    api project(':commonlibs:libjitsi')
 

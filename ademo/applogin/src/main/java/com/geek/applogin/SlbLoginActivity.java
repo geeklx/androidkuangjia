@@ -57,11 +57,11 @@ import com.lxj.xpopup.impl.LoadingPopupView;
 import com.tencent.imsdk.v2.V2TIMCallback;
 import com.tencent.qcloud.tim.demo.bean.UserInfo;
 import com.tencent.qcloud.tim.demo.utils.TUIUtils;
-import com.yuntongxun.confwrap.WrapManager;
-import com.yuntongxun.ecsdk.ECError;
-import com.yuntongxun.plugin.common.YTXPluginUser;
-import com.yuntongxun.plugin.common.YTXSDKCoreHelper;
-import com.yuntongxun.plugin.common.common.utils.LogUtil;
+//import com.yuntongxun.confwrap.WrapManager;
+//import com.yuntongxun.ecsdk.ECError;
+//import com.yuntongxun.plugin.common.YTXPluginUser;
+//import com.yuntongxun.plugin.common.YTXSDKCoreHelper;
+//import com.yuntongxun.plugin.common.common.utils.LogUtil;
 
 import java.util.HashMap;
 
@@ -688,19 +688,19 @@ public class SlbLoginActivity extends SlbBase implements View.OnClickListener, F
 //            }
 //        });
         // ronglian im
-        WrapManager.getInstance().app_LoginImNo(bean.getRlResult().getUserId(),
-                bean.getRlResult().getSdkAppId(), bean.getRlResult().getCorpId(),
-                bean.getRlResult().getSecretKey(), new YTXSDKCoreHelper.OnConnectStateListener() {
-                    @Override
-                    public void onConnectSuccess() {
-                        LogUtil.e("YTX_TAG", "登入成功");
-                    }
-
-                    @Override
-                    public void onConnectFailed(ECError error) {
-                        LogUtil.e("YTX_TAG", "登入失败" + error.errorMsg + error.errorCode);
-                    }
-                });
+//        WrapManager.getInstance().app_LoginImNo(bean.getRlResult().getUserId(),
+//                bean.getRlResult().getSdkAppId(), bean.getRlResult().getCorpId(),
+//                bean.getRlResult().getSecretKey(), new YTXSDKCoreHelper.OnConnectStateListener() {
+//                    @Override
+//                    public void onConnectSuccess() {
+//                        LogUtil.e("YTX_TAG", "登入成功");
+//                    }
+//
+//                    @Override
+//                    public void onConnectFailed(ECError error) {
+//                        LogUtil.e("YTX_TAG", "登入失败" + error.errorMsg + error.errorCode);
+//                    }
+//                });
         // tencent im
         TUIUtils.init(BaseApp.get(), Integer.parseInt(bean.getTxResult().getSdkAppId()), null, null);
         UserInfo.getInstance().setUserId(bean.getTxResult().getUserId());

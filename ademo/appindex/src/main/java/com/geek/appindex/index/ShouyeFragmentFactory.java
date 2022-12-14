@@ -9,8 +9,8 @@ import androidx.fragment.app.Fragment;
 
 import com.geek.appcommon.AppCommonUtils;
 import com.geek.appcommon.wechat.fragment.H5WebFragment;
-import com.geek.appcommon.ytx.YHCReserveListFragment2;
-import com.geek.appcommon.ytx.im.RxContactHomeFragment;
+//import com.geek.appcommon.ytx.YHCReserveListFragment2;
+//import com.geek.appcommon.ytx.im.RxContactHomeFragment;
 import com.geek.appindex.index.fragment.Shouye10;
 import com.geek.appindex.index.fragment.ShouyeF8;
 import com.geek.appindex.index.fragment.ShouyeF9;
@@ -158,11 +158,11 @@ public class ShouyeFragmentFactory {
             case ShouyeFragmentFactory.TAG_f4:
                 MmkvUtils.getInstance().set_common("choose_im", ShouyeFragmentFactory.TAG_people);
                 return TUIConversationFragment.class;
-            case ShouyeFragmentFactory.TAG_xiaoxi2:
-                MmkvUtils.getInstance().set_common("choose_im", ShouyeFragmentFactory.TAG_people2);
-                return RxContactHomeFragment.class;
-            case ShouyeFragmentFactory.TAG_f5:
-                return YHCReserveListFragment2.class;
+//            case ShouyeFragmentFactory.TAG_xiaoxi2:
+//                MmkvUtils.getInstance().set_common("choose_im", ShouyeFragmentFactory.TAG_people2);
+//                return RxContactHomeFragment.class;
+//            case ShouyeFragmentFactory.TAG_f5:
+//                return YHCReserveListFragment2.class;
             default:
                 return H5WebFragment.class;
         }

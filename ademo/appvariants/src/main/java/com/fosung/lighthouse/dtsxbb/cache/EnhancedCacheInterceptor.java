@@ -1,5 +1,6 @@
 package com.fosung.lighthouse.dtsxbb.cache;
 
+import android.text.TextUtils;
 import android.util.Log;
 
 import com.fosung.lighthouse.dtsxbb.cache.CacheManager;
@@ -55,8 +56,9 @@ public class EnhancedCacheInterceptor implements Interceptor {
         }
         String key = sb.toString();
         String json = buffer.clone().readString(charset);
-
-        CacheManager.getInstance().putCache(key, json);
+        if (!TextUtils.isEmpty(json)){
+            CacheManager.getInstance().putCache(key, json);
+        }
         Log.d(CacheManager.TAG, "put cache-> key:" + key + "-> json:" + json);
         return chain.proceed(request);
     }

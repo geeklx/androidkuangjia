@@ -135,6 +135,11 @@ public class WelComeActivity extends AppCompatActivity implements FinitView {
         fconfigPresenter = new FinitPresenter();
         fconfigPresenter.onCreate(this);
         fconfigPresenter.getinit(AppCommonUtils.auth_url + "/init");
+//        new Handler(Looper.myLooper()).postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//            }
+//        },3000);
 
     }
 

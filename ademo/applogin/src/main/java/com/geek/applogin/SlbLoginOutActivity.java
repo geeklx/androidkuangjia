@@ -19,8 +19,8 @@ import com.geek.libutils.SlbLoginUtil;
 import com.geek.libutils.data.MmkvUtils;
 import com.lxj.xpopup.XPopup;
 import com.lxj.xpopup.impl.LoadingPopupView;
-import com.yuntongxun.confwrap.WrapManager;
-import com.yuntongxun.ecsdk.ECDevice;
+//import com.yuntongxun.confwrap.WrapManager;
+//import com.yuntongxun.ecsdk.ECDevice;
 
 public class SlbLoginOutActivity extends SlbBase implements Fconfig1View, FtipsView {
 
@@ -194,12 +194,12 @@ public class SlbLoginOutActivity extends SlbBase implements Fconfig1View, FtipsV
         ToastUtils.showLong(bean);
         loadingPopupView.dismiss();
         // rongliang
-        WrapManager.getInstance().app_Logout(0, new ECDevice.OnLogoutListener() {
-            @Override
-            public void onLogout() {
-
-            }
-        });
+//        WrapManager.getInstance().app_Logout(0, new ECDevice.OnLogoutListener() {
+//            @Override
+//            public void onLogout() {
+//
+//            }
+//        });
         donetloginout();
     }
 

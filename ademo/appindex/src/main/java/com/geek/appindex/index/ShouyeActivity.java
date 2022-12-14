@@ -62,14 +62,14 @@ import com.tencent.qcloud.tuikit.tuicontact.ui.pages.TUIContactFragment;
 import com.tencent.qcloud.tuikit.tuiconversation.ui.page.TUIConversationFragment;
 import com.vivo.push.IPushActionListener;
 import com.vivo.push.PushClient;
-import com.yuntongxun.confwrap.WrapManager;
-import com.yuntongxun.ecsdk.ECDevice;
-import com.yuntongxun.ecsdk.ECError;
-import com.yuntongxun.ecsdk.SdkErrorCode;
-import com.yuntongxun.plugin.common.YTXSDKCoreHelper;
-import com.yuntongxun.plugin.common.ui.setting.YTXCustomSettingUtils;
-import com.yuntongxun.plugin.im.common.YTXCustomMsgItem;
-import com.yuntongxun.plugin.im.manager.YTXIMPluginManager;
+//import com.yuntongxun.confwrap.WrapManager;
+//import com.yuntongxun.ecsdk.ECDevice;
+//import com.yuntongxun.ecsdk.ECError;
+//import com.yuntongxun.ecsdk.SdkErrorCode;
+//import com.yuntongxun.plugin.common.YTXSDKCoreHelper;
+//import com.yuntongxun.plugin.common.ui.setting.YTXCustomSettingUtils;
+//import com.yuntongxun.plugin.im.common.YTXCustomMsgItem;
+//import com.yuntongxun.plugin.im.manager.YTXIMPluginManager;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -173,59 +173,59 @@ public class ShouyeActivity extends SlbBase implements FshengjiView, FCate1View 
             });
         }
         // 容联云通讯重连bufen
-        WrapManager.getInstance().app_AutoConnect(new YTXSDKCoreHelper.OnConnectStateListener() {
-            @Override
-            public void onConnectSuccess() {
-
-            }
-
-            @Override
-            public void onConnectFailed(ECError error) {
-                //     用户被挤下线
-                if (error.errorCode == SdkErrorCode.SDK_KICKED_OFF) {
-
-                }
-                //      用户未登陆
-                if (error.errorCode == YTXSDKCoreHelper.SDK_UN_LOGIN) {
-
-                }
-            }
-        });
-        YTXCustomSettingUtils.getInstance().setChattingMessageBgDrawableReceive(R.drawable.bg_qipao);
-        YTXCustomSettingUtils.getInstance()
-                /**标题栏颜色*/
-                .setActionBarColor(R.color.ytx_color)
-                /**toolbar背景颜色*/
-                .setToolbarBackgroundColor(R.color.ytx_color)
-                .setChattingMessageBgDrawableReceive(R.drawable.bg_qipao2)
-                .setChattingMessageBgDrawableSend(R.drawable.bg_qipao)
-                /**一级标题颜色*/
-                .setToolbarTextColor(R.color.white)
-                /**二级标题颜色*/
-                .setSubToolbarTextColor(R.color.white);
-        YTXCustomSettingUtils.getInstance().setChattingTopRight(R.drawable.ytx_emoji_261d, new YTXCustomSettingUtils.OnChattingTopRightClickListener() {
-            @Override
-            public void onChattingTopRightClick() {
-                ToastUtils.showLong("点击了自定义消息");
-            }
-        });
-        YTXCustomMsgItem ytxCustomMsgItem = new YTXCustomMsgItem();
-        YTXCustomMsgItem.YTXCustomMsg msg = ytxCustomMsgItem.new YTXCustomMsg();
-        msg.setAvatarUrl("https://s2.51cto.com/wyfs02/M01/89/BA/wKioL1ga-u7QnnVnAAAfrCiGnBQ946_small.jpg");
-        msg.setTitle("灯塔-党建在线消息号");
-        msg.setContent("测试内容");
-        msg.setTime("2022/5/7");
-        ytxCustomMsgItem.setMsg(msg);//设置消息
-        ytxCustomMsgItem.setUnReadNum(102);//设置未读数
-        ytxCustomMsgItem.setVisible(true);//设置是否显示
-        ytxCustomMsgItem.setVisible(true);//设置是否显示
-        YTXIMPluginManager.getManager().updateCustomMsgItem(ytxCustomMsgItem);
-        YTXIMPluginManager.getManager().setYtxOnCustomClickListener(new YTXIMPluginManager.YTXOnCustomClickListener() {
-            @Override
-            public void onItemClick() {
-                ToastUtils.showLong("点击了自定义消息");
-            }
-        });
+//        WrapManager.getInstance().app_AutoConnect(new YTXSDKCoreHelper.OnConnectStateListener() {
+//            @Override
+//            public void onConnectSuccess() {
+//
+//            }
+//
+//            @Override
+//            public void onConnectFailed(ECError error) {
+//                //     用户被挤下线
+//                if (error.errorCode == SdkErrorCode.SDK_KICKED_OFF) {
+//
+//                }
+//                //      用户未登陆
+//                if (error.errorCode == YTXSDKCoreHelper.SDK_UN_LOGIN) {
+//
+//                }
+//            }
+//        });
+//        YTXCustomSettingUtils.getInstance().setChattingMessageBgDrawableReceive(R.drawable.bg_qipao);
+//        YTXCustomSettingUtils.getInstance()
+//                /**标题栏颜色*/
+//                .setActionBarColor(R.color.ytx_color)
+//                /**toolbar背景颜色*/
+//                .setToolbarBackgroundColor(R.color.ytx_color)
+//                .setChattingMessageBgDrawableReceive(R.drawable.bg_qipao2)
+//                .setChattingMessageBgDrawableSend(R.drawable.bg_qipao)
+//                /**一级标题颜色*/
+//                .setToolbarTextColor(R.color.white)
+//                /**二级标题颜色*/
+//                .setSubToolbarTextColor(R.color.white);
+//        YTXCustomSettingUtils.getInstance().setChattingTopRight(R.drawable.ytx_emoji_261d, new YTXCustomSettingUtils.OnChattingTopRightClickListener() {
+//            @Override
+//            public void onChattingTopRightClick() {
+//                ToastUtils.showLong("点击了自定义消息");
+//            }
+//        });
+//        YTXCustomMsgItem ytxCustomMsgItem = new YTXCustomMsgItem();
+//        YTXCustomMsgItem.YTXCustomMsg msg = ytxCustomMsgItem.new YTXCustomMsg();
+//        msg.setAvatarUrl("https://s2.51cto.com/wyfs02/M01/89/BA/wKioL1ga-u7QnnVnAAAfrCiGnBQ946_small.jpg");
+//        msg.setTitle("灯塔-党建在线消息号");
+//        msg.setContent("测试内容");
+//        msg.setTime("2022/5/7");
+//        ytxCustomMsgItem.setMsg(msg);//设置消息
+//        ytxCustomMsgItem.setUnReadNum(102);//设置未读数
+//        ytxCustomMsgItem.setVisible(true);//设置是否显示
+//        ytxCustomMsgItem.setVisible(true);//设置是否显示
+//        YTXIMPluginManager.getManager().updateCustomMsgItem(ytxCustomMsgItem);
+//        YTXIMPluginManager.getManager().setYtxOnCustomClickListener(new YTXIMPluginManager.YTXOnCustomClickListener() {
+//            @Override
+//            public void onItemClick() {
+//                ToastUtils.showLong("点击了自定义消息");
+//            }
+//        });
         super.onResume();
 //        // 调用
 //        String appId = "wx321c4f08e435114a"; // 填应用AppId
@@ -359,7 +359,7 @@ public class ShouyeActivity extends SlbBase implements FshengjiView, FCate1View 
                 SPUtils.getInstance().put("MOBDeviceToken", s);
                 if (!TextUtils.isEmpty(s)) {
                     ThirdPushTokenMgr.getInstance().setThirdPushToken(s);
-                    ECDevice.reportHuaWeiToken(s);
+//                    ECDevice.reportHuaWeiToken(s);
                 }
             }
         });
