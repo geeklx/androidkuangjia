@@ -29,14 +29,14 @@ public interface ApiService {
 //    @POST("http://openapi.9kacha.com/recevice_json.php")
 //    Call<WineDetial> uploadFileWithRequestBody1(@Part("json") RequestBody jsonBody, @Part MultipartBody.Part file);
 //
-//    @Headers({"Content-Type: application/json", "Accept: application/json"})
+//@Headers({"Content-Type: application/json", "Accept: application/json"})
 //    @POST("/recevice_json.php")
 //    Call<WineDetial> uploadFileWithRequestBody2(@Body WineDetialRequestBean body);
 
 //    @POST("/recevice_json.php")
 //    Call<WineDetial> uploadFileWithRequestBody3(@Query("jparams") WineDetialRequestBean.RequestInfoBean p, @Query("img_binary") byte[] str);
 
-    @Headers({"Content-Type: application/json", "Accept: application/json"})
+@Headers({"Content-Type: application/json", "Accept: application/json"})
     @POST(URL_WINE_DETAIL)
     Call<WineItemDetail> winedetailRequestBody(@Body RequestBody body);
 

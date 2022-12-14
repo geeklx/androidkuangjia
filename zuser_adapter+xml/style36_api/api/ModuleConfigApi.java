@@ -24,7 +24,7 @@ public interface ModuleConfigApi {
     /**
      * 获取APP功能模块配置
      */
-    @Headers({"Content-Type: application/json", "Accept: application/json"})
+@Headers({"Content-Type: application/json", "Accept: application/json"})
     @POST(VersionConfig.SERVICE_HOST + "tft/config/authCom/new/getAppModuleConfig")
     Call<ModuleConfigBean> getModuleConfig(@Header("accessToken") String token);
 

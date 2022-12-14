@@ -17,17 +17,17 @@ import retrofit2.http.Url;
 public interface HomeApi {
 
     // 分类列表请求/轮播图
-    @Headers({"Content-Type: application/json", "Accept: application/json"})
+@Headers({"Content-Type: application/json", "Accept: application/json"})
     @POST()
     Call<ResponseSlbBean2<ClassificationListBean>> getClassificationList(@Url String path, @Body RequestBody body);
 
     // 根据分类请求内容分页
-    @Headers({"Content-Type: application/json", "Accept: application/json"})
+@Headers({"Content-Type: application/json", "Accept: application/json"})
     @POST()
     Call<ResponseSlbBean2<ClassificationListByPageBean>> getClassificationListByPage(@Url String path, @Body RequestBody body);
 
     //轮播图
-    @Headers({"Content-Type: application/json", "Accept: application/json"})
+@Headers({"Content-Type: application/json", "Accept: application/json"})
     @POST()
     Call<ResponseSlbBean2<ClassificationListBean>> getClassificationBanner(@Url String path, @Body RequestBody body);
 

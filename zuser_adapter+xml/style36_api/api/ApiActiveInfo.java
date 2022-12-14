@@ -21,7 +21,7 @@ public interface ApiActiveInfo {
     /**
      * 获取商用设备激活码和设备归属人
      */
-    @Headers({"Content-Type: application/json", "Accept: application/json"})
+@Headers({"Content-Type: application/json", "Accept: application/json"})
     @POST(VersionConfig.SERVICE_HOST+ ServiceAddr.ACTIVE_INFO)
     Call<CodeAndNickNameBean> getActiveInfo(@Body RequestBody json);
 }

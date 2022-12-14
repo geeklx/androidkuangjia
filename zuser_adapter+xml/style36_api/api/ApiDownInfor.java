@@ -12,7 +12,7 @@ import retrofit2.http.POST;
 public interface ApiDownInfor  {
 
     //获取资讯图片数据
-    @Headers({"Content-Type: application/json", "Accept: application/json"})
+@Headers({"Content-Type: application/json", "Accept: application/json"})
     @POST(VersionConfig.SERVICE_HOST + ServiceAddr.GET_DOWNINFO)
     Call<InformationImageBean> getDownInfoImage(@Header("accessToken") String accessToken);
 

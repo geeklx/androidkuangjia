@@ -19,7 +19,7 @@ public interface HomeModuleApi {
     /**
      * 获取首页HIOS
      */
-    @Headers({"Content-Type: application/json", "Accept: application/json"})
+@Headers({"Content-Type: application/json", "Accept: application/json"})
     @POST(VersionConfig.SERVICE_HOST + "tft/hiOs/authCom/new/homeModule")
     Call<HomeModuleBean> getHomeModule(@Header("accessToken") String accessToken);
 
@@ -27,7 +27,7 @@ public interface HomeModuleApi {
     /**
      * 获取第二页HISO
      */
-    @Headers({"Content-Type: application/json", "Accept: application/json"})
+@Headers({"Content-Type: application/json", "Accept: application/json"})
     @POST(VersionConfig.SERVICE_HOST + "tft/hiOs/authCom/new/homeTwoModule")
     Call<HomeTwoModuleBean> getHomeTwoModule(@Header("accessToken") String accessToken);
 }

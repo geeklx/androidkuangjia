@@ -427,6 +427,7 @@ public class ShouyeActivity extends SlbBase implements FshengjiView, FCate1View 
 //        findview();
 //        onclick();
         doNetWork();
+//        ToastUtils.showLong("首页进了");
     }
 
     private void doNetWork() {
@@ -548,17 +549,18 @@ public class ShouyeActivity extends SlbBase implements FshengjiView, FCate1View 
                 .commitAllowingStateLoss();
         //通道消息
         ChannelMessage();
+//        ToastUtils.showLong("OnCate1Success");
     }
 
 
     @Override
     public void OnCate1Nodata(String bean) {
-
+//        ToastUtils.showLong("OnCate1Nodata");
     }
 
     @Override
     public void OnCate1Fail(String msg) {
-
+//        ToastUtils.showLong("OnCate1Fail");
     }
 
 

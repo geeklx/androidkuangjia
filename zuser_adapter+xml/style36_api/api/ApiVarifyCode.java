@@ -20,12 +20,12 @@ import rx.Observable;
 
 public interface ApiVarifyCode {
     //获取绑定一级代理商手机号
-    @Headers({"Content-Type: application/json", "Accept: application/json"})
+@Headers({"Content-Type: application/json", "Accept: application/json"})
     @POST(VersionConfig.SERVICE_HOST + ServiceAddr.DEVICE_USER_INFO)
     Call<UserMobileBean> getPhoneNumber(@Body RequestBody body);
 
     //获取密码锁验证码
-    @Headers({"Content-Type: application/json", "Accept: application/json"})
+@Headers({"Content-Type: application/json", "Accept: application/json"})
     @POST(VersionConfig.SERVICE_HOST + ServiceAddr.PHONE_VARIFY_CODE)
     Call<PassKeyBean> getVerifyCode(@Body RequestBody route);
 }

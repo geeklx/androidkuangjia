@@ -19,7 +19,7 @@ public interface ActivateApi {
     /**
      * 获取商用设备激活码和设备归属人
      */
-    @Headers({"Content-Type: application/json", "Accept: application/json"})
+@Headers({"Content-Type: application/json", "Accept: application/json"})
     @POST(VersionConfig.SERVICE_HOST + "tft/devices/findActiveCodeAndNickName")
     Call<CodeAndNickNameBean> getCodeAndNickName(@Body RequestBody body);
 
@@ -27,7 +27,7 @@ public interface ActivateApi {
     /**
      * 商用激活设备
      */
-    @Headers({"Content-Type: application/json", "Accept: application/json"})
+@Headers({"Content-Type: application/json", "Accept: application/json"})
     @POST(VersionConfig.SERVICE_HOST + "tft/devices/activeDevice")
     Call<ActivateResultEntity> activateDevice(@Body RequestBody body);
 }

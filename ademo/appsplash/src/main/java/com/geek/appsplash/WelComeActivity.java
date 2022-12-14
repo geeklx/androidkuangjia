@@ -131,9 +131,11 @@ public class WelComeActivity extends AppCompatActivity implements FinitView {
     private void configNDK() {
         // 欢迎页声音
 //        GetAssetsFileMP3TXTJSONAPKUtil.getInstance(this).playMusic(App.get(), true, "android.resource://" + getPackageName() + "/" + R.raw.demo);
+//        ToastUtils.showLong("fconfigPresentergetinit");
         fconfigPresenter = new FinitPresenter();
         fconfigPresenter.onCreate(this);
         fconfigPresenter.getinit(AppCommonUtils.auth_url + "/init");
+
     }
 
     @Override
@@ -333,6 +335,7 @@ public class WelComeActivity extends AppCompatActivity implements FinitView {
 
     @Override
     public void OnFinitSuccess(FinitBean bean) {
+//        ToastUtils.showLong("OnFinitSuccess");
         if (bean != null && !"".equals(bean)) {
             set_view(bean.getAdvertlinkurl(), bean.getAdvertimage());
         }
@@ -344,11 +347,13 @@ public class WelComeActivity extends AppCompatActivity implements FinitView {
 
     @Override
     public void OnFinitNodata(String bean) {
+//        ToastUtils.showLong("OnFinitNodata");
         set_view("", "");
     }
 
     @Override
     public void OnFinitFail(String msg) {
+//        ToastUtils.showLong("OnFinitFail");
         set_view("", "");
     }
 

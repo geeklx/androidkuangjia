@@ -24,7 +24,7 @@ import retrofit2.http.Url;
 public interface SCommonApi {
 
     // 更新版本1
-    @Headers({"Content-Type: application/json", "Accept: application/json"})
+@Headers({"Content-Type: application/json", "Accept: application/json"})
 //    @POST(BuildConfigCommon.SERVER_ISERVICE_NEW1 + "picbook/audio/app/updateReadTime")
     @POST()
     Call<ResponseSlbBean<VersionInfoBean>> get_version1(@Url String path, @Header("hxAppVersion") String version,
@@ -32,7 +32,7 @@ public interface SCommonApi {
 
 
     // 上传用户头像信息1->base64
-    @Headers({"Content-Type: application/json", "Accept: application/json"})
+@Headers({"Content-Type: application/json", "Accept: application/json"})
     @POST()
     Call<ResponseSlbBean<VersionInfoBean>> get_version2(@Url String path, @Header("hxAppVersion") String version,
                                                         @Header("imei") String imei, @Header("token") String token, @Body RequestBody body);
@@ -57,7 +57,7 @@ public interface SCommonApi {
 
 
     // 更新版本1
-    @Headers({"Content-Type: application/json", "Accept: application/json"})
+@Headers({"Content-Type: application/json", "Accept: application/json"})
     @POST()
     Call<ResponseSlbBean<SbbdBean>> get_version6(@Url String path);
 

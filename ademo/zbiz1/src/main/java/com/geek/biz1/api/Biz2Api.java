@@ -35,8 +35,7 @@ public interface Biz2Api {
     // 升级
     @Headers({"Content-Type: application/json", "Accept: application/json"})
     @POST()
-    Call<ResponseSlbBean2<FshengjiBean>> getshengji(@Url String path,
-                                                    @Body RequestBody body);
+    Call<ResponseSlbBean2<FshengjiBean>> getshengji(@Url String path, @Body RequestBody body);
 
     // 初始化
     @Headers({"Content-Type: application/json", "Accept: application/json"})
@@ -51,20 +50,17 @@ public interface Biz2Api {
     // denglu2
     @Headers({"Content-Type: application/json", "Accept: application/json"})
     @POST()
-    Call<ResponseSlbBean2<FloginBean>> getlogin2(@Url String path,
-                                                 @Body RequestBody body);
+    Call<ResponseSlbBean2<FloginBean>> getlogin2(@Url String path, @Body RequestBody body);
 
     // 初始化获取接口1
     @Headers({"Content-Type: application/json", "Accept: application/json"})
     @POST()
-    Call<ResponseSlbBean2<FconfigBean>> getconfig1(@Url String path,
-                                                   @Body RequestBody body);
+    Call<ResponseSlbBean2<FconfigBean>> getconfig1(@Url String path, @Body RequestBody body);
 
     // 提示语接口1
     @Headers({"Content-Type: application/json", "Accept: application/json"})
     @POST()
-    Call<ResponseSlbBean2<Object>> gettips(@Url String path,
-                                           @Body RequestBody body);
+    Call<ResponseSlbBean2<Object>> gettips(@Url String path, @Body RequestBody body);
 
     // 安全中心get
     @Headers({"Content-Type: application/json", "Accept: application/json"})
@@ -75,14 +71,12 @@ public interface Biz2Api {
     // 上传用户头像信息1->file
     @Multipart
     @POST()
-    Call<ResponseSlbBean2<FcomBean>> get_file1(@Url String path,
-                                               @Part MultipartBody.Part body2);
+    Call<ResponseSlbBean2<FcomBean>> get_file1(@Url String path, @Part MultipartBody.Part body2);
 
     // 上传用户头像信息2->file
     @Multipart
     @POST()
-    Call<ResponseSlbBean2<FcomBean>> get_file2(@Url String path,
-                                               @Body RequestBody body);
+    Call<ResponseSlbBean2<FcomBean>> get_file2(@Url String path, @Body RequestBody body);
 
     // 个人信息1
     @Headers({"Content-Type: application/json", "Accept: application/json"})
@@ -92,38 +86,32 @@ public interface Biz2Api {
     // 首页应用1
     @Headers({"Content-Type: application/json", "Accept: application/json"})
     @POST()
-    Call<ResponseSlbBean2<BjyyBeanYewu1>> getyy1(@Url String path,
-                                                 @Body RequestBody body);
+    Call<ResponseSlbBean2<BjyyBeanYewu1>> getyy1(@Url String path, @Body RequestBody body);
 
     // 编辑应用-上方应用
     @Headers({"Content-Type: application/json", "Accept: application/json"})
     @POST()
-    Call<ResponseSlbBean2<BjyyActFragment251Bean2>> getyy2(@Url String path,
-                                                           @Body RequestBody body);
+    Call<ResponseSlbBean2<BjyyActFragment251Bean2>> getyy2(@Url String path, @Body RequestBody body);
 
     // 编辑应用-保存应用
     @Headers({"Content-Type: application/json", "Accept: application/json"})
     @POST()
-    Call<ResponseSlbBean2<Object>> getyy3(@Url String path,
-                                          @Body RequestBody body);
+    Call<ResponseSlbBean2<Object>> getyy3(@Url String path, @Body RequestBody body);
 
     // 指纹登录1
     @Headers({"Content-Type: application/json", "Accept: application/json"})
     @POST()
-    Call<ResponseSlbBean2<FloginBean>> getzwdl1(@Url String path,
-                                                @Body RequestBody body);
+    Call<ResponseSlbBean2<FloginBean>> getzwdl1(@Url String path, @Body RequestBody body);
 
     // cate1
     @Headers({"Content-Type: application/json", "Accept: application/json"})
     @POST()
-    Call<ResponseSlbBean2<BjyyBeanYewu4>> getcate1(@Url String path,
-                                                   @Body RequestBody body);
+    Call<ResponseSlbBean2<BjyyBeanYewu4>> getcate1(@Url String path, @Body RequestBody body);
 
     // 腾讯IM初始化
     @Headers({"Content-Type: application/json", "Accept: application/json"})
     @POST()
-    Call<ResponseSlbBean2<Ftencentim1Bean>> get_tencent_im1(@Url String path,
-                                                            @Body RequestBody body);
+    Call<ResponseSlbBean2<Ftencentim1Bean>> get_tencent_im1(@Url String path, @Body RequestBody body);
 
     // 容联云通讯视频会议初始化
     @Headers({"Content-Type: application/json", "Accept: application/json"})
@@ -133,30 +121,25 @@ public interface Biz2Api {
     // IM/shipinghuiyi初始化
     @Headers({"Content-Type: application/json", "Accept: application/json"})
     @POST()
-    Call<ResponseSlbBean2<FImBean>> get_im1(@Url String path,
-                                            @Body RequestBody body);
+    Call<ResponseSlbBean2<FImBean>> get_im1(@Url String path, @Body RequestBody body);
 
     // 第三方小程序跳转
     @Headers({"Content-Type: application/json", "Accept: application/json"})
     @POST()
-    Call<ResponseSlbBean2<FWechatJumpBean>> get_wechat_jump1(@Url String path,
-                                                             @Body RequestBody body);
+    Call<ResponseSlbBean2<FWechatJumpBean>> get_wechat_jump1(@Url String path, @Body RequestBody body);
 
     // 获取应用维护信息
     @Headers({"Content-Type: application/json", "Accept: application/json"})
     @POST()
-    Call<ResponseSlbBean2<FAppCheckUseBean>> get_app_check_use(@Url String path,
-                                                               @Body RequestBody body);
+    Call<ResponseSlbBean2<FAppCheckUseBean>> get_app_check_use(@Url String path, @Body RequestBody body);
 
     // lunbotu
     @Headers({"Content-Type: application/json", "Accept: application/json"})
     @POST()
-    Call<ResponseSlbBean2<BjyyBeanYewu3>> get_lunbotu1(@Url String path,
-                                                       @Body RequestBody body);
+    Call<ResponseSlbBean2<BjyyBeanYewu3>> get_lunbotu1(@Url String path, @Body RequestBody body);
 
     // banner
     @Headers({"Content-Type: application/json", "Accept: application/json"})
     @POST()
-    Call<ResponseSlbBean2<FBannerBean>> get_banner(@Url String path,
-                                                   @Body RequestBody body);
+    Call<ResponseSlbBean2<FBannerBean>> get_banner(@Url String path, @Body RequestBody body);
 }

@@ -5,8 +5,11 @@ import android.app.Application;
 import com.blankj.utilcode.util.AppUtils;
 import com.blankj.utilcode.util.DeviceUtils;
 import com.blankj.utilcode.util.EncryptUtils;
+import com.blankj.utilcode.util.NetworkUtils;
 import com.blankj.utilcode.util.SPUtils;
+import com.blankj.utilcode.util.ToastUtils;
 import com.blankj.utilcode.util.Utils;
+import com.fosung.lighthouse.dtsxbb.cache.EnhancedCacheInterceptor;
 import com.geek.libutils.libretrofit.BanbenUtils;
 
 import java.io.File;
@@ -14,6 +17,7 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.Cache;
+import okhttp3.CacheControl;
 import okhttp3.Call;
 import okhttp3.Dispatcher;
 import okhttp3.HttpUrl;
@@ -38,14 +42,20 @@ public class RetrofitNetNew2 {
 //        httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
         //设置 请求的缓存的大小跟位置
-        File cacheFile = new File(Utils.getApp().getExternalFilesDir(null).getAbsolutePath(), "RetrofitNetNewCache");
-        Cache cache = new Cache(cacheFile, 1024 * 1024 * 50); //50Mb 缓存的大小
+        File cacheFile = new File(Utils.getApp().getExternalFilesDir(null).getAbsolutePath(),
+                "RetrofitNetNewCache2");
+        Cache cache = new Cache(cacheFile, 1024 * 1024 * 200); //200Mb 缓存的大小
         client = new OkHttpClient
                 .Builder()
+                .cache(cache)  //添加缓存
                 .addInterceptor(addQueryParameterInterceptor())  //参数添加
                 .addInterceptor(addHeaderInterceptor()) // token过滤
                 .addInterceptor(new LoggingInterceptor2()) //日志,所有的请求响应度看到 LoggingInterceptor
-                .cache(cache)  //添加缓存
+                //缓存
+                .addInterceptor(new EnhancedCacheInterceptor())
+                .addInterceptor(cacheControlInterceptor)
+//                .addInterceptor(OfflineInterceptor())
+//                .addNetworkInterceptor(OnlineInterceptor())
                 .connectTimeout(10L, TimeUnit.SECONDS)
                 .readTimeout(10L, TimeUnit.SECONDS)
                 .writeTimeout(10L, TimeUnit.SECONDS)
@@ -179,6 +189,89 @@ public class RetrofitNetNew2 {
         };
         return headerInterceptor;
     }
+
+    /**
+     * 缓存机制
+     * 在响应请求之后在 data/data/<包名>/cache 下建立一个response 文件夹，保持缓存数据。
+     * 这样我们就可以在请求的时候，如果判断到没有网络，自动读取缓存的数据。
+     * 同样这也可以实现，在我们没有网络的情况下，重新打开App可以浏览的之前显示过的内容。
+     * 也就是：判断网络，有网络，则从网络获取，并保存到缓存中，无网络，则从缓存中获取。
+     * https://werb.github.io/2016/07/29/%E4%BD%BF%E7%94%A8Retrofit2+OkHttp3%E5%AE%9E%E7%8E%B0%E7%BC%93%E5%AD%98%E5%A4%84%E7%90%86/
+     */
+    //这里是设置拦截器，供下面的函数调用，辅助作用。
+    private static final Interceptor cacheControlInterceptor = new Interceptor() {
+        @Override
+        public Response intercept(Chain chain) throws IOException {
+            Request request = chain.request();
+            if (!NetworkUtils.isConnected()) {
+                request = request.newBuilder().cacheControl(CacheControl.FORCE_CACHE).build();
+            }
+            Response originalResponse = chain.proceed(request);
+            if (NetworkUtils.isConnected()) {
+                // 有网络时 设置缓存为默认值
+//                ToastUtils.showLong("有网络时 设置缓存为默认值");
+                String cacheControl = request.cacheControl().toString();
+                return originalResponse.newBuilder()
+                        .header("Cache-Control", cacheControl)
+                        .removeHeader("Pragma")
+                        // 清除头信息，因为服务器如果不支持，会返回一些干扰信息，不清除下面无法生效
+                        .build();
+            } else {
+                // 无网络时 设置超时为1周
+                int maxStale = 60 * 60 * 24 * 7;
+//                ToastUtils.showLong("无网络时 设置超时为1周");
+                return originalResponse.newBuilder()
+                        .header("Cache-Control",
+                                "public, only-if-cached, max-stale=" + maxStale)
+                        .removeHeader("Pragma")
+                        .build();
+            }
+        }
+    };
+
+//    /**
+//     * 有网络的时候
+//     */
+//    private static Interceptor OnlineInterceptor() {
+//        Interceptor onlineInterceptor = new Interceptor() {
+//            @Override
+//            public Response intercept(Chain chain) throws IOException {
+//                Request request = chain.request();
+//                Response response = chain.proceed(request);
+//                int onlineCacheTime = 0;//在线的时候的缓存过期时间，如果想要不缓存，直接时间设置为0
+////                ToastUtils.showLong("有网络的时候");
+//                return response.newBuilder()
+//                        .header("Cache-Control", "public, max-age=" + onlineCacheTime)
+//                        .removeHeader("Pragma").build();
+//            }
+//        };
+//        return onlineInterceptor;
+//    }
+//
+//    /**
+//     * 无网络的时候
+//     */
+//    private static Interceptor OfflineInterceptor() {
+//        Interceptor offlineInterceptor = new Interceptor() {
+//            @Override
+//            public Response intercept(Chain chain) throws IOException {
+//                Request request = chain.request();
+//                if (!NetworkUtils.isConnected()) {// NetStateUtils
+//                    //从缓存取数据
+////                    ToastUtils.showLong("从缓存取数据");
+//                    Request newRequest = request.newBuilder().cacheControl(CacheControl.FORCE_CACHE).build();
+//                    int maxTime = 60 * 60 * 24;
+//                    Response response = chain.proceed(newRequest);
+//                    return response.newBuilder()
+//                            .removeHeader("Pragma")
+//                            .header("Cache-Control", "public, only-if-cached, max-stale=" + maxTime).build();
+//                }else {
+//                    return chain.proceed(request);
+//                }
+//            }
+//        };
+//        return offlineInterceptor;
+//    }
 
 
     private static Application sInstanceApp;

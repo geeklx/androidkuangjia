@@ -22,7 +22,7 @@ public interface HomePageApi {
     /**
      * 获取首页bannerview的数据
      */
-    @Headers({"Content-Type: application/json", "Accept: application/json"})
+@Headers({"Content-Type: application/json", "Accept: application/json"})
     @POST(VersionConfig.SERVICE_HOST + "tft/advert/authCom/findBusinessBanner")
     Call<BannerBean> getBannerData(@Header("accessToken") String accessToken);
 
@@ -30,12 +30,12 @@ public interface HomePageApi {
     /**
      * 获取搭配鉴酒图片
      */
-    @Headers({"Content-Type: application/json", "Accept: application/json"})
+@Headers({"Content-Type: application/json", "Accept: application/json"})
     @POST(VersionConfig.SERVICE_HOST + "tft/recommendModel/authCom/findList")
     Call<MatchWineResult> getMatchWinePic(@Header("accessToken") String token, @Body RequestBody json);
 
     //获取资讯图片数据
-    @Headers({"Content-Type: application/json", "Accept: application/json"})
+@Headers({"Content-Type: application/json", "Accept: application/json"})
     @POST(VersionConfig.SERVICE_HOST + "tft/information/authCom/findIndex")
     Call<InformationImageBean> getInformationImagess(@Header("accessToken") String accessToken);
 
