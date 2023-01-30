@@ -16,7 +16,7 @@ buildscript {
 
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.3.1'
+        classpath 'com.android.tools.build:gradle:7.4.0'
 //        classpath 'com.meituan.android.walle:plugin:1.1.7'
         classpath 'com.github.Petterpx.walle:plugin:1.0.4'
         classpath 'org.greenrobot:greendao-gradle-plugin:3.3.0' // add plugin

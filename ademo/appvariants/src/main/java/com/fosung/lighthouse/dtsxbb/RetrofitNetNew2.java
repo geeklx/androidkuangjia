@@ -7,7 +7,6 @@ import com.blankj.utilcode.util.DeviceUtils;
 import com.blankj.utilcode.util.EncryptUtils;
 import com.blankj.utilcode.util.NetworkUtils;
 import com.blankj.utilcode.util.SPUtils;
-import com.blankj.utilcode.util.ToastUtils;
 import com.blankj.utilcode.util.Utils;
 import com.fosung.lighthouse.dtsxbb.cache.EnhancedCacheInterceptor;
 import com.geek.libutils.libretrofit.BanbenUtils;
@@ -48,6 +47,7 @@ public class RetrofitNetNew2 {
         client = new OkHttpClient
                 .Builder()
                 .cache(cache)  //添加缓存
+                .retryOnConnectionFailure(true)//失败重连
                 .addInterceptor(addQueryParameterInterceptor())  //参数添加
                 .addInterceptor(addHeaderInterceptor()) // token过滤
                 .addInterceptor(new LoggingInterceptor2()) //日志,所有的请求响应度看到 LoggingInterceptor

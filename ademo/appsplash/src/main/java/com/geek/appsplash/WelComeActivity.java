@@ -313,11 +313,11 @@ public class WelComeActivity extends AppCompatActivity implements FinitView {
                     return;
                 }
                 if (key_token == 0) {
-                    if (!MobileUtils.isNetworkConnected(WelComeActivity.this)) {
-                        startActivity(new Intent(AppUtils.getAppPackageName() + ".hs.act.slbapp.SlbLoginActivity"));// ShouyeActivity
-                        finish();
-                        return;
-                    }
+//                    if (!MobileUtils.isNetworkConnected(WelComeActivity.this)) {
+//                        startActivity(new Intent(AppUtils.getAppPackageName() + ".hs.act.slbapp.SlbLoginActivity"));// ShouyeActivity
+//                        finish();
+//                        return;
+//                    }
                     MyLogUtil.e("ssssssssss", "configtencentIm login success  onSplashViewDismiss");
                     jump();
                 }

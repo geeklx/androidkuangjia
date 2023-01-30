@@ -32,7 +32,7 @@ public final class CacheManager {
     public static final String TAG = "CacheManager";
 
     //max cache size 10mb
-    private static final long DISK_CACHE_SIZE = 1024 * 1024 * 10;
+    private static final long DISK_CACHE_SIZE = 1024 * 1024 * 50;
 
     private static final int DISK_CACHE_INDEX = 0;
 

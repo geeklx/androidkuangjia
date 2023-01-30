@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import android.view.View;
 
 import com.blankj.utilcode.util.SPUtils;
+import com.blankj.utilcode.util.ToastUtils;
 import com.fosung.lighthouse.dtsxbb.BuildConfigyewu;
 import com.fosung.lighthouse.dtsxbb.UrlManager;
 import com.lxj.xpopup.XPopup;
@@ -53,6 +54,9 @@ public class BanbenCommonUtilszbiz1 {
                                             BanbenCommonUtilszbiz1.dizhi1_comm = content[0];
                                         }
 //                                new XPopup.Builder(getContext()).asLoading().show();
+                                        ToastUtils.showLong("已切换，生效中");
+                                        RestartAPPTool.restartAPP(activity, 2000);
+
                                     }
                                 })
                         .show();

@@ -8,8 +8,6 @@ android {
     defaultConfig {
         minSdkVersion config.minSdkVersion
         targetSdkVersion config.targetSdkVersion
-        versionCode config.appversionCode
-        versionName config.appversionName
         multiDexEnabled true
         renderscriptTargetApi 19
         renderscriptSupportModeEnabled true

@@ -18,6 +18,7 @@ import com.geek.libutils.app.FragmentHelper;
  */
 public class Demo1Activity extends SlbBase {
 
+
     @Override
     protected int getLayoutId() {
         return R.layout.activity_demo1;
@@ -27,6 +28,7 @@ public class Demo1Activity extends SlbBase {
     protected void setup(@Nullable Bundle savedInstanceState) {
         super.setup(savedInstanceState);
         setFragment();
+
     }
 
     private void setFragment() {

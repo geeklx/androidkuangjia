@@ -60,6 +60,7 @@ public class EnhancedCacheInterceptor implements Interceptor {
             CacheManager.getInstance().putCache(key, json);
         }
         Log.d(CacheManager.TAG, "put cache-> key:" + key + "-> json:" + json);
-        return chain.proceed(request);
+//        return chain.proceed(request);
+        return response;
     }
 }

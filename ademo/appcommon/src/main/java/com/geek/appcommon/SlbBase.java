@@ -6,6 +6,7 @@ import androidx.annotation.Nullable;
 
 import com.blankj.utilcode.util.BarUtils;
 import com.geek.libbase.base.SlbBaseActivity;
+import com.geek.libbase.netstate.NetconListener;
 
 public abstract class SlbBase extends SlbBaseActivity {
 
@@ -15,6 +16,22 @@ public abstract class SlbBase extends SlbBaseActivity {
         super.onCreate(savedInstanceState);
         //
         BarUtils.setStatusBarLightMode(this, false);
+//        netState.setNetStateListener(new NetconListener() {
+//            @Override
+//            public void net_con_none() {
+//
+//            }
+//
+//            @Override
+//            public void net_con_success() {
+//
+//            }
+//
+//            @Override
+//            public void showNetPopup() {
+//
+//            }
+//        }, this);
     }
 
     @Override

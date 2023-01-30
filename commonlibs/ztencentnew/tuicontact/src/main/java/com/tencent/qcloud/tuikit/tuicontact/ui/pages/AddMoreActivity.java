@@ -97,6 +97,8 @@ public class AddMoreActivity extends BaseLightActivity implements IAddMoreActivi
             e.printStackTrace();
         }
         SoftKeyBoardUtil.hideKeyBoard(mUserID.getWindowToken());
+        //
+
     }
 //    @Override
 //    public void finish() {
