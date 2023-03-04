@@ -168,6 +168,9 @@ public class Shouye10 extends SlbBaseLazyFragmentNewCate implements View.OnClick
         List<BjyyBeanYewu3> mList = new ArrayList<>();
         mList.add(new BjyyBeanYewu3("id1", "", "com.geek.appindex.news.fragment.RecommandFragment", "http://119.188.115.252:8090/resource-handle/uploads/image/ic_table_2_u.png", "推荐", Shouye10Adapter1.TAG_RECOMMAND, false));
         mList.add(new BjyyBeanYewu3("id2", "", "com.geek.appindex.news.fragment.DJDTFragment", "http://119.188.115.252:8090/resource-handle/uploads/image/ic_table_2_u.png", "党建动态", Shouye10Adapter1.TAG_DJDT, false));
+        mList.add(new BjyyBeanYewu3("id1", "", "com.geek.appindex.news.fragment.RecommandFragment", "http://119.188.115.252:8090/resource-handle/uploads/image/ic_table_2_u.png", "推荐", Shouye10Adapter1.TAG_RECOMMAND, false));
+        mList.add(new BjyyBeanYewu3("id1", "", "com.geek.appindex.news.fragment.RecommandFragment", "http://119.188.115.252:8090/resource-handle/uploads/image/ic_table_2_u.png", "推荐", Shouye10Adapter1.TAG_RECOMMAND, false));
+        mList.add(new BjyyBeanYewu3("id2", "", "com.geek.appindex.news.fragment.DJDTFragment", "http://119.188.115.252:8090/resource-handle/uploads/image/ic_table_2_u.png", "党建动态", Shouye10Adapter1.TAG_DJDT, false));
         return mList;
     }
 

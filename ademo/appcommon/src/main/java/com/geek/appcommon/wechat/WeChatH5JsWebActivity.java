@@ -21,10 +21,8 @@ import androidx.appcompat.widget.PopupMenu;
 
 import com.blankj.utilcode.util.AppUtils;
 import com.blankj.utilcode.util.ToastUtils;
-import com.geek.appcommon.AppCommonUtils;
 import com.geek.appcommon.sharepop.FSharePopupView;
 import com.geek.biz1.bean.FShareBean;
-import com.geek.biz1.bean.FgrxxBean;
 import com.geek.biz1.bean.FinitBean;
 import com.geek.common.R;
 import com.geek.libbase.utils.ApkDownloadUtils;
@@ -34,9 +32,6 @@ import com.geek.libutils.data.MmkvUtils;
 import com.github.lzyzsd.jsbridge.BridgeHandler;
 import com.github.lzyzsd.jsbridge.CallBackFunction;
 import com.haier.cellarette.baselibrary.toasts3.MProgressBarDialog;
-import com.hjq.permissions.OnPermissionCallback;
-import com.hjq.permissions.Permission;
-import com.hjq.permissions.XXPermissions;
 import com.just.agentweb.geek.base.BaseAgentWebActivityJs2;
 import com.just.agentweb.geek.fragment.AgentWebFragment;
 import com.just.agentweb.geek.hois3.HiosHelperNew;
@@ -51,7 +46,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
-import java.util.List;
 
 public class WeChatH5JsWebActivity extends BaseAgentWebActivityJs2 {
 
@@ -278,59 +272,59 @@ public class WeChatH5JsWebActivity extends BaseAgentWebActivityJs2 {
         });
 
         //加入会议
-        mBridgeWebView.registerHandler("joinMeeting", new BridgeHandler() {
-
-            @Override
-            public void handler(String data, CallBackFunction function) {
-                XXPermissions.setScopedStorage(true);
-                XXPermissions.with(WeChatH5JsWebActivity.this)
-                        .permission(Permission.READ_EXTERNAL_STORAGE)
-                        .permission(Permission.WRITE_EXTERNAL_STORAGE)
-                        .permission(Permission.CALL_PHONE)
-                        .permission(Permission.CAMERA)
-                        .permission(Permission.RECORD_AUDIO)
-                        .request(new OnPermissionCallback() {
-                            @Override
-                            public void onGranted(List<String> permissions, boolean all) {
-                                try {
-                                    FgrxxBean fgrxxBean = MmkvUtils.getInstance().get_common_json(AppCommonUtils.userInfo, FgrxxBean.class);
-                                    JSONObject jsonObject = new JSONObject(data);
-                                    roomNumber = jsonObject.getString("roomNumber");
-//                                    JoinMeetingUtil.getInstance()
-//                                            .joinMetting(WeChatH5JsWebActivity.this,
-//                                                    roomNumber,
-//                                                    fgrxxBean.getUserId(),
-//                                                    "51omlbpXnYU5V+gPCKpSHGfC4Lc=");//
-//                                  loginMeeting("10000", "test001");
-                                } catch (JSONException e) {
-                                    e.printStackTrace();
-                                    com.hjq.toast.ToastUtils.show("参数异常");
-                                }
-//                              startActivity(new Intent(getActivity(), HSTact.class));
-
-                            }
-
-                            @Override
-                            public void onDenied(List<String> permissions, boolean never) {
-//                                DoubleButtonDialog permissionDialog = new DoubleButtonDialog(WeChatH5JsWebActivity.this,
-//                                        R.string.login_tip, R.string.permission_fail,
-//                                        R.string.cancel, R.string.to_android_setting);
-//                                permissionDialog.setOnClickListener(new DoubleButtonDialog.IOnClickListener() {
-//                                    @Override
-//                                    public void leftButtonClick(Dialog dialog) {
-//                                        dialog.cancel();
-//                                    }
+//        mBridgeWebView.registerHandler("joinMeeting", new BridgeHandler() {
 //
-//                                    @Override
-//                                    public void rightButtonClick(Dialog dialog) {
-//                                        PermissionsPageUtils pageUtils = new PermissionsPageUtils();
-//                                        pageUtils.jumpPermissionPage();
-//                                    }
-//                                });
-                            }
-                        });
-            }
-        });
+//            @Override
+//            public void handler(String data, CallBackFunction function) {
+//                XXPermissions.setScopedStorage(true);
+//                XXPermissions.with(WeChatH5JsWebActivity.this)
+//                        .permission(Permission.READ_EXTERNAL_STORAGE)
+//                        .permission(Permission.WRITE_EXTERNAL_STORAGE)
+//                        .permission(Permission.CALL_PHONE)
+//                        .permission(Permission.CAMERA)
+//                        .permission(Permission.RECORD_AUDIO)
+//                        .request(new OnPermissionCallback() {
+//                            @Override
+//                            public void onGranted(List<String> permissions, boolean all) {
+//                                try {
+//                                    FgrxxBean fgrxxBean = MmkvUtils.getInstance().get_common_json(AppCommonUtils.userInfo, FgrxxBean.class);
+//                                    JSONObject jsonObject = new JSONObject(data);
+//                                    roomNumber = jsonObject.getString("roomNumber");
+////                                    JoinMeetingUtil.getInstance()
+////                                            .joinMetting(WeChatH5JsWebActivity.this,
+////                                                    roomNumber,
+////                                                    fgrxxBean.getUserId(),
+////                                                    "51omlbpXnYU5V+gPCKpSHGfC4Lc=");//
+////                                  loginMeeting("10000", "test001");
+//                                } catch (JSONException e) {
+//                                    e.printStackTrace();
+//                                    com.hjq.toast.ToastUtils.show("参数异常");
+//                                }
+////                              startActivity(new Intent(getActivity(), HSTact.class));
+//
+//                            }
+//
+//                            @Override
+//                            public void onDenied(List<String> permissions, boolean never) {
+////                                DoubleButtonDialog permissionDialog = new DoubleButtonDialog(WeChatH5JsWebActivity.this,
+////                                        R.string.login_tip, R.string.permission_fail,
+////                                        R.string.cancel, R.string.to_android_setting);
+////                                permissionDialog.setOnClickListener(new DoubleButtonDialog.IOnClickListener() {
+////                                    @Override
+////                                    public void leftButtonClick(Dialog dialog) {
+////                                        dialog.cancel();
+////                                    }
+////
+////                                    @Override
+////                                    public void rightButtonClick(Dialog dialog) {
+////                                        PermissionsPageUtils pageUtils = new PermissionsPageUtils();
+////                                        pageUtils.jumpPermissionPage();
+////                                    }
+////                                });
+//                            }
+//                        });
+//            }
+//        });
         //APPLINK
         mBridgeWebView.registerHandler("hioslink", new BridgeHandler() {
 

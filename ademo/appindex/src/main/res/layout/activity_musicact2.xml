@@ -58,10 +58,11 @@
             android:layout_toRightOf="@+id/MusicTime"
             android:maxHeight="6dp"
             android:minHeight="6dp"
-            android:progress="0"
+            android:progress="60"
             android:progressDrawable="@drawable/musicplayer_bg_progress_black"
             android:splitTrack="false"
-            android:thumb="@drawable/musicplayer_thumb" />
+            android:thumb="@drawable/musicplayer_thumb"
+            android:thumbOffset="0dp" />
 
         <!--显示总进度-->
         <TextView

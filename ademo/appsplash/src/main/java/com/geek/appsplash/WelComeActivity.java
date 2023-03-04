@@ -1,12 +1,9 @@
 package com.geek.appsplash;
 
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.os.Handler;
-import android.os.Looper;
 import android.text.TextPaint;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
@@ -24,26 +21,21 @@ import androidx.core.content.ContextCompat;
 import com.blankj.utilcode.util.ActivityUtils;
 import com.blankj.utilcode.util.AppUtils;
 import com.blankj.utilcode.util.SPUtils;
-import com.blankj.utilcode.util.ToastUtils;
 import com.geek.appcommon.AppCommonUtils;
 import com.geek.biz1.bean.FinitBean;
 import com.geek.biz1.presenter.FinitPresenter;
 import com.geek.biz1.view.FinitView;
 import com.geek.libbase.utils.CommonUtils;
 import com.geek.libutils.app.BaseApp;
-import com.geek.libutils.app.MobileUtils;
 import com.geek.libutils.app.MyLogUtil;
 import com.geek.libutils.data.MmkvUtils;
+import com.gyf.immersionbar.ImmersionBar;
 import com.haier.cellarette.baselibrary.btnonclick.view.BounceView;
 import com.haier.cellarette.baselibrary.zothers.SpannableStringUtils;
 import com.just.agentweb.geek.hois3.HiosHelperNew;
 import com.lxj.xpopup.XPopup;
 import com.lxj.xpopup.core.BasePopupView;
 import com.lxj.xpopup.core.CenterPopupView;
-import com.mob.tools.utils.Hashon;
-
-import java.util.HashMap;
-import java.util.Set;
 
 public class WelComeActivity extends AppCompatActivity implements FinitView {
 
@@ -69,6 +61,12 @@ public class WelComeActivity extends AppCompatActivity implements FinitView {
                 }
             }
         }
+        ImmersionBar.with(this)
+                .fullScreen(true)
+                .statusBarColor(R.color.transparent)
+                .statusBarDarkFont(true)
+                .navigationBarColor(R.color.transparent)
+                .init();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
         key_token = SPUtils.getInstance().getInt("key_token", -1);

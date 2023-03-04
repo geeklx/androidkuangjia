@@ -81,7 +81,6 @@ import cc.shinichi.library.glide.ImageLoader;
 import cc.shinichi.library.tool.common.HttpUtil;
 import cc.shinichi.library.tool.file.FileUtil;
 import cc.shinichi.library.tool.image.DownloadPictureUtil;
-import cc.shinichi.library.tool.image.ImageUtil;
 import cc.shinichi.library.tool.ui.ToastUtil;
 import cc.shinichi.library.view.helper.ImageSource;
 import cc.shinichi.library.view.helper.SubsamplingScaleImageViewDragClose;
