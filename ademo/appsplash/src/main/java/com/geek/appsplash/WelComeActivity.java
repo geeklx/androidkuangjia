@@ -61,12 +61,7 @@ public class WelComeActivity extends AppCompatActivity implements FinitView {
                 }
             }
         }
-        ImmersionBar.with(this)
-                .fullScreen(true)
-                .statusBarColor(R.color.transparent)
-                .statusBarDarkFont(true)
-                .navigationBarColor(R.color.transparent)
-                .init();
+        ImmersionBar.with(this).fullScreen(true).statusBarColor(R.color.transparent).statusBarDarkFont(true).navigationBarColor(R.color.transparent).init();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
         key_token = SPUtils.getInstance().getInt("key_token", -1);
@@ -181,11 +176,9 @@ public class WelComeActivity extends AppCompatActivity implements FinitView {
                 }
                 return false;
             }
-            loadingPopup = new XPopup.Builder(this)
-                    .isDestroyOnDismiss(false) //对于只使用一次的弹窗，推荐设置这个
+            loadingPopup = new XPopup.Builder(this).isDestroyOnDismiss(false) //对于只使用一次的弹窗，推荐设置这个
 //              .isViewMode(true)
-                    .dismissOnTouchOutside(false)
-                    .asCustom(new CenterPopupView(this) {
+                    .dismissOnTouchOutside(false).asCustom(new CenterPopupView(this) {
                         private TextView tvContent;
                         private CheckBox radAgreement;
                         private TextView btnClose;
@@ -204,42 +197,34 @@ public class WelComeActivity extends AppCompatActivity implements FinitView {
                             btnClose = findViewById(R.id.btn_cancle);
                             btnOk = findViewById(R.id.btn_ok);
                             FinitBean fconfigBean = MmkvUtils.getInstance().get_common_json("config", FinitBean.class);
-                            tvContent.setText(SpannableStringUtils.getInstance(WelComeActivity.this)
-                                    .getBuilder("欢迎使用移动端平台！灯塔非常重视您的隐私保护和个人信息保护。在您使用移动端平台前，请认真阅读")
-                                    .append("《用户协议》")
-                                    .setClickSpan(new ClickableSpan() {
-                                        @Override
-                                        public void onClick(View widget) {
-                                            HiosHelperNew.resolveAd(WelComeActivity.this, WelComeActivity.this, fconfigBean.getUser());
-                                        }
+                            tvContent.setText(SpannableStringUtils.getInstance(WelComeActivity.this).getBuilder("欢迎使用移动端平台！灯塔非常重视您的隐私保护和个人信息保护。在您使用移动端平台前，请认真阅读").append("《用户协议》").setClickSpan(new ClickableSpan() {
+                                @Override
+                                public void onClick(View widget) {
+                                    HiosHelperNew.resolveAd(WelComeActivity.this, WelComeActivity.this, fconfigBean.getUser());
+                                }
 
-                                        @Override
-                                        public void updateDrawState(TextPaint ds) {
-                                            ds.setColor(ContextCompat.getColor(BaseApp.get(), R.color.red));
-                                            ds.setUnderlineText(false);
-                                        }
-                                    })
-                                    .append("及")
-                                    .append("《隐私政策》")
-                                    .setClickSpan(new ClickableSpan() {
-                                        @Override
-                                        public void onClick(View widget) {
+                                @Override
+                                public void updateDrawState(TextPaint ds) {
+                                    ds.setColor(ContextCompat.getColor(BaseApp.get(), R.color.red));
+                                    ds.setUnderlineText(false);
+                                }
+                            }).append("及").append("《隐私政策》").setClickSpan(new ClickableSpan() {
+                                @Override
+                                public void onClick(View widget) {
 //                                        Uri url = Uri.parse("http://blog.51cto.com/liangxiao");
 //                                        Intent intent = new Intent(Intent.ACTION_VIEW);
 //                                        intent.setData(url);
 //                                        startActivity(intent);
 //                                        HiosHelper.resolveAd(SlbLoginActivity.this, SlbLoginActivity.this, MmkvUtils.getInstance().get_common(CommonUtils.MMKV_privacyPolicy));
-                                            HiosHelperNew.resolveAd(WelComeActivity.this, WelComeActivity.this, fconfigBean.getPrivacy());
-                                        }
+                                    HiosHelperNew.resolveAd(WelComeActivity.this, WelComeActivity.this, fconfigBean.getPrivacy());
+                                }
 
-                                        @Override
-                                        public void updateDrawState(TextPaint ds) {
-                                            ds.setColor(ContextCompat.getColor(WelComeActivity.this, R.color.red));
-                                            ds.setUnderlineText(false);
-                                        }
-                                    })
-                                    .append("，您同意并接受全部条款后方可使用。")
-                                    .create());
+                                @Override
+                                public void updateDrawState(TextPaint ds) {
+                                    ds.setColor(ContextCompat.getColor(WelComeActivity.this, R.color.red));
+                                    ds.setUnderlineText(false);
+                                }
+                            }).append("，您同意并接受全部条款后方可使用。").create());
                             tvContent.setMovementMethod(LinkMovementMethod.getInstance());
                             BounceView.addAnimTo(btnOk);
                             BounceView.addAnimTo(btnClose);
@@ -252,6 +237,9 @@ public class WelComeActivity extends AppCompatActivity implements FinitView {
                                     }
                                     dismiss();
                                     MmkvUtils.getInstance().set_xiancheng(CommonUtils.MMKV_forceLogin, true);
+                                    // 解耦application
+                                    SplashInitUtils.getInstance(BaseApp.get()).init();
+                                    //
                                     initSplashView(Advertlinkurl, Advertimage);
                                     return;
                                 }
