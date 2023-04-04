@@ -137,5 +137,8 @@
         <item name="android:background">@drawable/shape_fillet_white</item>
         <item name="behavior_peekHeight">400dp</item>
     </style>
-
+    <style name="FloatWindowAnimation">
+        <item name="android:windowEnterAnimation">@anim/anim_float_window_enter</item>
+        <item name="android:windowExitAnimation">@anim/anim_float_window_exit</item>
+    </style>
 </resources>

@@ -82,6 +82,7 @@
 
     <string name="str_pip1" translatable="false">画中画</string>
     <string name="appsplash_djs" translatable="false">跳过(%s)</string>
+    <string name="str_start_pip" translatable="false">悬浮窗</string>
 
 </resources>
 

@@ -18,6 +18,9 @@ import androidx.annotation.NonNull;
 
 import com.blankj.utilcode.util.SPUtils;
 import com.bumptech.glide.Glide;
+import com.geek.appcommon.video.BaseActivity;
+import com.geek.appcommon.video.Utils;
+import com.geek.appindex.R;
 import com.geek.biz1.bean.HTyxs1Bean;
 import com.geek.biz1.presenter.HTyxs1Presenter;
 import com.geek.biz1.presenter.HTyxs2Presenter;
@@ -35,25 +38,18 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-import xyz.doikki.dkplayer.R;
-import xyz.doikki.dkplayer.activity.BaseActivityDk;
-import xyz.doikki.dkplayer.util.IntentKeysDk;
-import xyz.doikki.dkplayer.util.UtilsDk;
-import xyz.doikki.dkplayer.widget.component.DebugInfoViewDk;
 import xyz.doikki.videocontroller.StandardVideoController;
 import xyz.doikki.videocontroller.component.CompleteView;
 import xyz.doikki.videocontroller.component.ErrorView;
 import xyz.doikki.videocontroller.component.GestureView;
 import xyz.doikki.videocontroller.component.PrepareView;
 import xyz.doikki.videocontroller.component.TitleView;
-import xyz.doikki.videocontroller.component.VodControlView;
 import xyz.doikki.videoplayer.controller.ControlWrapper;
 import xyz.doikki.videoplayer.controller.IControlComponent;
-import xyz.doikki.videoplayer.player.AbstractPlayer;
 import xyz.doikki.videoplayer.player.VideoView;
 import xyz.doikki.videoplayer.util.L;
 
-public class VideoPlayerAct extends BaseActivityDk<VideoView<AbstractPlayer>> implements Sbtyxs1View, Sbtyxs2View, Sbtyxs3View {
+public class VideoPlayerAct extends BaseActivity<VideoView> implements Sbtyxs1View, Sbtyxs2View, Sbtyxs3View {
 
     private static final String THUMB = "https://cms-bucket.nosdn.127.net/eb411c2810f04ffa8aaafc42052b233820180418095416.jpeg";
     private String url;
@@ -64,9 +60,9 @@ public class VideoPlayerAct extends BaseActivityDk<VideoView<AbstractPlayer>> im
 
     public static void start(Context context, String url, String title, boolean isLive) {
         Intent intent = new Intent(context, VideoPlayerAct.class);
-        intent.putExtra(IntentKeysDk.URL, url);
-        intent.putExtra(IntentKeysDk.IS_LIVE, isLive);
-        intent.putExtra(IntentKeysDk.TITLE, title);
+        intent.putExtra(IntentKeys.URL, url);
+        intent.putExtra(IntentKeys.IS_LIVE, isLive);
+        intent.putExtra(IntentKeys.TITLE, title);
         context.startActivity(intent);
     }
 
@@ -105,7 +101,7 @@ public class VideoPlayerAct extends BaseActivityDk<VideoView<AbstractPlayer>> im
 
     @Override
     protected int getLayoutResId() {
-        return R.layout.activity_playerdk;
+        return R.layout.activity_player;
     }
 
     @Override
@@ -166,7 +162,7 @@ public class VideoPlayerAct extends BaseActivityDk<VideoView<AbstractPlayer>> im
             TitleView titleView = new TitleView(this);//标题栏
             controller.addControlComponent(titleView);
             //根据是否为直播设置不同的底部控制条
-            boolean isLive = intent.getBooleanExtra(IntentKeysDk.IS_LIVE, false);
+            boolean isLive = intent.getBooleanExtra(IntentKeys.IS_LIVE, false);
             vodControlView = new VodControlView(this);//点播控制条
             //是否显示底部进度条。默认显示
             vodControlView.showBottomProgress(true);
@@ -176,10 +172,10 @@ public class VideoPlayerAct extends BaseActivityDk<VideoView<AbstractPlayer>> im
             //根据是否为直播决定是否需要滑动调节进度
             controller.setCanChangePosition(!isLive);
             //设置标题
-            String title = intent.getStringExtra(IntentKeysDk.TITLE);
+            String title = intent.getStringExtra(IntentKeys.TITLE);
             titleView.setTitle(title);
             //在控制器上显示调试信息
-            controller.addControlComponent(new DebugInfoViewDk(this));
+            controller.addControlComponent(new DebugInfoView(this));
             //在LogCat显示调试信息
 //            controller.addControlComponent(new PlayerMonitorDk());
             controller.addControlComponent(new IControlComponent() {
@@ -248,13 +244,12 @@ public class VideoPlayerAct extends BaseActivityDk<VideoView<AbstractPlayer>> im
             //如果你不想要UI，不要设置控制器即可
             mVideoView.setVideoController(controller);
 
-            url = intent.getStringExtra(IntentKeysDk.URL);
+            url = intent.getStringExtra(IntentKeys.URL);
 
             //点击文件管理器中的视频，选择DKPlayer打开，将会走以下代码
-            if (TextUtils.isEmpty(url)
-                    && Intent.ACTION_VIEW.equals(intent.getAction())) {
+            if (TextUtils.isEmpty(url) && Intent.ACTION_VIEW.equals(intent.getAction())) {
                 //获取intent中的视频地址
-                url = UtilsDk.getFileFromContentUri(this, intent.getData());
+                url = Utils.getFileFromContentUri(this, intent.getData());
             }
             mVideoView.setUrl(url);
             //播放状态监听

@@ -13,15 +13,11 @@ import com.geek.common.R;
 import java.util.ArrayList;
 import java.util.List;
 
-import xyz.doikki.dkplayer.adapter.TikTokListAdapterDk;
-import xyz.doikki.dkplayer.bean.TiktokBeanDk;
-import xyz.doikki.dkplayer.fragment.BaseFragmentDk;
-import xyz.doikki.dkplayer.util.DataUtilDk;
 
-public class TikTokListFragmentDk extends BaseFragmentDk {
-    private List<TiktokBeanDk> data = new ArrayList();
+public class TikTokListFragmentDk extends BaseFragment {
+    private List<TiktokBean> data = new ArrayList();
     private RecyclerView mRecyclerView;
-    private TikTokListAdapterDk mAdapter;
+    private TikTokListAdapter mAdapter;
     private Button mSwitchImpl;
 
     public TikTokListFragmentDk() {
@@ -29,7 +25,7 @@ public class TikTokListFragmentDk extends BaseFragmentDk {
 
     @Override
     protected int getLayoutResId() {
-        return R.layout.fragment_tiktok_listdk;
+        return R.layout.fragment_tiktok_list;
     }
 
     @Override
@@ -37,7 +33,7 @@ public class TikTokListFragmentDk extends BaseFragmentDk {
         super.initView();
         this.mRecyclerView = (RecyclerView) this.findViewById(R.id.rv_tiktok);
         this.mRecyclerView.setLayoutManager(new GridLayoutManager(this.getContext(), 2));
-        this.mAdapter = new TikTokListAdapterDk(this.data);
+        this.mAdapter = new TikTokListAdapter(this.data);
         this.mRecyclerView.setAdapter(this.mAdapter);
         this.mSwitchImpl = (Button) this.findViewById(R.id.btn_switch_impl);
         final PopupMenu menu = new PopupMenu(this.getContext(), this.mSwitchImpl);
@@ -79,7 +75,7 @@ public class TikTokListFragmentDk extends BaseFragmentDk {
         (new Thread(new Runnable() {
             @Override
             public void run() {
-                List<TiktokBeanDk> tiktokBeans = DataUtilDk.getTiktokDataFromAssets(TikTokListFragmentDk.this.getActivity());
+                List<TiktokBean> tiktokBeans = DataUtil.getTiktokDataFromAssets(TikTokListFragmentDk.this.getActivity());
                 TikTokListFragmentDk.this.data.addAll(tiktokBeans);
                 TikTokListFragmentDk.this.mRecyclerView.post(new Runnable() {
                     @Override

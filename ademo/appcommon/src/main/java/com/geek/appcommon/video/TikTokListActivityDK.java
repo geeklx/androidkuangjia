@@ -2,12 +2,9 @@ package com.geek.appcommon.video;
 
 import android.os.Build;
 import android.os.Bundle;
-import android.view.View;
-import android.view.WindowInsets;
 
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
-import androidx.core.view.ViewCompat;
 
 import com.geek.appcommon.SlbBase;
 import com.geek.common.R;

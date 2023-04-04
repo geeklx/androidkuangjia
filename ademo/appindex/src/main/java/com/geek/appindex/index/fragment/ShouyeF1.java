@@ -13,22 +13,20 @@ import androidx.annotation.Nullable;
 
 import com.blankj.utilcode.util.AppUtils;
 import com.blankj.utilcode.util.ToastUtils;
+import com.geek.appcommon.video.DataUtil;
 import com.geek.appindex.R;
-import com.geek.appindex.news.fragment.TZGGFragment2;
 import com.geek.appindex.tyxsbofangqi.VideoPlayerAct;
 import com.geek.biz1.bean.BjyyBeanYewu3;
 import com.geek.libbase.base.SlbBaseLazyFragmentNew;
 import com.geek.libbase.utils.CommonUtils;
+import com.geek.libupdateapp.util.UpdateAppUtils;
 import com.geek.libutils.app.LocalBroadcastManagers;
 import com.geek.libutils.app.MyLogUtil;
-import com.geek.libupdateapp.util.UpdateAppUtils;
 import com.just.agentweb.geek.hois3.HiosHelperNew;
 import com.lxj.xpopup.XPopup;
 import com.lxj.xpopup.interfaces.OnCancelListener;
 import com.lxj.xpopup.interfaces.OnConfirmListener;
 import com.lxj.xpopup.util.XPopupUtils;
-
-import xyz.doikki.dkplayer.util.DataUtilDk;
 
 public class ShouyeF1 extends SlbBaseLazyFragmentNew implements View.OnClickListener {
 
@@ -125,7 +123,7 @@ public class ShouyeF1 extends SlbBaseLazyFragmentNew implements View.OnClickList
             tablayoutId = getArguments().getString("tablayoutId");
             MyLogUtil.e("tablayoutId->", "onCreate->" + tablayoutId);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                feileiBean = getArguments().getSerializable("feileiBean",BjyyBeanYewu3.class);
+                feileiBean = getArguments().getSerializable("feileiBean", BjyyBeanYewu3.class);
                 MyLogUtil.e("tablayoutId->", "onCreate->" + feileiBean.getId());
             }
         }
@@ -203,7 +201,7 @@ public class ShouyeF1 extends SlbBaseLazyFragmentNew implements View.OnClickList
             startActivity(new Intent(AppUtils.getAppPackageName() + ".hs.act.slbapp.IndexAct"));
         }
         if (id == R.id.shouyef1_tv2) {
-            VideoPlayerAct.start(getActivity(), DataUtilDk.SAMPLE_URL, "点播", false);
+            VideoPlayerAct.start(getActivity(), DataUtil.SAMPLE_URL, "点播", false);
         }
         if (id == R.id.shouyef1_tv3) {
             startActivity(new Intent(AppUtils.getAppPackageName() + ".hs.act.slbapp.Saoma3CommonScanActivity1"));
@@ -249,17 +247,11 @@ public class ShouyeF1 extends SlbBaseLazyFragmentNew implements View.OnClickList
             String updateInfo = "";// 更新内容 支持换行"版本：1.01" + "    " + "大小：10.41M\n" + "1.修改已知问题\n2.加入动态绘本\n3.加入小游戏等你来学习升级"
             String md5 = AppUtils.getAppSignaturesMD5(appPackageName).get(0);// md5校验
             // 接口bufen
-            UpdateAppUtils.from(getActivity())
-                    .serverVersionCode(serverVersionCode + 1)
-                    .serverVersionName(serverVersionName)
+            UpdateAppUtils.from(getActivity()).serverVersionCode(serverVersionCode + 1).serverVersionName(serverVersionName)
 //                    .downloadPath("11111.apk")
-                    .showProgress(true)
-                    .apkPath(apkPath)
-                    .isForce(false)
-                    .downloadBy(UpdateAppUtils.DOWNLOAD_BY_APP)    //default
+                    .showProgress(true).apkPath(apkPath).isForce(false).downloadBy(UpdateAppUtils.DOWNLOAD_BY_APP)    //default
                     .checkBy(UpdateAppUtils.CHECK_BY_VERSION_CODE) //default
-                    .updateInfoTitle("新版本已准备好")
-                    .updateInfo("版本：1.01" + "    " + "大小：2.41M\n" + "1.商户加入群聊，在线沟通更方便\n2.配送费专属优惠，下单更便宜\n3.新客加大福利，更多优惠等你来")
+                    .updateInfoTitle("新版本已准备好").updateInfo("版本：1.01" + "    " + "大小：2.41M\n" + "1.商户加入群聊，在线沟通更方便\n2.配送费专属优惠，下单更便宜\n3.新客加大福利，更多优惠等你来")
 //                .showNotification(false)
 //                .needFitAndroidN(false)
                     .update();
@@ -267,44 +259,34 @@ public class ShouyeF1 extends SlbBaseLazyFragmentNew implements View.OnClickList
         if (id == R.id.shouyef1_tv14) {
             new XPopup.Builder(getContext())
 //                    .autoOpenSoftInput(true)
-                    .maxWidth((int) (XPopupUtils.getWindowWidth(getContext()) * 0.8f))
-                    .dismissOnTouchOutside(false)
-                    .isDestroyOnDismiss(true) //对于只使用一次的弹窗，推荐设置这个
-                    .asConfirm("帐号过期", "由于长期不等到导致信息过期，由于长期不等到导致信息过期，由于长期不等到导致信息过期。",
-                            "取消", "登录",
-                            new OnConfirmListener() {
-                                @Override
-                                public void onConfirm() {
-                                    ToastUtils.showLong("确定");
-                                }
-                            }, new OnCancelListener() {
-                                @Override
-                                public void onCancel() {
-                                    ToastUtils.showLong("取消");
-                                }
-                            }, false, R.layout.my_confim_popup)
-                    .show(); //最后一个参数绑定已有布局
+                    .maxWidth((int) (XPopupUtils.getWindowWidth(getContext()) * 0.8f)).dismissOnTouchOutside(false).isDestroyOnDismiss(true) //对于只使用一次的弹窗，推荐设置这个
+                    .asConfirm("帐号过期", "由于长期不等到导致信息过期，由于长期不等到导致信息过期，由于长期不等到导致信息过期。", "取消", "登录", new OnConfirmListener() {
+                        @Override
+                        public void onConfirm() {
+                            ToastUtils.showLong("确定");
+                        }
+                    }, new OnCancelListener() {
+                        @Override
+                        public void onCancel() {
+                            ToastUtils.showLong("取消");
+                        }
+                    }, false, R.layout.my_confim_popup).show(); //最后一个参数绑定已有布局
         }
         if (id == R.id.shouyef1_tv15) {
             new XPopup.Builder(getContext())
 //                    .autoOpenSoftInput(true)
-                    .maxWidth((int) (XPopupUtils.getWindowWidth(getContext()) * 0.8f))
-                    .dismissOnTouchOutside(false)
-                    .isDestroyOnDismiss(true) //对于只使用一次的弹窗，推荐设置这个
-                    .asConfirm("维护中…", "应用正在维护，维护时间在，请耐心等待",
-                            "取消", "我知道了",
-                            new OnConfirmListener() {
-                                @Override
-                                public void onConfirm() {
-                                    ToastUtils.showLong("确定");
-                                }
-                            }, new OnCancelListener() {
-                                @Override
-                                public void onCancel() {
-                                    ToastUtils.showLong("取消");
-                                }
-                            }, true, R.layout.my_confim_popup2)
-                    .show(); //最后一个参数绑定已有布局
+                    .maxWidth((int) (XPopupUtils.getWindowWidth(getContext()) * 0.8f)).dismissOnTouchOutside(false).isDestroyOnDismiss(true) //对于只使用一次的弹窗，推荐设置这个
+                    .asConfirm("维护中…", "应用正在维护，维护时间在，请耐心等待", "取消", "我知道了", new OnConfirmListener() {
+                        @Override
+                        public void onConfirm() {
+                            ToastUtils.showLong("确定");
+                        }
+                    }, new OnCancelListener() {
+                        @Override
+                        public void onCancel() {
+                            ToastUtils.showLong("取消");
+                        }
+                    }, true, R.layout.my_confim_popup2).show(); //最后一个参数绑定已有布局
         }
         if (id == R.id.shouyef1_tv16) {
             Intent intent = new Intent(AppUtils.getAppPackageName() + ".hs.act.slbapp.SearchListActivity1");

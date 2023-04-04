@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_nameappindex" translatable="false">appindex</string>
+    <string name="str_screen_shot" translatable="false">截图</string>
 
 </resources>

@@ -17,13 +17,11 @@ import com.hjq.permissions.XXPermissions;
 
 import java.util.List;
 
-import xyz.doikki.dkplayer.activity.BaseActivityDk;
-import xyz.doikki.dkplayer.util.PIPManagerDk;
 import xyz.doikki.videocontroller.StandardVideoController;
 import xyz.doikki.videoplayer.player.VideoView;
 
-public class PIPActivityDk extends BaseActivityDk {
-    private PIPManagerDk mPIPManager;
+public class PIPActivityDk extends BaseActivity {
+    private PIPManager mPIPManager;
 
     public PIPActivityDk() {
     }
@@ -31,7 +29,7 @@ public class PIPActivityDk extends BaseActivityDk {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.setContentView(R.layout.activity_pipdk);
+        this.setContentView(R.layout.activity_pip);
         ActionBar actionBar = this.getSupportActionBar();
         if (actionBar != null) {
             actionBar.setTitle("画中画");
@@ -39,17 +37,17 @@ public class PIPActivityDk extends BaseActivityDk {
         }
 
         FrameLayout playerContainer = (FrameLayout) this.findViewById(R.id.player_container);
-        this.mPIPManager = PIPManagerDk.getInstance();
+        this.mPIPManager = PIPManager.getInstance();
         VideoView videoView = this.getVideoViewManager().get("pip");
         StandardVideoController controller = new StandardVideoController(this);
-        controller.addDefaultControlComponent(this.getString(R.string.str_pip), false);
+        controller.addDefaultControlComponent(this.getString(R.string.str_pip1), false);
         videoView.setVideoController(controller);
         if (this.mPIPManager.isStartFloatWindow()) {
             this.mPIPManager.stopFloatWindow();
             controller.setPlayerState(videoView.getCurrentPlayerState());
             controller.setPlayState(videoView.getCurrentPlayState());
         } else {
-            this.mPIPManager.setActClass(xyz.doikki.dkplayer.activity.pip.PIPActivityDk.class);
+            this.mPIPManager.setActClass(PIPActivityDk.class);
             ImageView thumb = (ImageView) controller.findViewById(R.id.thumb);
             ((RequestBuilder) Glide.with(this).load("http://sh.people.com.cn/NMediaFile/2016/0112/LOCAL201601121344000138197365721.jpg").placeholder(android.R.color.darker_gray)).into(thumb);
             videoView.setUrl("http://vfx.mtime.cn/Video/2019/03/14/mp4/190314223540373995.mp4");
