@@ -198,7 +198,8 @@ public class ShouyeF1 extends SlbBaseLazyFragmentNew implements View.OnClickList
     public void onClick(View view) {
         int id = view.getId();
         if (id == R.id.shouyef1_tv1) {
-            startActivity(new Intent(AppUtils.getAppPackageName() + ".hs.act.slbapp.IndexAct"));
+//            startActivity(new Intent(AppUtils.getAppPackageName() + ".hs.act.slbapp.IndexAct"));
+            startActivity(new Intent(AppUtils.getAppPackageName() + ".hs.act.slbapp.Demo0Activity"));
         }
         if (id == R.id.shouyef1_tv2) {
             VideoPlayerAct.start(getActivity(), DataUtil.SAMPLE_URL, "点播", false);

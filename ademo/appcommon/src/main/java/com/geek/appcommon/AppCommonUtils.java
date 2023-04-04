@@ -46,6 +46,32 @@ public class AppCommonUtils {
     //    public static final String hios_path1 = AppUtils.getAppPackageName();
     public static final String hios_path1 = "com.fosung.lighthouse.dtsxbb";
 
+    public static final String TAG_f1 =
+            AppCommonUtils.hios_scheme3 +
+                    AppCommonUtils.hios_host1 +
+                    AppCommonUtils.hios_path1 +
+                    ".hs.act.slbapp.shouye";// 首页1
+    public static final String TAG_f2 =
+            AppCommonUtils.hios_scheme3 +
+                    AppCommonUtils.hios_host1 +
+                    AppCommonUtils.hios_path1 +
+                    ".hs.act.slbapp.yingyong";// 首页2
+    public static final String TAG_f3 =
+            AppCommonUtils.hios_scheme3 +
+                    AppCommonUtils.hios_host1 +
+                    AppCommonUtils.hios_path1 +
+                    ".hs.act.slbapp.wode";// 首页3
+    public static final String TAG_f4 =
+            AppCommonUtils.hios_scheme3 +
+                    AppCommonUtils.hios_host1 +
+                    AppCommonUtils.hios_path1 +
+                    ".hs.act.slbapp.other1?condition=login";// 首页4
+    public static final String TAG_f5 =
+            AppCommonUtils.hios_scheme3 +
+                    AppCommonUtils.hios_host1 +
+                    AppCommonUtils.hios_path1 +
+                    ".hs.act.slbapp.other2?condition=login";// 首页5
+
     public static void addSeletorFromNet(final String pic1, final String pic2, final ImageView imageView) {
         if (imageView == null || TextUtils.isEmpty(pic1)) {
             return;

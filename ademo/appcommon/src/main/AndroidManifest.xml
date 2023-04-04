@@ -264,27 +264,58 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
         <activity
-            android:name="com.geek.appcommon.ytx.YHCLiveDetailActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize|screenLayout"
-            android:exported="true"
-            android:screenOrientation="landscape">
-            <intent-filter>
-                <action android:name="${applicationId}.hs.act.slbapp.YHCLiveDetailActivity" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
-        <activity
-            android:name="com.geek.appcommon.ytx.DTRXEmployeeSearchActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize|screenLayout"
+            android:name="com.geek.appcommon.demo.Demo0Activity"
             android:exported="true">
             <intent-filter>
-                <action android:name="${applicationId}.hs.act.slbapp.DTRXEmployeeSearchActivity" />
+                <action android:name="${applicationId}.hs.act.slbapp.Demo0Activity" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.geek.appcommon.demo.demo1.Demo1Activity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="${applicationId}.hs.act.slbapp.Demo1Activity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.geek.appcommon.demo.demo2.Demo2Activity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="${applicationId}.hs.act.slbapp.Demo1Activity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.geek.appcommon.demo.demo3.Demo3Activity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="${applicationId}.hs.act.slbapp.Demo1Activity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+<!--        <activity-->
+<!--            android:name="com.geek.appcommon.ytx.YHCLiveDetailActivity"-->
+<!--            android:configChanges="keyboardHidden|orientation|screenSize|screenLayout"-->
+<!--            android:exported="true"-->
+<!--            android:screenOrientation="landscape">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="${applicationId}.hs.act.slbapp.YHCLiveDetailActivity" />-->
+<!--                <category android:name="android.intent.category.DEFAULT" />-->
+<!--            </intent-filter>-->
+<!--        </activity>-->
+
+<!--        <activity-->
+<!--            android:name="com.geek.appcommon.ytx.DTRXEmployeeSearchActivity"-->
+<!--            android:configChanges="keyboardHidden|orientation|screenSize|screenLayout"-->
+<!--            android:exported="true">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="${applicationId}.hs.act.slbapp.DTRXEmployeeSearchActivity" />-->
+<!--                <category android:name="android.intent.category.DEFAULT" />-->
+<!--            </intent-filter>-->
+<!--        </activity>-->
 
     </application>
 
