@@ -189,7 +189,7 @@ public class Demo3ActF3 extends SlbBaseLazyFragmentNew {
                 mFragmentList.add(H5WebFragment.getInstance(bundle));
             } else if (TextUtils.equals(url, AppCommonUtils.TAG_f1)) {
                 mFragmentList.add(Demo3ActF3F1.getInstance(mlist.get(i)));
-            } else if (TextUtils.equals(url, AppCommonUtils.TAG_f1)) {
+            } else if (TextUtils.equals(url, AppCommonUtils.TAG_f2)) {
                 mFragmentList.add(Demo3ActF3F2.getInstance(mlist.get(i)));
             } else {
                 mFragmentList.add(Demo3ActF3F1.getInstance(mlist.get(i)));

@@ -172,7 +172,7 @@ public class Demo3ActF3F1 extends SlbBaseLazyFragmentNew {
                 tv1.setText(bjyyBeanYewu3.getImg());
 
             }
-        }, 3000);
+        }, 1000);
 
     }
 
