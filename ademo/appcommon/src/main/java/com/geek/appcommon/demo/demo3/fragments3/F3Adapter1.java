@@ -55,6 +55,9 @@ public class F3Adapter1<T> extends FragmentPagerAdapter {
             case AppCommonUtils.TAG_f1:
                 //return RecommandFragment.Companion.getInstance(fenleiAct1CateBean1);
                 return Demo3ActF3F1.getInstance(fenleiAct1CateBean1);
+            case AppCommonUtils.TAG_f2:
+                //return RecommandFragment.Companion.getInstance(fenleiAct1CateBean1);
+                return Demo3ActF3F2.getInstance(fenleiAct1CateBean1);
 //            case TAG_DJDT:
 //                //return DJDTFragment.Companion.getInstance(fenleiAct1CateBean1);
 //                return ShouyeF3.getInstance(fenleiAct1CateBean1);

@@ -28,7 +28,7 @@ import com.scwang.smart.refresh.layout.listener.OnRefreshListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Demo3ActF3F1 extends SlbBaseLazyFragmentNewlan {
+public class Demo3ActF3F2 extends SlbBaseLazyFragmentNewlan {
 
     private String tablayoutId;
     private TextView tv1;
@@ -44,16 +44,16 @@ public class Demo3ActF3F1 extends SlbBaseLazyFragmentNewlan {
     private YewuList1CommonAdapter mAdapter1;
 
 
-    public static Demo3ActF3F1 getInstance(BjyyBeanYewu3 bean) {
-        Demo3ActF3F1 fragment = new Demo3ActF3F1();
+    public static Demo3ActF3F2 getInstance(BjyyBeanYewu3 bean) {
+        Demo3ActF3F2 fragment = new Demo3ActF3F2();
         Bundle bundle = new Bundle();
         bundle.putSerializable("BjyyBeanYewu3", bean);
         fragment.setArguments(bundle);
         return fragment;
     }
 
-    public static Demo3ActF3F1 getInstance(Bundle bundle) {
-        Demo3ActF3F1 mEasyWebFragment = new Demo3ActF3F1();
+    public static Demo3ActF3F2 getInstance(Bundle bundle) {
+        Demo3ActF3F2 mEasyWebFragment = new Demo3ActF3F2();
         if (bundle != null) {
             mEasyWebFragment.setArguments(bundle);
         }
@@ -147,7 +147,7 @@ public class Demo3ActF3F1 extends SlbBaseLazyFragmentNewlan {
 
     @Override
     protected int getLayoutId() {
-        return R.layout.activity_demo3_f1_f1;
+        return R.layout.activity_demo3_f1_f2;
     }
 
     @Override

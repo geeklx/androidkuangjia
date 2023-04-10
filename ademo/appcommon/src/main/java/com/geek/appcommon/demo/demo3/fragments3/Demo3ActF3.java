@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import com.blankj.utilcode.util.ToastUtils;
@@ -20,6 +21,7 @@ import com.geek.libutils.app.LocalBroadcastManagers;
 import com.geek.libutils.app.MyLogUtil;
 import com.geek.tablib.tablayout.SlidingTabLayout;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Demo3ActF3 extends SlbBaseLazyFragmentNew {
@@ -49,6 +51,7 @@ public class Demo3ActF3 extends SlbBaseLazyFragmentNew {
     private SlidingTabLayout tabLayout;
     private ViewPagerSlide viewpager;
     private List<BjyyBeanYewu3> bjyyBeanYewu3;
+    private List<Fragment> mFragmentList;
 
     public static Demo3ActF3 getInstance(BjyyBeanYewu3 bean) {
         Demo3ActF3 fragment = new Demo3ActF3();
@@ -147,12 +150,7 @@ public class Demo3ActF3 extends SlbBaseLazyFragmentNew {
 
 
     private void setNewData(List<BjyyBeanYewu3> mlist) {
-//        mFragmentList = new ArrayList<>();
-//        mFragmentList.clear();
-//        for (int i = 0; i < mlist.size(); i++) {
-//            mFragmentList.add(ZXFactory.INSTANCE.getFragmentByURL(mlist.get(i).getUrl()));
-//        }
-        // 标题bufen
+        // 写法1
         String[] titlesString = new String[mlist.size()];
         for (int i = 0; i < mlist.size(); i++) {
             titlesString[i] = mlist.get(i).getName();
@@ -172,6 +170,20 @@ public class Demo3ActF3 extends SlbBaseLazyFragmentNew {
         fenleiViewPagerAdapter1 = new F3Adapter1<BjyyBeanYewu3>(
 //                    getActivity().getSupportFragmentManager(),
                 getChildFragmentManager(), getActivity(), titlesString, mlist, F3Adapter1.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+        // 写法2
+//        mFragmentList = new ArrayList<>();
+//        mFragmentList.clear();
+//        for (int i = 0; i < mlist.size(); i++) {
+//            mFragmentList.add(Demo3ActF3F1.getInstance(mlist.get(i)));
+//        }
+//        List<String> titles = new ArrayList<>();
+//        for (int i = 0; i < mlist.size(); i++) {
+//            titles.add(mlist.get(i).getName());
+//        }
+//        fenleiViewPagerAdapter1 = new SlbBaseFragmentViewPagerAdapterlan(
+////                    getActivity().getSupportFragmentManager(),
+//                getChildFragmentManager(), getActivity(), titles, mFragmentList, F3Adapter1.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+        //
         fenleiViewPagerAdapter1.clear(viewpager);
         viewpager.setOffscreenPageLimit(mlist.size());
         viewpager.setScroll(true);

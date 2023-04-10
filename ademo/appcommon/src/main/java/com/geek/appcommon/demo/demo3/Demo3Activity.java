@@ -34,9 +34,9 @@ public class Demo3Activity extends SlbBase {
     public List<BjyyBeanYewu3> addList1() {
         List<BjyyBeanYewu3> mList = new ArrayList<>();
         mList.add(new BjyyBeanYewu3("id1", getResources().getString(R.string.tips1more1), "", "", "标题1", AppCommonUtils.TAG_f1, false));
-        mList.add(new BjyyBeanYewu3("id2", getResources().getString(R.string.tips1more1), "", "", "标题2", AppCommonUtils.TAG_f1, false));
+        mList.add(new BjyyBeanYewu3("id2", getResources().getString(R.string.tips1more1), "", "", "标题2", AppCommonUtils.TAG_f2, false));
         mList.add(new BjyyBeanYewu3("id3", getResources().getString(R.string.tips1more1), "", "", "标题3", AppCommonUtils.TAG_f1, false));
-        mList.add(new BjyyBeanYewu3("id4", getResources().getString(R.string.tips1more1), "", "", "标题4", AppCommonUtils.TAG_f1, false));
+        mList.add(new BjyyBeanYewu3("id4", getResources().getString(R.string.tips1more1), "", "", "标题4", AppCommonUtils.TAG_f2, false));
         mList.add(new BjyyBeanYewu3("id5", getResources().getString(R.string.tips1more1), "", "", "标题5", AppCommonUtils.TAG_f1, false));
         return mList;
     }
