@@ -45,10 +45,10 @@ class TZGGFragment : SlbBaseLazyFragmentNew(), ClassificationView {
 
     override fun setup(rootView: View, savedInstanceState: Bundle?) {
         super.setup(rootView, savedInstanceState)
-        initView(rootView)
+        initView1(rootView)
     }
 
-    private fun initView(rootView: View) {
+    private fun initView1(rootView: View) {
         rv1 = rootView.findViewById(R.id.rv1)
         ll = rootView.findViewById(R.id.ll)
         emptyView = rootView.findViewById(R.id.emptyView)

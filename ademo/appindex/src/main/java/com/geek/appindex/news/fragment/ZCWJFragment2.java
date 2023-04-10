@@ -52,10 +52,10 @@ public class ZCWJFragment2 extends SlbBaseLazyFragmentNew implements Classificat
     @Override
     protected void setup(View rootView, @Nullable Bundle savedInstanceState) {
         super.setup(rootView, savedInstanceState);
-        initView(rootView);
+        initView1(rootView);
     }
 
-    private void initView(View rootView) {
+    private void initView1(View rootView) {
         rv1 = rootView.findViewById(R.id.rv1);
         ll = rootView.findViewById(R.id.ll);
         emptyView = rootView.findViewById(R.id.emptyView);

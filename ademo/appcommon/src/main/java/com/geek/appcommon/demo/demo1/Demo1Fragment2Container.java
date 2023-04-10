@@ -31,7 +31,7 @@ public class Demo1Fragment2Container extends SlbBaseLazyFragmentNew {
     @Override
     protected void setup(View rootView, @Nullable Bundle savedInstanceState) {
         super.setup(rootView, savedInstanceState);
-        initView(rootView);
+        initView1(rootView);
         doNetWork();
 
     }
@@ -58,7 +58,7 @@ public class Demo1Fragment2Container extends SlbBaseLazyFragmentNew {
         }, 2000);
     }
 
-    private void initView(View rootView) {
+    private void initView1(View rootView) {
         emptyView = rootView.findViewById(R.id.emptyView);
         flContainer = rootView.findViewById(R.id.fl_demo2_container);
         emptyView.bind(flContainer);

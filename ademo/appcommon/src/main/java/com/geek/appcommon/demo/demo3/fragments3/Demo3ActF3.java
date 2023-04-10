@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 
@@ -13,9 +14,12 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import com.blankj.utilcode.util.ToastUtils;
+import com.geek.appcommon.AppCommonUtils;
+import com.geek.appcommon.wechat.fragment.H5WebFragment;
 import com.geek.biz1.bean.BjyyBeanYewu3;
 import com.geek.common.R;
 import com.geek.libbase.base.SlbBaseLazyFragmentNew;
+import com.geek.libbase.baserecycleview.SlbBaseFragmentViewPagerAdapterlan2;
 import com.geek.libbase.widgets.ViewPagerSlide;
 import com.geek.libutils.app.LocalBroadcastManagers;
 import com.geek.libutils.app.MyLogUtil;
@@ -47,7 +51,7 @@ public class Demo3ActF3 extends SlbBaseLazyFragmentNew {
         }
     }
 
-    private F3Adapter1 fenleiViewPagerAdapter1;
+    private SlbBaseFragmentViewPagerAdapterlan2 fenleiViewPagerAdapter1;
     private SlidingTabLayout tabLayout;
     private ViewPagerSlide viewpager;
     private List<BjyyBeanYewu3> bjyyBeanYewu3;
@@ -151,38 +155,49 @@ public class Demo3ActF3 extends SlbBaseLazyFragmentNew {
 
     private void setNewData(List<BjyyBeanYewu3> mlist) {
         // 写法1
-        String[] titlesString = new String[mlist.size()];
-        for (int i = 0; i < mlist.size(); i++) {
-            titlesString[i] = mlist.get(i).getName();
-        }
-//        if (fenleiViewPagerAdapter1 == null) {
-//            viewpager.removeAllViews();
-//            fenleiViewPagerAdapter1 = new F3Adapter1<BjyyBeanYewu3>(
-////                    getActivity().getSupportFragmentManager(),
-//                    getChildFragmentManager(), getActivity(), titlesString, mlist, F3Adapter1.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
-//            viewpager.setOffscreenPageLimit(mlist.size());
-//            viewpager.setScroll(true);
-//            viewpager.setAdapter(fenleiViewPagerAdapter1);
-//        } else {
-//            fenleiViewPagerAdapter1.setdata(titlesString, mlist);
-//            fenleiViewPagerAdapter1.notifyDataSetChanged();
+//        String[] titlesString = new String[mlist.size()];
+//        for (int i = 0; i < mlist.size(); i++) {
+//            titlesString[i] = mlist.get(i).getName();
 //        }
-        fenleiViewPagerAdapter1 = new F3Adapter1<BjyyBeanYewu3>(
-//                    getActivity().getSupportFragmentManager(),
-                getChildFragmentManager(), getActivity(), titlesString, mlist, F3Adapter1.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+////        if (fenleiViewPagerAdapter1 == null) {
+////            viewpager.removeAllViews();
+////            fenleiViewPagerAdapter1 = new F3Adapter1<BjyyBeanYewu3>(
+//////                    getActivity().getSupportFragmentManager(),
+////                    getChildFragmentManager(), getActivity(), titlesString, mlist, F3Adapter1.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+////            viewpager.setOffscreenPageLimit(mlist.size());
+////            viewpager.setScroll(true);
+////            viewpager.setAdapter(fenleiViewPagerAdapter1);
+////        } else {
+////            fenleiViewPagerAdapter1.setdata(titlesString, mlist);
+////            fenleiViewPagerAdapter1.notifyDataSetChanged();
+////        }
+//        fenleiViewPagerAdapter1 = new F3Adapter1<BjyyBeanYewu3>(
+////                    getActivity().getSupportFragmentManager(),
+//                getChildFragmentManager(), getActivity(), titlesString, mlist, F3Adapter1.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         // 写法2
-//        mFragmentList = new ArrayList<>();
-//        mFragmentList.clear();
-//        for (int i = 0; i < mlist.size(); i++) {
-//            mFragmentList.add(Demo3ActF3F1.getInstance(mlist.get(i)));
-//        }
-//        List<String> titles = new ArrayList<>();
-//        for (int i = 0; i < mlist.size(); i++) {
-//            titles.add(mlist.get(i).getName());
-//        }
-//        fenleiViewPagerAdapter1 = new SlbBaseFragmentViewPagerAdapterlan(
-////                    getActivity().getSupportFragmentManager(),
-//                getChildFragmentManager(), getActivity(), titles, mFragmentList, F3Adapter1.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+        List<String> titles = new ArrayList<>();
+        for (int i = 0; i < mlist.size(); i++) {
+            titles.add(mlist.get(i).getName());
+        }
+        mFragmentList = new ArrayList<>();
+        mFragmentList.clear();
+        for (int i = 0; i < mlist.size(); i++) {
+            String url = mlist.get(i).getUrl();
+            if (url.contains("http")) {
+                Bundle bundle = new Bundle();
+                bundle.putString("BjyyBeanYewu3", url);
+                mFragmentList.add(H5WebFragment.getInstance(bundle));
+            } else if (TextUtils.equals(url, AppCommonUtils.TAG_f1)) {
+                mFragmentList.add(Demo3ActF3F1.getInstance(mlist.get(i)));
+            } else if (TextUtils.equals(url, AppCommonUtils.TAG_f1)) {
+                mFragmentList.add(Demo3ActF3F2.getInstance(mlist.get(i)));
+            } else {
+                mFragmentList.add(Demo3ActF3F1.getInstance(mlist.get(i)));
+            }
+        }
+        fenleiViewPagerAdapter1 = new SlbBaseFragmentViewPagerAdapterlan2(
+//                    getActivity().getSupportFragmentManager(),
+                getChildFragmentManager(), getActivity(), titles, mFragmentList, SlbBaseFragmentViewPagerAdapterlan2.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         //
         fenleiViewPagerAdapter1.clear(viewpager);
         viewpager.setOffscreenPageLimit(mlist.size());

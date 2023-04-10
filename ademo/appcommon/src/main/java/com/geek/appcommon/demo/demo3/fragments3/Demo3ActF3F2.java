@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.blankj.utilcode.util.ToastUtils;
 import com.geek.biz1.bean.BjyyBeanYewu3;
 import com.geek.common.R;
+import com.geek.libbase.base.SlbBaseLazyFragmentNew;
 import com.geek.libbase.baserecycleview.SlbBaseActivityViewPageTabBean1;
 import com.geek.libbase.baserecycleview.yewu1.YewuList1CommonAdapter;
 import com.geek.libbase.emptyview.EmptyViewNewNew;
@@ -28,7 +29,7 @@ import com.scwang.smart.refresh.layout.listener.OnRefreshListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Demo3ActF3F2 extends SlbBaseLazyFragmentNewlan {
+public class Demo3ActF3F2 extends SlbBaseLazyFragmentNew {
 
     private String tablayoutId;
     private TextView tv1;

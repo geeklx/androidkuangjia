@@ -8,9 +8,9 @@ dependencies {
     api 'com.github.geeklx.libbase1:libyanzheng:2.1.8'//核心库
     api 'com.github.geeklx.libbase1:libshadowlayout:2.1.8'//核心库
 //    api 'com.github.geeklx.libbase1:libocr:2.0.1'
-    api 'com.github.geeklx.libbase2:libbase:2.3.4'//核心库
-    api 'com.github.geeklx.libbase2:libutils:2.3.4'//核心库
-    api 'com.github.geeklx.libbase2:libotherlibs:2.3.4'//核心库
+    api 'com.github.geeklx.libbase2:libbase:2.3.7'//核心库
+    api 'com.github.geeklx.libbase2:libutils:2.3.7'//核心库
+    api 'com.github.geeklx.libbase2:libotherlibs:2.3.7'//核心库
     api 'com.github.MachineHou:Aspectjrt:1.0.8'//核心库
     api 'com.geyifeng.immersionbar:immersionbar:3.2.2'
     // 支持分版本网络请求bufen
