@@ -83,6 +83,7 @@ public abstract class H5AgentWebFragment extends SlbBaseFragment {
         WebSettings ws = mAgentWeb.getWebCreator().getWebView().getSettings();
         ws.setUseWideViewPort(true);
         ws.setLoadWithOverviewMode(true);
+        ws.setUserAgentString(ws.getUserAgentString().concat("android"));
         // Javainterface
         mBridgeWebView.registerHandler("back", new BridgeHandler() {
 

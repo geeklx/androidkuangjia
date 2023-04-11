@@ -18,7 +18,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.blankj.utilcode.util.ToastUtils;
-import com.geek.appcommon.web.AndroidInterface;
+import com.geek.appcommon.wechat.AndroidInterface;
 import com.geek.common.R;
 import com.geek.libutils.app.MyLogUtil;
 import com.github.lzyzsd.jsbridge.BridgeHandler;

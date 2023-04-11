@@ -5,9 +5,10 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 
 import com.geek.appcommon.SlbBase;
-import com.geek.appcommon.web.fragment.H5WebFragment;
+import com.geek.appcommon.wechat.fragment.H5WebFragment;
 import com.geek.common.R;
 import com.geek.libutils.app.FragmentHelper;
+import com.just.agentweb.geek.fragment.AgentWebFragment;
 
 /**
  * @author fosung
@@ -26,16 +27,12 @@ public class H5WebAct extends SlbBase {
         super.setup(savedInstanceState);
 
         Bundle bundle = new Bundle();
-        String url = getIntent().getStringExtra("url");
+        String url = getIntent().getStringExtra(AgentWebFragment.URL_KEY);
         boolean isSHowToolBar = getIntent().getBooleanExtra(H5WebFragment.IS_SHOW_TOOLBAR, false);
         url = url.replace("===", "#");
-        bundle.putString("url", url);
+        bundle.putString(AgentWebFragment.URL_KEY, url);
         bundle.putBoolean(H5WebFragment.IS_SHOW_TOOLBAR, isSHowToolBar);
-        getSupportFragmentManager()
-                .beginTransaction()
-                .add(R.id.container_framelayout, mFragment = FragmentHelper.newFragment(H5WebFragment.class, bundle))
-                .show(mFragment)
-                .commit();
+        getSupportFragmentManager().beginTransaction().add(R.id.container_framelayout, mFragment = FragmentHelper.newFragment(H5WebFragment.class, bundle)).show(mFragment).commit();
     }
 
     @Override

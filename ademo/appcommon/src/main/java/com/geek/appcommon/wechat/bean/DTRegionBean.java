@@ -1,4 +1,4 @@
-package com.geek.appcommon.web.bean;
+package com.geek.appcommon.wechat.bean;
 
 import java.io.Serializable;
 import java.util.List;

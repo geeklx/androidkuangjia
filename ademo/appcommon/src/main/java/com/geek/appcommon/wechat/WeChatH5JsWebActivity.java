@@ -146,9 +146,7 @@ public class WeChatH5JsWebActivity extends BaseAgentWebActivityJs2 {
 
             new XPopup.Builder(WeChatH5JsWebActivity.this)
                     //半透明阴影背
-                    .hasShadowBg(true)
-                    .asCustom(new FSharePopupView(WeChatH5JsWebActivity.this, shareBean))
-                    .show();
+                    .hasShadowBg(true).asCustom(new FSharePopupView(WeChatH5JsWebActivity.this, shareBean)).show();
 
         }
     }
@@ -157,7 +155,7 @@ public class WeChatH5JsWebActivity extends BaseAgentWebActivityJs2 {
     protected void javainterface() {
         if (mAgentWeb != null) {
             //注入对象
-            mAgentWeb.getJsInterfaceHolder().addJavaObject("android", new AndroidInterface2(mAgentWeb, WeChatH5JsWebActivity.this));
+            mAgentWeb.getJsInterfaceHolder().addJavaObject("android", new AndroidInterface(mAgentWeb, WeChatH5JsWebActivity.this));
         }
         //用户信息
         mBridgeWebView.registerHandler("getUserInfo", new BridgeHandler() {
@@ -215,9 +213,7 @@ public class WeChatH5JsWebActivity extends BaseAgentWebActivityJs2 {
                         @Override
                         public void pending(BaseDownloadTask task, long soFarBytes, long totalBytes) {
                             //新建一个Dialog
-                            mProgressBarDialog = new MProgressBarDialog.Builder(WeChatH5JsWebActivity.this)
-                                    .setStyle(MProgressBarDialog.MProgressBarDialogStyle_Circle)
-                                    .build();
+                            mProgressBarDialog = new MProgressBarDialog.Builder(WeChatH5JsWebActivity.this).setStyle(MProgressBarDialog.MProgressBarDialogStyle_Circle).build();
                         }
 
                         @Override

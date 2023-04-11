@@ -1,4 +1,4 @@
-package com.geek.appcommon.web.share;
+package com.geek.appcommon.wechat.share;
 
 import androidx.annotation.Nullable;
 

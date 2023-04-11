@@ -25,7 +25,7 @@ public class WeChatWebActivity extends BaseAgentWebActivityYewu {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wechatweb);
         LinearLayout mLinearLayout = (LinearLayout) this.findViewById(R.id.container);
-        mTitleTextView.setText("灯塔有声");
+        mTitleTextView.setText("");
 
     }
 

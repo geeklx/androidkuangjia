@@ -211,8 +211,8 @@ public class ShouyeF1 extends SlbBaseLazyFragmentNew implements View.OnClickList
             startActivity(new Intent(AppUtils.getAppPackageName() + ".hs.act.slbapp.TencentIMSplashActivity"));
         }
         if (id == R.id.shouyef1_tv5) {
-//            startActivity(new Intent(AppUtils.getAppPackageName() + ".hs.act.slbapp.WeChatWebActivity"));
-            HiosHelperNew.resolveAd(getActivity(), getActivity(), "http://www.baidu.com/");
+            startActivity(new Intent(AppUtils.getAppPackageName() + ".hs.act.slbapp.H5WebAct0"));
+//            HiosHelperNew.resolveAd(getActivity(), getActivity(), "http://www.baidu.com/");
         }
         if (id == R.id.shouyef1_tv6) {
             startActivity(new Intent(AppUtils.getAppPackageName() + ".hs.act.slbapp.MusicAct"));

@@ -1,4 +1,4 @@
-package com.geek.appcommon.web;
+package com.geek.appcommon.wechat;
 
 import android.app.Activity;
 import android.content.Context;

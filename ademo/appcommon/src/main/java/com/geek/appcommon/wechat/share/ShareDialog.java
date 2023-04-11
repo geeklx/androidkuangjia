@@ -1,4 +1,4 @@
-package com.geek.appcommon.web.share;
+package com.geek.appcommon.wechat.share;
 
 import android.content.Context;
 import android.view.View;
