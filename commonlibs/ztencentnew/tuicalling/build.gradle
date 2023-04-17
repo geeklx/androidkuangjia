@@ -45,6 +45,12 @@ apply plugin: 'com.android.library'
 apply from: './../../../commonlibs1.gradle'
 
 android {
+
+    packagingOptions {
+        jniLibs {
+            pickFirsts += ['lib/*/libRSSupport.so', 'lib/*/librsjni_androidx.so', 'lib/*/librsjni.so', 'lib/*/libstlport_shared.so']
+        }
+    }
     lint {
         abortOnError false
         checkReleaseBuilds false

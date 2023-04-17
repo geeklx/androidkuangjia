@@ -14,19 +14,6 @@ android {
         vectorDrawables.useSupportLibrary = true
 //        javaCompileOptions { annotationProcessorOptions { includeCompileClasspath = true } }
     }
-    packagingOptions {
-        pickFirst 'lib/*/libRSSupport.so'
-        pickFirst 'lib/*/librsjni_androidx.so'
-        pickFirst 'lib/*/librsjni.so'
-        pickFirst 'lib/*/libstlport_shared.so'
-
-    }
-    lintOptions {
-        checkReleaseBuilds false
-        // Or, if you prefer, you can continue to check for errors in release builds,
-        // but continue the build even when errors are found:
-        abortOnError false
-    }
     libraryVariants.all { variant ->
         variant.outputs.all {
 //            outputFileName = "${variant.name}-${variant.versionName}.apk"

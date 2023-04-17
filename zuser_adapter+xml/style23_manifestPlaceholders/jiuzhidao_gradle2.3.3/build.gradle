@@ -35,10 +35,10 @@ android {
     /**
      * 配置Java编译参数
      */
-    compileOptions {
-        targetCompatibility 1.8
-        sourceCompatibility 1.8
-    }
+//    compileOptions {
+//        targetCompatibility 1.8
+//        sourceCompatibility 1.8
+//    }
     aaptOptions {
         cruncherEnabled = false
         useNewCruncher = false

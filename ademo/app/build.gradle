@@ -6,19 +6,19 @@ def library = rootProject.ext.dependencies //
 android {
     namespace 'com.fosung.lighthouse.dtsxbb'
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        suppressWarnings = true
+        jvmTarget = "17"
     }
     packagingOptions {
         jniLibs {
             pickFirsts += ['lib/*/libRSSupport.so', 'lib/*/librsjni_androidx.so', 'lib/*/librsjni.so']
         }
     }
-    kotlinOptions {
-        suppressWarnings = true
-        jvmTarget = "11"
-    }
-    //    ndkVersion "23.0.7599858" // e.g.,  ndkVersion '21.3.6528147'
+//    ndkVersion "23.0.7599858" // e.g.,  ndkVersion '21.3.6528147'
     compileSdkVersion config.compileSdkVersion
 //    buildToolsVersion config.buildToolsVersion
     defaultConfig {

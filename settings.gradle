@@ -26,6 +26,7 @@ include ':libsCenterNew',
 
 // start app11
 include ':ademo',
+        ':ademo:myapplication',
         ':ademo:app',
         ':ademo:appcommon',
         ':ademo:appsplash',
@@ -64,4 +65,3 @@ include ':commonlibs',
         ':commonlibs:ztencentnew:tuisearch',
         ':commonlibs:ztencentnew:tencentimnew'
 // commonlibs
-

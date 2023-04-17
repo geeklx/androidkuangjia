@@ -28,7 +28,7 @@ android {
 }
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.github.geeklx.libbase2:libutils:2.3.7'//核心库
+    implementation 'com.github.geeklx.libbase2:libutils:2.3.9'//核心库
 
 }
 
