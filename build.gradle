@@ -13,7 +13,7 @@ buildscript {
         maven { url 'https://maven.aliyun.com/nexus/content/repositories/releases/' }
         maven { url "https://mvn.mob.com/android" }
         maven { url "https://frontjs-static.pgyer.com/dist/sdk/pgyersdk" }  //主力仓库
-        maven {url 'https://developer.huawei.com/repo/'}
+//        maven { url 'https://developer.huawei.com/repo/' }
 
     }
     dependencies {
@@ -25,13 +25,13 @@ buildscript {
         // 集成MobPush
         classpath "com.mob.sdk:MobSDK:+"
 //        // hms
-        classpath 'com.huawei.agconnect:agcp:1.6.1.300'
+//        classpath 'com.huawei.agconnect:agcp:1.6.1.300'
         //
 //        classpath "com.alibaba:arouter-register:1.0.2"
     }
-//configurations.all {
-//    resolutionStrategy.cacheDynamicVersionsFor 0, 'seconds'
-//}
+    configurations.all {
+        resolutionStrategy.cacheDynamicVersionsFor 0, 'seconds'
+    }
 }
 
 allprojects {
@@ -46,7 +46,7 @@ allprojects {
         maven { url 'https://maven.aliyun.com/nexus/content/repositories/releases/' }
         maven { url "https://mvn.mob.com/android" }
         maven { url "https://frontjs-static.pgyer.com/dist/sdk/pgyersdk" }  //主力仓库
-        maven {url 'https://developer.huawei.com/repo/'}
+//        maven { url 'https://developer.huawei.com/repo/' }
 //        maven {
 //            url "https://github.com/jitsi/jitsi-maven-repository/raw/master/releases"
 //        }
@@ -64,9 +64,9 @@ allprojects {
 //            dirs project(':biz-libs').file('./')
 //        }
     }
-//configurations.all {
-//    resolutionStrategy.cacheDynamicVersionsFor 0, 'seconds'
-//}
+    configurations.all {
+        resolutionStrategy.cacheDynamicVersionsFor 0, 'seconds'
+    }
 }
 
 

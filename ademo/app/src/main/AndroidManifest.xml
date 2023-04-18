@@ -47,6 +47,9 @@
         <meta-data
             android:name="multiFrameworkBundle"
             android:value="true" />
+        <meta-data
+            android:name="com.mob.mobpush.debugLevel"
+            android:value="4" />
         <!--        应用自启-->
         <receiver
             android:name=".OTAReceiver"
