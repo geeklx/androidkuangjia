@@ -30,7 +30,7 @@ import kotlin.Unit;
 import kotlin.jvm.functions.Function0;
 
 public class AppCommonUtils {
-    public static final String auth_url = "/gwapi/workbenchserver/api/workbench";
+    public static final String auth_url = "/gwapi/workbenchserver/api/workbench";//   /gwapi/workbenchserver/api/workbench
     public static final String userInfo = "userInfo";
     public static final String userInfo_dt = "userInfo_dt";
     public static final String region = "userregion";

@@ -164,7 +164,7 @@ public class Demo3ActF3F1 extends SlbBaseLazyFragmentNew {
                 emptyview.success();
                 refreshLayout1.finishRefresh(0);
                 //
-                emptyview.notices("暂无订单，去选课中心看看吧…", "没有网络了,检查一下吧", "正在加载....", "");
+                emptyview.notices("暂无数据", "没有网络了,检查一下吧", "正在加载....", "");
                 recyclerView1.setLayoutManager(new GridLayoutManager(getActivity(), 1, RecyclerView.VERTICAL, false));
                 mList1 = new ArrayList<>();
                 mAdapter1 = new YewuList1CommonAdapter();

@@ -1,7 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    >
-<!--    package="com.geek.common">-->
+    xmlns:tools="http://schemas.android.com/tools">
+    <!--    package="com.geek.common">-->
 
     <!-- 用于进行网络定位 -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -26,10 +25,12 @@
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
     <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
     <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
-    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.BODY_SENSORS" />
     <uses-permission android:name="android.permission.BODY_SENSORS_BACKGROUND" />
-    <uses-permission android:name="android.permission.NEARBY_WIFI_DEVICES" android:usesPermissionFlags="neverForLocation" />
+    <uses-permission
+        android:name="android.permission.NEARBY_WIFI_DEVICES"
+        android:usesPermissionFlags="neverForLocation" />
     <!-- 必选-->
     <uses-permission
         android:name="android.permission.READ_PRIVILEGED_PHONE_STATE"
@@ -58,10 +59,9 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
 
-    <application
-        android:supportsRtl="true">
-<!--        android:allowBackup="true"-->
-<!--        android:label="@string/app_nameappcommon"-->
+    <application android:supportsRtl="true">
+        <!--        android:allowBackup="true"-->
+        <!--        android:label="@string/app_nameappcommon"-->
         <meta-data
             android:name="com.amap.api.v2.apikey"
             android:value="003f9d72f673c35434847f35e2cb6e96" />
@@ -88,10 +88,9 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
-                <data
-                    android:host="cs.znclass.com"
-                    android:path="/${applicationId}.hs.act.slbapp.AdNaticeActivity"
-                    android:scheme="https" />
+                <data android:host="cs.znclass.com" />
+                <data android:path="/${applicationId}.hs.act.slbapp.AdNaticeActivity" />
+                <data android:scheme="https" />
                 <data android:scheme="http" />
                 <data android:scheme="app" />
                 <data android:scheme="dataability" />
@@ -112,10 +111,9 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
-                <data
-                    android:host="cs.znclass.com"
-                    android:path="/${applicationId}.hs.act.slbapp.AdPushNaticeActivity"
-                    android:scheme="https" />
+                <data android:scheme="https"/>
+                <data android:host="cs.znclass.com"/>
+                <data android:path="/${applicationId}.hs.act.slbapp.AdPushNaticeActivity"/>
                 <data android:scheme="http" />
                 <data android:scheme="app" />
                 <data android:scheme="dataability" />
@@ -135,10 +133,9 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
-                <data
-                    android:host="cs.znclass.com"
-                    android:path="/${applicationId}.hs.act.slbapp.AdBusinessNaticeActivity"
-                    android:scheme="https" />
+                <data android:scheme="https"/>
+                <data android:host="cs.znclass.com"/>
+                <data android:path="/${applicationId}.hs.act.slbapp.AdBusinessNaticeActivity"/>
                 <data android:scheme="http" />
                 <data android:scheme="app" />
                 <data android:scheme="dataability" />
@@ -158,10 +155,9 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
-                <data
-                    android:host="cs.znclass.com"
-                    android:path="/${applicationId}.hs.act.slbapp.H5JsWebActivity"
-                    android:scheme="https" />
+                <data android:scheme="https"/>
+                <data android:host="cs.znclass.com"/>
+                <data android:path="/${applicationId}.hs.act.slbapp.H5JsWebActivity"/>
                 <data android:scheme="http" />
                 <data android:scheme="app" />
                 <data android:scheme="dataability" />
@@ -181,10 +177,9 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
-                <data
-                    android:host="cs.znclass.com"
-                    android:path="/${applicationId}.hs.act.slbapp.H5WebAct"
-                    android:scheme="https" />
+                <data android:scheme="https"/>
+                <data android:host="cs.znclass.com"/>
+                <data android:path="/${applicationId}.hs.act.slbapp.H5WebAct"/>
                 <data android:scheme="http" />
                 <data android:scheme="app" />
                 <data android:scheme="dataability" />
@@ -204,10 +199,9 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
-                <data
-                    android:host="cs.znclass.com"
-                    android:path="/${applicationId}.hs.act.slbapp.H5WebAct0"
-                    android:scheme="https" />
+                <data android:scheme="https"/>
+                <data android:host="cs.znclass.com"/>
+                <data android:path="/${applicationId}.hs.act.slbapp.H5WebAct0"/>
                 <data android:scheme="http" />
                 <data android:scheme="app" />
                 <data android:scheme="dataability" />
@@ -228,10 +222,9 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
-                <data
-                    android:host="cs.znclass.com"
-                    android:path="/${applicationId}.hs.act.slbapp.PIPActivityDk"
-                    android:scheme="https" />
+                <data android:scheme="https"/>
+                <data android:host="cs.znclass.com"/>
+                <data android:path="/${applicationId}.hs.act.slbapp.PIPActivityDk"/>
                 <data android:scheme="http" />
                 <data android:scheme="app" />
                 <data android:scheme="dataability" />
@@ -251,10 +244,9 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
-                <data
-                    android:host="cs.znclass.com"
-                    android:path="/${applicationId}.hs.act.slbapp.TikTokListActivityDK"
-                    android:scheme="https" />
+                <data android:scheme="https"/>
+                <data android:host="cs.znclass.com"/>
+                <data android:path="/${applicationId}.hs.act.slbapp.TikTokListActivityDK"/>
                 <data android:scheme="http" />
                 <data android:scheme="app" />
                 <data android:scheme="dataability" />
@@ -319,26 +311,26 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-<!--        <activity-->
-<!--            android:name="com.geek.appcommon.ytx.YHCLiveDetailActivity"-->
-<!--            android:configChanges="keyboardHidden|orientation|screenSize|screenLayout"-->
-<!--            android:exported="true"-->
-<!--            android:screenOrientation="landscape">-->
-<!--            <intent-filter>-->
-<!--                <action android:name="${applicationId}.hs.act.slbapp.YHCLiveDetailActivity" />-->
-<!--                <category android:name="android.intent.category.DEFAULT" />-->
-<!--            </intent-filter>-->
-<!--        </activity>-->
+        <!--        <activity-->
+        <!--            android:name="com.geek.appcommon.ytx.YHCLiveDetailActivity"-->
+        <!--            android:configChanges="keyboardHidden|orientation|screenSize|screenLayout"-->
+        <!--            android:exported="true"-->
+        <!--            android:screenOrientation="landscape">-->
+        <!--            <intent-filter>-->
+        <!--                <action android:name="${applicationId}.hs.act.slbapp.YHCLiveDetailActivity" />-->
+        <!--                <category android:name="android.intent.category.DEFAULT" />-->
+        <!--            </intent-filter>-->
+        <!--        </activity>-->
 
-<!--        <activity-->
-<!--            android:name="com.geek.appcommon.ytx.DTRXEmployeeSearchActivity"-->
-<!--            android:configChanges="keyboardHidden|orientation|screenSize|screenLayout"-->
-<!--            android:exported="true">-->
-<!--            <intent-filter>-->
-<!--                <action android:name="${applicationId}.hs.act.slbapp.DTRXEmployeeSearchActivity" />-->
-<!--                <category android:name="android.intent.category.DEFAULT" />-->
-<!--            </intent-filter>-->
-<!--        </activity>-->
+        <!--        <activity-->
+        <!--            android:name="com.geek.appcommon.ytx.DTRXEmployeeSearchActivity"-->
+        <!--            android:configChanges="keyboardHidden|orientation|screenSize|screenLayout"-->
+        <!--            android:exported="true">-->
+        <!--            <intent-filter>-->
+        <!--                <action android:name="${applicationId}.hs.act.slbapp.DTRXEmployeeSearchActivity" />-->
+        <!--                <category android:name="android.intent.category.DEFAULT" />-->
+        <!--            </intent-filter>-->
+        <!--        </activity>-->
 
     </application>
 
