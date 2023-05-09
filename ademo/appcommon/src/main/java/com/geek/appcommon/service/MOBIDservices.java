@@ -1,19 +1,23 @@
 package com.geek.appcommon.service;
 
 import android.app.ActivityManager;
+import android.app.AlertDialog;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Binder;
 import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
 import android.os.Message;
+import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -24,8 +28,11 @@ import androidx.core.app.NotificationCompat;
 import com.blankj.utilcode.util.ActivityUtils;
 import com.blankj.utilcode.util.AppUtils;
 import com.blankj.utilcode.util.SPUtils;
+import com.blankj.utilcode.util.ServiceUtils;
 import com.geek.appcommon.AppCommonUtils;
 import com.geek.appcommon.SlbBase;
+import com.geek.appcommon.huyan.Huyanservices;
+import com.geek.appcommon.huyan.ShakeListener;
 import com.geek.biz1.bean.FshengjiBean;
 import com.geek.biz1.bean.HMobid2Bean;
 import com.geek.biz1.bean.SbbdBean;
@@ -39,6 +46,7 @@ import com.geek.biz1.view.HMobIDView;
 import com.geek.biz1.view.SbbdView;
 import com.geek.common.R;
 import com.geek.libupdateapp.util.UpdateAppUtils;
+import com.geek.libutils.app.BaseApp;
 import com.geek.libutils.app.LocalBroadcastManagers;
 import com.geek.libutils.app.MyLogUtil;
 import com.geek.libutils.jiami.Md5Utils;
@@ -148,17 +156,9 @@ public class MOBIDservices extends Service implements HMobIDView, HMobID2View, S
         if (topActivity != null && (topActivity.getClass().getName() != "com.geek.appsplash.WelComeActivity")) {
             //必须是slbBase的activity才进行更新操作
             if (ActivityUtils.isActivityAlive(topActivity)) {
-                UpdateAppUtils.from(topActivity)
-                        .serverVersionCode(serverVersionCode)
-                        .serverVersionName(serverVersionName)
-                        .downloadPath("apks/" + getPackageName() + ".apk")
-                        .showProgress(true)
-                        .isForce(bean.getIsForce())
-                        .apkPath(apkPath)
-                        .downloadBy(UpdateAppUtils.DOWNLOAD_BY_APP)    //default
+                UpdateAppUtils.from(topActivity).serverVersionCode(serverVersionCode).serverVersionName(serverVersionName).downloadPath("apks/" + getPackageName() + ".apk").showProgress(true).isForce(bean.getIsForce()).apkPath(apkPath).downloadBy(UpdateAppUtils.DOWNLOAD_BY_APP)    //default
                         .checkBy(UpdateAppUtils.CHECK_BY_VERSION_CODE) //default
-                        .updateInfoTitle(updateInfoTitle)
-                        .updateInfo(updateInfo.replace("|", "\n"))
+                        .updateInfoTitle(updateInfoTitle).updateInfo(updateInfo.replace("|", "\n"))
 //                    .showNotification(true)
 //                    .needFitAndroidN(true)
                         .update();
@@ -186,12 +186,48 @@ public class MOBIDservices extends Service implements HMobIDView, HMobID2View, S
 
     }
 
+    private ShakeListener shakeListener;
+    private AlertDialog alertDialog;
+
     @Override
     public void onCreate() {
         super.onCreate();
-        Intent it = new Intent(this, MOBIDServicesBg.class);
-        it.putExtra(MOBIDServicesBg.EXTRA_NOTIFICATION_ID, HUYAN_MANAGE_NOTIFICATION_ID);
-        startService(it);
+        //
+        shakeListener = new ShakeListener(this);
+        shakeListener.start();
+        shakeListener.setOnShakeListener(new ShakeListener.OnShakeListener() {
+            @Override
+            public void onShake() {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(BaseApp.get())) {
+                    if (alertDialog != null && alertDialog.isShowing()) {
+                        return;
+                    }
+                    alertDialog = new AlertDialog.Builder(ActivityUtils.getTopActivity()).setTitle("星火英语申请获取悬浮窗权限").setMessage("选择允许后，您可以正常查看视频悬浮窗。您可以随时在手机设置-权限管理中取消授权。").setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            ActivityUtils.getTopActivity().startActivity(new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getPackageName())));
+                        }
+                    }).setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+
+                        }
+                    }).show();
+                } else {
+                    if (!ServiceUtils.isServiceRunning(Huyanservices.class)) {
+                        startService(new Intent(BaseApp.get(), Huyanservices.class));
+                        SPUtils.getInstance().put("护眼模式", true);
+                    } else {
+                        stopService(new Intent(BaseApp.get(), Huyanservices.class));
+                        SPUtils.getInstance().put("护眼模式", false);
+                    }
+                }
+//                shakeListener.stop();
+            }
+        });
+//        Intent it = new Intent(this, MOBIDServicesBg.class);
+//        it.putExtra(MOBIDServicesBg.EXTRA_NOTIFICATION_ID, HUYAN_MANAGE_NOTIFICATION_ID);
+//        startService(it);
         // test
         presenter_mobid = new HMobIDPresenter();
         presenter_mobid.onCreate(this);
@@ -310,8 +346,7 @@ public class MOBIDservices extends Service implements HMobIDView, HMobID2View, S
                         if (pushMessageBean != null && !TextUtils.isEmpty(type)) {
                             switch (type) {
                                 case TAG_UPGRADE:
-                                    shengjiPresenter.getshengji(AppCommonUtils.auth_url,
-                                            serverVersionCode + "", serverVersionName, appPackageName, md5);
+                                    shengjiPresenter.getshengji(AppCommonUtils.auth_url, serverVersionCode + "", serverVersionName, appPackageName, md5);
                                     break;
                             }
                         }
@@ -449,9 +484,10 @@ public class MOBIDservices extends Service implements HMobIDView, HMobID2View, S
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-//        Intent it = new Intent(this, MOBIDServicesBg.class);
-//        it.putExtra(MOBIDServicesBg.EXTRA_NOTIFICATION_ID, HUYAN_MANAGE_NOTIFICATION_ID);
-//        startService(it);
+        // 方法1 不显示通知栏
+        Intent it = new Intent(this, MOBIDServicesBg.class);
+        it.putExtra(MOBIDServicesBg.EXTRA_NOTIFICATION_ID, HUYAN_MANAGE_NOTIFICATION_ID);
+        startService(it);
 //        if (intent != null && !TextUtils.isEmpty(intent.getAction())) {
 //            String action = intent.getAction();
 //            if (action.equals(HUIBEN_READINGTIME_ACTION)) {
@@ -470,7 +506,8 @@ public class MOBIDservices extends Service implements HMobIDView, HMobID2View, S
 //                }
 //            }
 //        }
-        set_services2();
+        // 方法2 显示通知栏
+//        set_services2();
         return START_STICKY;
     }
 
@@ -478,11 +515,7 @@ public class MOBIDservices extends Service implements HMobIDView, HMobID2View, S
 
     private void set_services2() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            NotificationChannel serviceChannel = new NotificationChannel(
-                    CHANNEL_ID,
-                    "DTXZ Foreground Service Channel",
-                    NotificationManager.IMPORTANCE_DEFAULT
-            );
+            NotificationChannel serviceChannel = new NotificationChannel(CHANNEL_ID, "DTXZ Foreground Service Channel", NotificationManager.IMPORTANCE_DEFAULT);
             NotificationManager manager = getSystemService(NotificationManager.class);
             if (manager != null) {
                 manager.createNotificationChannel(serviceChannel);
@@ -495,13 +528,9 @@ public class MOBIDservices extends Service implements HMobIDView, HMobID2View, S
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.S) {
             pendingIntent = PendingIntent.getActivity(this, 123, notificationIntent, PendingIntent.FLAG_IMMUTABLE);
         } else {
-            pendingIntent = PendingIntent.getActivity(this, 123, notificationIntent, PendingIntent.FLAG_ONE_SHOT);
+            pendingIntent = PendingIntent.getActivity(this, 123, notificationIntent, PendingIntent.FLAG_ONE_SHOT | PendingIntent.FLAG_IMMUTABLE);
         }
-        Notification notification = new NotificationCompat.Builder(this, CHANNEL_ID)
-                .setContentTitle(AppUtils.getAppName())
-                .setSmallIcon(R.drawable.icon11)
-                .setContentIntent(pendingIntent)
-                .build();
+        Notification notification = new NotificationCompat.Builder(this, CHANNEL_ID).setContentTitle(AppUtils.getAppName()).setSmallIcon(R.drawable.icon11).setContentIntent(pendingIntent).build();
         startForeground(1, notification);
         stopForeground(true);
         stopSelf();

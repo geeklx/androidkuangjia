@@ -4,11 +4,11 @@ import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 
-import com.blankj.utilcode.util.ServiceUtils;
+import com.blankj.utilcode.util.SPUtils;
 import com.blankj.utilcode.util.Utils;
+import com.geek.appcommon.huyan.Huyanservices;
 import com.geek.appcommon.service.MOBIDservices;
 import com.geek.libutils.app.BaseApp;
 import com.mob.MobSDK;
@@ -49,20 +49,27 @@ public class SplashInitUtils {
         com.blankj.utilcode.util.AppUtils.registerAppStatusChangedListener(new Utils.OnAppStatusChangedListener() {
             @Override
             public void onForeground(Activity activity) {
-                if (!ServiceUtils.isServiceRunning(MOBIDservices.class)) {
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                        BaseApp.get().startForegroundService(new Intent(BaseApp.get(), MOBIDservices.class));
-                    } else {
-                        BaseApp.get().startService(new Intent(BaseApp.get(), MOBIDservices.class));
-                    }
+//                if (!ServiceUtils.isServiceRunning(MOBIDservices.class)) {
+//                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+//                        BaseApp.get().startForegroundService(new Intent(BaseApp.get(), MOBIDservices.class));
+//                    } else {
+//                        BaseApp.get().startService(new Intent(BaseApp.get(), MOBIDservices.class));
+//                    }
+//                }
+                if (SPUtils.getInstance().getBoolean("护眼模式")) {
+                    BaseApp.get().startService(new Intent(BaseApp.get(), Huyanservices.class));
                 }
             }
 
             @Override
             public void onBackground(Activity activity) {
-
+                if (SPUtils.getInstance().getBoolean("护眼模式")) {
+                    BaseApp.get().stopService(new Intent(BaseApp.get(), Huyanservices.class));
+                }
             }
         });
+        SPUtils.getInstance().put("护眼模式", false);
+        BaseApp.get().startService(new Intent(BaseApp.get(), MOBIDservices.class));
         //
         new PgyerSDKManager.Init().setContext(BaseApp.get()) //设置上下问对象
                 .setApiKey("8bd21fed5150eab87567cbcfb6ed8a46").setFrontJSToken("d68155b81756a82d2324fe46bff24c45").enable(Features.CHECK_UPDATE).start();
