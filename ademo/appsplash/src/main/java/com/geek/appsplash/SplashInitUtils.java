@@ -8,6 +8,7 @@ import android.os.Bundle;
 
 import com.blankj.utilcode.util.SPUtils;
 import com.blankj.utilcode.util.Utils;
+import com.geek.appcommon.huyan.DarkModeUtils;
 import com.geek.appcommon.huyan.Huyanservices;
 import com.geek.appcommon.service.MOBIDservices;
 import com.geek.libutils.app.BaseApp;
@@ -70,6 +71,7 @@ public class SplashInitUtils {
         });
         SPUtils.getInstance().put("护眼模式", false);
         BaseApp.get().startService(new Intent(BaseApp.get(), MOBIDservices.class));
+        DarkModeUtils.init(BaseApp.get());
         //
         new PgyerSDKManager.Init().setContext(BaseApp.get()) //设置上下问对象
                 .setApiKey("8bd21fed5150eab87567cbcfb6ed8a46").setFrontJSToken("d68155b81756a82d2324fe46bff24c45").enable(Features.CHECK_UPDATE).start();

@@ -7,7 +7,7 @@
 <!--        android:label="@string/app_nameappindex"-->
         <activity
             android:name=".index.ShouyeActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:configChanges="orientation|screenSize|keyboardHidden|uiMode"
             android:exported="false"
             android:theme="@style/AppThemeBaseAppcommon">
             <!--            android:windowSoftInputMode="stateVisible|adjustPan"-->

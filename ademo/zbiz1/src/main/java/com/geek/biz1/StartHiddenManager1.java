@@ -6,12 +6,12 @@ import android.view.MotionEvent;
 import android.view.View;
 
 
-public class StartHiddenManager {
+public class StartHiddenManager1 {
     private View left, right;
     private int clickForTestNum = 5;
     private long startTestClickTime;
 
-    public StartHiddenManager(View leftView, View rightView, String intent1, OnClickFinish onClickFinish) {
+    public StartHiddenManager1(View leftView, View rightView, String intent1, OnClickFinish onClickFinish) {
         left = leftView;
         right = rightView;
         onCreate(intent1, onClickFinish);

@@ -73,6 +73,15 @@
             android:enabled="true"
             android:exported="false" />
         <service android:name="com.geek.appcommon.service.MOBIDServicesBg" />
+        <service
+            android:name="com.geek.appcommon.huyan.Huyanservices"
+            android:enabled="true"
+            android:exported="false" />
+        <service android:name="com.geek.appcommon.huyan.HuyanservicesBg" />
+        <service
+            android:name="com.geek.appcommon.service.KillSelfService"
+            android:enabled="true"
+            android:exported="false" />
 
         <activity
             android:name="com.geek.appcommon.mobhuodong.AdNaticeActivity"
@@ -111,9 +120,9 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
-                <data android:scheme="https"/>
-                <data android:host="cs.znclass.com"/>
-                <data android:path="/${applicationId}.hs.act.slbapp.AdPushNaticeActivity"/>
+                <data android:scheme="https" />
+                <data android:host="cs.znclass.com" />
+                <data android:path="/${applicationId}.hs.act.slbapp.AdPushNaticeActivity" />
                 <data android:scheme="http" />
                 <data android:scheme="app" />
                 <data android:scheme="dataability" />
@@ -133,9 +142,9 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
-                <data android:scheme="https"/>
-                <data android:host="cs.znclass.com"/>
-                <data android:path="/${applicationId}.hs.act.slbapp.AdBusinessNaticeActivity"/>
+                <data android:scheme="https" />
+                <data android:host="cs.znclass.com" />
+                <data android:path="/${applicationId}.hs.act.slbapp.AdBusinessNaticeActivity" />
                 <data android:scheme="http" />
                 <data android:scheme="app" />
                 <data android:scheme="dataability" />
@@ -155,9 +164,9 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
-                <data android:scheme="https"/>
-                <data android:host="cs.znclass.com"/>
-                <data android:path="/${applicationId}.hs.act.slbapp.H5JsWebActivity"/>
+                <data android:scheme="https" />
+                <data android:host="cs.znclass.com" />
+                <data android:path="/${applicationId}.hs.act.slbapp.H5JsWebActivity" />
                 <data android:scheme="http" />
                 <data android:scheme="app" />
                 <data android:scheme="dataability" />
@@ -177,9 +186,9 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
-                <data android:scheme="https"/>
-                <data android:host="cs.znclass.com"/>
-                <data android:path="/${applicationId}.hs.act.slbapp.H5WebAct"/>
+                <data android:scheme="https" />
+                <data android:host="cs.znclass.com" />
+                <data android:path="/${applicationId}.hs.act.slbapp.H5WebAct" />
                 <data android:scheme="http" />
                 <data android:scheme="app" />
                 <data android:scheme="dataability" />
@@ -199,9 +208,9 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
-                <data android:scheme="https"/>
-                <data android:host="cs.znclass.com"/>
-                <data android:path="/${applicationId}.hs.act.slbapp.H5WebAct0"/>
+                <data android:scheme="https" />
+                <data android:host="cs.znclass.com" />
+                <data android:path="/${applicationId}.hs.act.slbapp.H5WebAct0" />
                 <data android:scheme="http" />
                 <data android:scheme="app" />
                 <data android:scheme="dataability" />
@@ -222,9 +231,9 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
-                <data android:scheme="https"/>
-                <data android:host="cs.znclass.com"/>
-                <data android:path="/${applicationId}.hs.act.slbapp.PIPActivityDk"/>
+                <data android:scheme="https" />
+                <data android:host="cs.znclass.com" />
+                <data android:path="/${applicationId}.hs.act.slbapp.PIPActivityDk" />
                 <data android:scheme="http" />
                 <data android:scheme="app" />
                 <data android:scheme="dataability" />
@@ -244,9 +253,9 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
-                <data android:scheme="https"/>
-                <data android:host="cs.znclass.com"/>
-                <data android:path="/${applicationId}.hs.act.slbapp.TikTokListActivityDK"/>
+                <data android:scheme="https" />
+                <data android:host="cs.znclass.com" />
+                <data android:path="/${applicationId}.hs.act.slbapp.TikTokListActivityDK" />
                 <data android:scheme="http" />
                 <data android:scheme="app" />
                 <data android:scheme="dataability" />

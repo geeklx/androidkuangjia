@@ -5,7 +5,7 @@
     <application android:supportsRtl="true">
         <!--        android:allowBackup="true"-->
         <service
-            android:name=".KillSelfService"
+            android:name="com.geek.biz1.KillSelfService1"
             android:enabled="true"
             android:exported="false" />
 

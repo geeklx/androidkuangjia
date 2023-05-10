@@ -8,16 +8,13 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Binder;
 import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
 import android.os.Message;
-import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -28,10 +25,10 @@ import androidx.core.app.NotificationCompat;
 import com.blankj.utilcode.util.ActivityUtils;
 import com.blankj.utilcode.util.AppUtils;
 import com.blankj.utilcode.util.SPUtils;
-import com.blankj.utilcode.util.ServiceUtils;
+import com.blankj.utilcode.util.ToastUtils;
 import com.geek.appcommon.AppCommonUtils;
 import com.geek.appcommon.SlbBase;
-import com.geek.appcommon.huyan.Huyanservices;
+import com.geek.appcommon.huyan.DarkModeUtils;
 import com.geek.appcommon.huyan.ShakeListener;
 import com.geek.biz1.bean.FshengjiBean;
 import com.geek.biz1.bean.HMobid2Bean;
@@ -51,7 +48,9 @@ import com.geek.libutils.app.LocalBroadcastManagers;
 import com.geek.libutils.app.MyLogUtil;
 import com.geek.libutils.jiami.Md5Utils;
 import com.google.gson.Gson;
+import com.lxj.xpopup.XPopup;
 import com.lxj.xpopup.core.BasePopupView;
+import com.lxj.xpopup.interfaces.OnSelectListener;
 import com.mob.pushsdk.MobPush;
 import com.mob.pushsdk.MobPushCustomMessage;
 import com.mob.pushsdk.MobPushNotifyMessage;
@@ -188,6 +187,7 @@ public class MOBIDservices extends Service implements HMobIDView, HMobID2View, S
 
     private ShakeListener shakeListener;
     private AlertDialog alertDialog;
+    private BasePopupView loadingPopup11;
 
     @Override
     public void onCreate() {
@@ -198,29 +198,53 @@ public class MOBIDservices extends Service implements HMobIDView, HMobID2View, S
         shakeListener.setOnShakeListener(new ShakeListener.OnShakeListener() {
             @Override
             public void onShake() {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(BaseApp.get())) {
-                    if (alertDialog != null && alertDialog.isShowing()) {
-                        return;
-                    }
-                    alertDialog = new AlertDialog.Builder(ActivityUtils.getTopActivity()).setTitle("星火英语申请获取悬浮窗权限").setMessage("选择允许后，您可以正常查看视频悬浮窗。您可以随时在手机设置-权限管理中取消授权。").setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                // 护眼模式bufen
+//                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(BaseApp.get())) {
+//                    if (alertDialog != null && alertDialog.isShowing()) {
+//                        return;
+//                    }
+//                    alertDialog = new AlertDialog.Builder(ActivityUtils.getTopActivity()).setTitle("星火英语申请获取悬浮窗权限").setMessage("选择允许后，您可以正常查看视频悬浮窗。您可以随时在手机设置-权限管理中取消授权。").setPositiveButton("确定", new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialogInterface, int i) {
+//                            ActivityUtils.getTopActivity().startActivity(new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getPackageName())));
+//                        }
+//                    }).setNegativeButton("取消", new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialogInterface, int i) {
+//
+//                        }
+//                    }).show();
+//                } else {
+//                    if (!ServiceUtils.isServiceRunning(Huyanservices.class)) {
+//                        startService(new Intent(BaseApp.get(), Huyanservices.class));
+//                        SPUtils.getInstance().put("护眼模式", true);
+//                    } else {
+//                        stopService(new Intent(BaseApp.get(), Huyanservices.class));
+//                        SPUtils.getInstance().put("护眼模式", false);
+//                    }
+//                }
+                // 暗黑模式bufen
+                if (loadingPopup11 != null && loadingPopup11.isShow()) {
+                } else {
+                    loadingPopup11 = new XPopup.Builder(ActivityUtils.getTopActivity()).autoDismiss(false).asBottomList("主题设置", new String[]{"浅色模式", "深色模式", "跟随系统"}, new OnSelectListener() {
                         @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            ActivityUtils.getTopActivity().startActivity(new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getPackageName())));
-                        }
-                    }).setNegativeButton("取消", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
+                        public void onSelect(int position, String text) {
+                            if (position == 0) {
+                                DarkModeUtils.applyDayMode(BaseApp.get());
+                            }
+                            if (position == 1) {
+                                DarkModeUtils.applyNightMode(BaseApp.get());
+                            }
+                            if (position == 2) {
+                                DarkModeUtils.applySystemMode(BaseApp.get());
+                            }
+                            loadingPopup11.dismiss();
+                            // 重启系统bufen
+                            ToastUtils.showLong("已切换，生效中");
+                            RestartAPPTool.restartAPP(BaseApp.get(), 2000);
 
                         }
                     }).show();
-                } else {
-                    if (!ServiceUtils.isServiceRunning(Huyanservices.class)) {
-                        startService(new Intent(BaseApp.get(), Huyanservices.class));
-                        SPUtils.getInstance().put("护眼模式", true);
-                    } else {
-                        stopService(new Intent(BaseApp.get(), Huyanservices.class));
-                        SPUtils.getInstance().put("护眼模式", false);
-                    }
                 }
 //                shakeListener.stop();
             }
@@ -543,6 +567,9 @@ public class MOBIDservices extends Service implements HMobIDView, HMobID2View, S
         }
         if (shengjiPresenter != null) {
             shengjiPresenter.onDestory();
+        }
+        if (loadingPopup11 != null) {
+            loadingPopup11.dismiss();
         }
         super.onDestroy();
 

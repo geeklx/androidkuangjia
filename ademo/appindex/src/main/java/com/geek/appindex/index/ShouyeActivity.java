@@ -1,31 +1,26 @@
 package com.geek.appindex.index;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
+import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Looper;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
-import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import com.blankj.utilcode.util.AppUtils;
 import com.blankj.utilcode.util.SPUtils;
-import com.blankj.utilcode.util.ToastUtils;
 import com.geek.appcommon.AppCommonUtils;
 import com.geek.appcommon.SlbBase;
 import com.geek.appindex.R;
-import com.geek.appindex.index.fragment.ShouyeF1;
-import com.geek.appindex.index.fragment.ShouyeF5;
-import com.geek.appindex.index.fragment.ShouyeF6;
 import com.geek.biz1.bean.BjyyBeanYewu4;
 import com.geek.biz1.bean.FshengjiBean;
 import com.geek.biz1.presenter.FCate1Presenter;
@@ -33,7 +28,6 @@ import com.geek.biz1.presenter.FshengjiPresenter;
 import com.geek.biz1.view.FCate1View;
 import com.geek.biz1.view.FshengjiView;
 import com.geek.libbase.base.SlbBaseLazyFragmentNew;
-import com.geek.libbase.plugins.PluginManager;
 import com.geek.liblocations.LocListener;
 import com.geek.liblocations.LocUtil;
 import com.geek.liblocations.LocationBean;
@@ -58,27 +52,14 @@ import com.tencent.qcloud.tim.demo.thirdpush.ThirdPushTokenMgr;
 import com.tencent.qcloud.tim.demo.utils.BrandUtil;
 import com.tencent.qcloud.tim.demo.utils.DemoLog;
 import com.tencent.qcloud.tim.demo.utils.TUIUtils;
-import com.tencent.qcloud.tuikit.tuicontact.ui.pages.TUIContactFragment;
-import com.tencent.qcloud.tuikit.tuiconversation.ui.page.TUIConversationFragment;
 import com.vivo.push.IPushActionListener;
 import com.vivo.push.PushClient;
-//import com.yuntongxun.confwrap.WrapManager;
-//import com.yuntongxun.ecsdk.ECDevice;
-//import com.yuntongxun.ecsdk.ECError;
-//import com.yuntongxun.ecsdk.SdkErrorCode;
-//import com.yuntongxun.plugin.common.YTXSDKCoreHelper;
-//import com.yuntongxun.plugin.common.ui.setting.YTXCustomSettingUtils;
-//import com.yuntongxun.plugin.im.common.YTXCustomMsgItem;
-//import com.yuntongxun.plugin.im.manager.YTXIMPluginManager;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 import me.jessyan.autosize.AutoSizeCompat;
 
@@ -102,6 +83,26 @@ public class ShouyeActivity extends SlbBase implements FshengjiView, FCate1View 
             AutoSizeCompat.autoConvertDensity((super.getResources()), 667, false);//如果有自定义需求就用这个方法
         }
         return super.getResources();
+    }
+
+    @Override
+    public void onConfigurationChanged(@NonNull Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        int currentNightMode = newConfig.uiMode & Configuration.UI_MODE_NIGHT_MASK;
+        switch (currentNightMode) {
+            case Configuration.UI_MODE_NIGHT_NO:
+                Log.e("=======", "=====关闭夜间模式====");
+                // 关闭
+                String aa = "";
+                break;
+            case Configuration.UI_MODE_NIGHT_YES:
+                Log.e("=======", "=====开启夜间模式====");
+                // 开启
+                String bb = "";
+                break;
+            default:
+                break;
+        }
     }
 
     private final Shortcut.Callback callback = new Shortcut.Callback() {
@@ -443,11 +444,9 @@ public class ShouyeActivity extends SlbBase implements FshengjiView, FCate1View 
         appPackageName = AppUtils.getAppPackageName();
         md5 = Md5Utils.get32Md5LowerCase(appPackageName);
         MyLogUtil.e("ssssssssssssss", md5);
-        fshengjiPresenter.getshengji(AppCommonUtils.auth_url,
-                serverVersionCode + "", serverVersionName, appPackageName, md5);
+//        fshengjiPresenter.getshengji(AppCommonUtils.auth_url, serverVersionCode + "", serverVersionName, appPackageName, md5);
         if (fCate1Presenter != null) {
-            fCate1Presenter.getcate1list(AppCommonUtils.auth_url + "/navgation",
-                    "", "10", "1", "", AppCommonUtils.get_location_cityname(), "");
+            fCate1Presenter.getcate1list(AppCommonUtils.auth_url + "/navgation", "", "10", "1", "", AppCommonUtils.get_location_cityname(), "");
         }
     }
 
@@ -495,17 +494,9 @@ public class ShouyeActivity extends SlbBase implements FshengjiView, FCate1View 
         if (TextUtils.isEmpty(apkPath)) {
             return;
         }
-        UpdateAppUtils.from(ShouyeActivity.this)
-                .serverVersionCode(serverVersionCode)
-                .serverVersionName(serverVersionName)
-                .downloadPath("apks/" + getPackageName() + ".apk")
-                .showProgress(true)
-                .isForce(bean.getIsForce())
-                .apkPath(apkPath)
-                .downloadBy(UpdateAppUtils.DOWNLOAD_BY_APP)    //default
+        UpdateAppUtils.from(ShouyeActivity.this).serverVersionCode(serverVersionCode).serverVersionName(serverVersionName).downloadPath("apks/" + getPackageName() + ".apk").showProgress(true).isForce(bean.getIsForce()).apkPath(apkPath).downloadBy(UpdateAppUtils.DOWNLOAD_BY_APP)    //default
                 .checkBy(UpdateAppUtils.CHECK_BY_VERSION_CODE) //default
-                .updateInfoTitle(updateInfoTitle)
-                .updateInfo(updateInfo.replace("|", "\n"))
+                .updateInfoTitle(updateInfoTitle).updateInfo(updateInfo.replace("|", "\n"))
 //                    .showNotification(true)
 //                    .needFitAndroidN(true)
                 .update();
@@ -542,11 +533,7 @@ public class ShouyeActivity extends SlbBase implements FshengjiView, FCate1View 
         Bundle args = new Bundle();
         args.putSerializable("tablayoutId", (Serializable) bean.getData());
 //        args.putSerializable("tablayoutId", (Serializable) mNavigationList);
-        this.getSupportFragmentManager()
-                .beginTransaction()
-                .add(R.id.container_framelayout, mFragment = ShouyeFragment.getInstance(args), ShouyeFragment.class.getName())
-                .show(mFragment)
-                .commitAllowingStateLoss();
+        this.getSupportFragmentManager().beginTransaction().add(R.id.container_framelayout, mFragment = ShouyeFragment.getInstance(args), ShouyeFragment.class.getName()).show(mFragment).commitAllowingStateLoss();
         //通道消息
         ChannelMessage();
 //        ToastUtils.showLong("OnCate1Success");

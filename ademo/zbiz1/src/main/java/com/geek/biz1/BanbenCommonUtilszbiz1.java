@@ -28,11 +28,11 @@ public class BanbenCommonUtilszbiz1 {
     }
 
 
-    public static StartHiddenManager startHiddenManager;
+    public static StartHiddenManager1 startHiddenManager;
 
     //
     public static void changeUrl(final Activity activity, View left, View right, String intent) {
-        startHiddenManager = new StartHiddenManager(left, right, intent, new StartHiddenManager.OnClickFinish() {
+        startHiddenManager = new StartHiddenManager1(left, right, intent, new StartHiddenManager1.OnClickFinish() {
             @Override
             public void onFinish() {
                 new XPopup.Builder(activity)
@@ -55,7 +55,7 @@ public class BanbenCommonUtilszbiz1 {
                                         }
 //                                new XPopup.Builder(getContext()).asLoading().show();
                                         ToastUtils.showLong("已切换，生效中");
-                                        RestartAPPTool.restartAPP(activity, 2000);
+                                        RestartAPPTool1.restartAPP(activity, 2000);
 
                                     }
                                 })

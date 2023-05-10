@@ -5,14 +5,13 @@ import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
-import android.widget.Toast;
 
 /***
  * 该服务只用来让APP重启，生命周期也仅仅是只是重启APP。重启完即自我杀死
 
  */
 
-public class KillSelfService extends Service {
+public class KillSelfService1 extends Service {
 
     /**
      * 关闭应用后多久重新启动
@@ -21,7 +20,7 @@ public class KillSelfService extends Service {
     private Handler handler;
     private String PackageName;
 
-    public KillSelfService() {
+    public KillSelfService1() {
         handler = new Handler(Looper.getMainLooper());
 //        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
 //            @Override
@@ -48,7 +47,7 @@ public class KillSelfService extends Service {
             android.os.Process.killProcess(android.os.Process.myPid());
             System.exit(0);
             //
-            KillSelfService.this.stopSelf();
+            KillSelfService1.this.stopSelf();
         }, stopDelayed);
         return super.onStartCommand(intent, flags, startId);
 
