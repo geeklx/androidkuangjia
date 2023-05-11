@@ -12,7 +12,6 @@ dependencies {
     api 'com.github.geeklx.libbase2:libutils:2.3.9'//核心库
     api 'com.github.geeklx.libbase2:libotherlibs:2.3.9'//核心库
     api 'com.github.MachineHou:Aspectjrt:1.0.8'//核心库
-    api 'com.geyifeng.immersionbar:immersionbar:3.2.2'
     // 支持分版本网络请求bufen
     bxnt_nationImplementation project(':ademo:zbiz1')
     bxny_nationImplementation project(':ademo:zbiz1')
