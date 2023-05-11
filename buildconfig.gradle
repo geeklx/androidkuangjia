@@ -1,7 +1,7 @@
 ext {
     compileSdkVersion = 33
 //    buildToolsVersion = '30.0.3'
-    minSdkVersion = 21
+    minSdkVersion = 24
     targetSdkVersion = 33
 //    supportLibVersion = '30.0.0'
 
@@ -11,8 +11,8 @@ ext {
 //    applicationId = "com.fosung.lighthouse"  1000 1.0.0.0
 
     /*移动端app版本号*/
-    appversionCode = 1002
-    appversionName = "1.0.0.2"
+    appversionCode = 1003
+    appversionName = "1.0.0.3"
 
     versionNamePrefixT = "_T_V"
     versionNamePrefixY = "_Y_V"
