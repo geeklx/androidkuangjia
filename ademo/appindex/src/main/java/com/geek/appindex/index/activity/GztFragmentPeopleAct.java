@@ -19,11 +19,9 @@ public class GztFragmentPeopleAct extends SlbBase {
     protected void setup(@Nullable Bundle savedInstanceState) {
         super.setup(savedInstanceState);
         Fragment mFragment = null;
-
-        getSupportFragmentManager()
-                .beginTransaction()
-                .add(R.id.container_framelayout, mFragment = TUIContactFragment.getInstance(new Bundle()), TUIContactFragment.class.getName())
-                .show(mFragment)
-                .commit();
+        String namef = "";
+        mFragment = TUIContactFragment.getInstance(new Bundle());
+        namef = TUIContactFragment.class.getName();
+        getSupportFragmentManager().beginTransaction().add(R.id.container_framelayout, mFragment, namef).show(mFragment).commit();
     }
 }
