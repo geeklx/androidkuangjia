@@ -40,6 +40,7 @@ import com.tencent.qcloud.tuikit.tuicontact.ui.pages.TUIContactFragment;
 import com.tencent.qcloud.tuikit.tuiconversation.ui.page.TUIConversationFragment;
 import com.vivo.push.IPushActionListener;
 import com.vivo.push.PushClient;
+import com.vivo.push.listener.IPushQueryActionListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -102,10 +103,20 @@ public class MainActivity extends BaseLightActivity {
                 @Override
                 public void onStateChanged(int state) {
                     if (state == 0) {
-                        String regId = PushClient.getInstance(getApplicationContext()).getRegId();
-                        DemoLog.e("TencentIM", "vivopush open vivo push success regId = " + regId);
-                        ThirdPushTokenMgr.getInstance().setThirdPushToken(regId);
-                        ThirdPushTokenMgr.getInstance().setPushTokenToTIM();
+                        PushClient.getInstance(getApplicationContext()).getRegId(new IPushQueryActionListener() {
+                            @Override
+                            public void onSuccess(String s) {
+                                DemoLog.e("TencentIM", "vivopush open vivo push success regId = " + s);
+                                ThirdPushTokenMgr.getInstance().setThirdPushToken(s);
+                                ThirdPushTokenMgr.getInstance().setPushTokenToTIM();
+                            }
+
+                            @Override
+                            public void onFail(Integer integer) {
+
+                            }
+                        });
+
                     } else {
                         // 根据vivo推送文档说明，state = 101 表示该vivo机型或者版本不支持vivo推送，链接：https://dev.vivo.com.cn/documentCenter/doc/156
                         DemoLog.e("TencentIM", "vivopush open vivo push fail state = " + state);

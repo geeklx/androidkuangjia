@@ -131,7 +131,8 @@ public class ShouyeFragment extends SlbBaseLazyFragmentNew {
                 if (mNavigationList.size() <= 2) {
                     footer_onclick(current_pos);
                 } else {
-                    footer_onclick(2);
+//                    footer_onclick(2);
+                    footer_onclick(current_pos);
                 }
             }
         }

@@ -21,6 +21,7 @@ import com.blankj.utilcode.util.SPUtils;
 import com.geek.appcommon.AppCommonUtils;
 import com.geek.appcommon.SlbBase;
 import com.geek.appindex.R;
+import com.geek.biz1.bean.BjyyBeanYewu3;
 import com.geek.biz1.bean.BjyyBeanYewu4;
 import com.geek.biz1.bean.FshengjiBean;
 import com.geek.biz1.presenter.FCate1Presenter;
@@ -60,6 +61,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import me.jessyan.autosize.AutoSizeCompat;
 
@@ -393,7 +396,8 @@ public class ShouyeActivity extends SlbBase implements FshengjiView, FCate1View 
                 @Override
                 public void onStateChanged(int state) {
                     if (state == 0) {
-                        String regId = PushClient.getInstance(getApplicationContext()).getRegId();
+//                        String regId = PushClient.getInstance(getApplicationContext()).getRegId();
+                        String regId = PushClient.getInstance(getApplicationContext()).getAlias();
                         DemoLog.e("TencentIM", "vivopush open vivo push success regId = " + regId);
                         ThirdPushTokenMgr.getInstance().setThirdPushToken(regId);
                         ThirdPushTokenMgr.getInstance().setPushTokenToTIM();
@@ -446,8 +450,30 @@ public class ShouyeActivity extends SlbBase implements FshengjiView, FCate1View 
         MyLogUtil.e("ssssssssssssss", md5);
 //        fshengjiPresenter.getshengji(AppCommonUtils.auth_url, serverVersionCode + "", serverVersionName, appPackageName, md5);
         if (fCate1Presenter != null) {
-            fCate1Presenter.getcate1list(AppCommonUtils.auth_url + "/navgation", "", "10", "1", "", AppCommonUtils.get_location_cityname(), "");
+//            fCate1Presenter.getcate1list(AppCommonUtils.auth_url + "/navgation", "", "10", "1", "", AppCommonUtils.get_location_cityname(), "");
         }
+        // 测试
+//        List<ShouyeFragmentBean> mNavigationList = new ArrayList<>();
+        List<BjyyBeanYewu3> mNavigationList = new ArrayList<>();
+////        mNavigationList.add(new BjyyBeanYewu3("11", "", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-11-15/3515304962944931528.png", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-11-15/3515303549380602766.png", "首页", ShouyeFragmentFactory.TAG_shouye, true));
+////        mNavigationList.add(new BjyyBeanYewu3("33", "", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-11-15/3515304962944931528.png", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-11-15/3515303549380602766.png", "联系人", ShouyeFragmentFactory.TAG_people, false));
+////        mNavigationList.add(new BjyyBeanYewu3("55", "", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-11-15/3515304962944931528.png", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-11-15/3515303549380602766.png", "我的", ShouyeFragmentFactory.TAG_my, false));
+////        mNavigationList.add(new BjyyBeanYewu3("66", "", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-11-15/3515304962944931528.png", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-11-15/3515303549380602766.png", "框架1", ShouyeFragmentFactory.TAG_kuangjia1, false));
+////        mNavigationList.add(new BjyyBeanYewu3("77", "", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-11-15/3515304962944931528.png", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-11-15/3515303549380602766.png", "框架2", ShouyeFragmentFactory.TAG_kuangjia2, false));
+        mNavigationList.add(new BjyyBeanYewu3("88", "", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-11-15/3515304962944931528.png", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-11-15/3515303549380602766.png", "资讯", ShouyeFragmentFactory.TAG_f1, false));
+        mNavigationList.add(new BjyyBeanYewu3("99", "", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-11-15/3515304962944931528.png", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-11-15/3515303549380602766.png", "数字乡村", ShouyeFragmentFactory.TAG_f2, false));
+        mNavigationList.add(new BjyyBeanYewu3("1010", "", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-11-15/3515304962944931528.png", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-11-15/3515303549380602766.png", "党建引领", ShouyeFragmentFactory.TAG_f3, false));
+        mNavigationList.add(new BjyyBeanYewu3("22", "", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-11-15/3515304962944931528.png", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-11-15/3515303549380602766.png", "消息", ShouyeFragmentFactory.TAG_f4, false));
+        mNavigationList.add(new BjyyBeanYewu3("44", "", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-11-15/3515304962944931528.png", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-11-15/3515303549380602766.png", "会议", ShouyeFragmentFactory.TAG_f5, false));
+//        istag = "";//刷新完成，更新状态清空
+        AppCommonUtils.clearFragments(this);
+        Fragment mFragment = null;
+        Bundle args = new Bundle();
+//        args.putSerializable("tablayoutId", (Serializable) bean.getData());
+        args.putSerializable("tablayoutId", (Serializable) mNavigationList);
+        this.getSupportFragmentManager().beginTransaction().add(R.id.container_framelayout, mFragment = ShouyeFragment.getInstance(args), ShouyeFragment.class.getName()).show(mFragment).commitAllowingStateLoss();
+        //通道消息
+        ChannelMessage();
     }
 
     @Override
@@ -516,23 +542,23 @@ public class ShouyeActivity extends SlbBase implements FshengjiView, FCate1View 
     public void OnCate1Success(String authorizedType, BjyyBeanYewu4 bean) {
         // 测试
 //        List<ShouyeFragmentBean> mNavigationList = new ArrayList<>();
-//        List<BjyyBeanYewu3> mNavigationList = new ArrayList<>();
+        List<BjyyBeanYewu3> mNavigationList = new ArrayList<>();
 ////        mNavigationList.add(new BjyyBeanYewu3("11", "", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-11-15/3515304962944931528.png", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-11-15/3515303549380602766.png", "首页", ShouyeFragmentFactory.TAG_shouye, true));
 ////        mNavigationList.add(new BjyyBeanYewu3("33", "", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-11-15/3515304962944931528.png", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-11-15/3515303549380602766.png", "联系人", ShouyeFragmentFactory.TAG_people, false));
 ////        mNavigationList.add(new BjyyBeanYewu3("55", "", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-11-15/3515304962944931528.png", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-11-15/3515303549380602766.png", "我的", ShouyeFragmentFactory.TAG_my, false));
 ////        mNavigationList.add(new BjyyBeanYewu3("66", "", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-11-15/3515304962944931528.png", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-11-15/3515303549380602766.png", "框架1", ShouyeFragmentFactory.TAG_kuangjia1, false));
 ////        mNavigationList.add(new BjyyBeanYewu3("77", "", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-11-15/3515304962944931528.png", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-11-15/3515303549380602766.png", "框架2", ShouyeFragmentFactory.TAG_kuangjia2, false));
-//        mNavigationList.add(new BjyyBeanYewu3("88", "", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-11-15/3515304962944931528.png", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-11-15/3515303549380602766.png", "资讯", ShouyeFragmentFactory.TAG_zixun, false));
-//        mNavigationList.add(new BjyyBeanYewu3("99", "", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-11-15/3515304962944931528.png", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-11-15/3515303549380602766.png", "数字乡村", ShouyeFragmentFactory.TAG_shuzixiangcun, false));
-//        mNavigationList.add(new BjyyBeanYewu3("1010", "", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-11-15/3515304962944931528.png", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-11-15/3515303549380602766.png", "党建引领", ShouyeFragmentFactory.TAG_dangjianyinling, false));
-//        mNavigationList.add(new BjyyBeanYewu3("22", "", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-11-15/3515304962944931528.png", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-11-15/3515303549380602766.png", "消息", ShouyeFragmentFactory.TAG_xiaoxi, false));
-//        mNavigationList.add(new BjyyBeanYewu3("44", "", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-11-15/3515304962944931528.png", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-11-15/3515303549380602766.png", "会议", ShouyeFragmentFactory.TAG_huiyi, false));
+        mNavigationList.add(new BjyyBeanYewu3("88", "", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-11-15/3515304962944931528.png", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-11-15/3515303549380602766.png", "资讯", ShouyeFragmentFactory.TAG_f1, false));
+        mNavigationList.add(new BjyyBeanYewu3("99", "", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-11-15/3515304962944931528.png", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-11-15/3515303549380602766.png", "数字乡村", ShouyeFragmentFactory.TAG_f2, false));
+        mNavigationList.add(new BjyyBeanYewu3("1010", "", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-11-15/3515304962944931528.png", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-11-15/3515303549380602766.png", "党建引领", ShouyeFragmentFactory.TAG_f3, false));
+        mNavigationList.add(new BjyyBeanYewu3("22", "", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-11-15/3515304962944931528.png", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-11-15/3515303549380602766.png", "消息", ShouyeFragmentFactory.TAG_f4, false));
+        mNavigationList.add(new BjyyBeanYewu3("44", "", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-11-15/3515304962944931528.png", "http://119.188.115.252:8090/resource-handle/uploads/image/2021-11-15/3515303549380602766.png", "会议", ShouyeFragmentFactory.TAG_f5, false));
 //        istag = "";//刷新完成，更新状态清空
         AppCommonUtils.clearFragments(this);
         Fragment mFragment = null;
         Bundle args = new Bundle();
-        args.putSerializable("tablayoutId", (Serializable) bean.getData());
-//        args.putSerializable("tablayoutId", (Serializable) mNavigationList);
+//        args.putSerializable("tablayoutId", (Serializable) bean.getData());
+        args.putSerializable("tablayoutId", (Serializable) mNavigationList);
         this.getSupportFragmentManager().beginTransaction().add(R.id.container_framelayout, mFragment = ShouyeFragment.getInstance(args), ShouyeFragment.class.getName()).show(mFragment).commitAllowingStateLoss();
         //通道消息
         ChannelMessage();

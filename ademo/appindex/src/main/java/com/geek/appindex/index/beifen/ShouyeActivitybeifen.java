@@ -434,10 +434,10 @@ public class ShouyeActivitybeifen extends SlbBase implements FshengjiView {
                 @Override
                 public void onStateChanged(int state) {
                     if (state == 0) {
-                        String regId = PushClient.getInstance(getApplicationContext()).getRegId();
-                        DemoLog.e("TencentIM", "vivopush open vivo push success regId = " + regId);
-                        ThirdPushTokenMgr.getInstance().setThirdPushToken(regId);
-                        ThirdPushTokenMgr.getInstance().setPushTokenToTIM();
+//                        String regId = PushClient.getInstance(getApplicationContext()).getRegId();
+//                        DemoLog.e("TencentIM", "vivopush open vivo push success regId = " + regId);
+//                        ThirdPushTokenMgr.getInstance().setThirdPushToken(regId);
+//                        ThirdPushTokenMgr.getInstance().setPushTokenToTIM();
                     } else {
                         // 根据vivo推送文档说明，state = 101 表示该vivo机型或者版本不支持vivo推送，链接：https://dev.vivo.com.cn/documentCenter/doc/156
                         DemoLog.e("TencentIM", "vivopush open vivo push fail state = " + state);

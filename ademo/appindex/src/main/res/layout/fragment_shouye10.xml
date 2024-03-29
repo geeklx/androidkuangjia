@@ -79,7 +79,7 @@
                 tl:tl_indicator_width="10mm"
                 tl:tl_textSelectColor="@color/colorE60000"
                 tl:tl_textUnselectColor="@color/black"
-                tl:tl_textsize="30mm" />
+                tl:tl_textsize="10mm" />
 
             <com.geek.libbase.widgets.ViewPagerSlide
                 android:id="@+id/vs_fenlei1"

@@ -2,6 +2,8 @@ package com.geek.appindex.index.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -133,6 +135,16 @@ public class Shouye10 extends SlbBaseLazyFragmentNewCate implements View.OnClick
 //            msgIntent.setAction("SlbBaseLazyFragmentNewCate");
 //            msgIntent.putExtra("dingwei", (Serializable) addList1());
 //            LocalBroadcastManagers.getInstance(getActivity()).sendBroadcast(msgIntent);
+            //
+            emptyView.loading();
+            new Handler(Looper.myLooper()).postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    emptyView.success();
+//        setNewData(bean.getData());
+                    setNewData(addList2());
+                }
+            },1500);
         }
     }
 
@@ -142,8 +154,10 @@ public class Shouye10 extends SlbBaseLazyFragmentNewCate implements View.OnClick
             fCate1Presenter.onCreate(this);
         }
         //MProgressDialog.showProgress(getActivity(), "加载中...");
-        fCate1Presenter.getcate1list(AppCommonUtils.auth_url + "/navigationtop",
-                "", "", "", "", AppCommonUtils.get_location_cityname(), tablayoutId);
+//        fCate1Presenter.getcate1list(AppCommonUtils.auth_url + "/navigationtop",
+//                "", "", "", "", AppCommonUtils.get_location_cityname(), tablayoutId);
+        addList1();
+
     }
 
     public List<FenleiAct1CateBean1> addList1() {

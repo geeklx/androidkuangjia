@@ -65,7 +65,9 @@ public class WelComeActivity extends AppCompatActivity implements FinitView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
         key_token = SPUtils.getInstance().getInt("key_token", -1);
-        configNDK();
+//        configNDK();
+        startActivity(new Intent(AppUtils.getAppPackageName() + ".hs.act.slbapp.shouye"));// ShouyeActivity
+        finish();
     }
 
     private String URL = "http://cdn2.cdn.haier-jiuzhidao.com/1398.png";

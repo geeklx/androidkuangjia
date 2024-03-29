@@ -75,11 +75,11 @@ public class DemoApplication extends Application {
             });
         } else if (BrandUtil.isBrandVivo()) {
             // vivo离线推送
-            try {
-                PushClient.getInstance(getApplicationContext()).initialize();
-            } catch (VivoPushException e) {
-                e.printStackTrace();
-            }
+//            try {
+//                PushClient.getInstance(getApplicationContext()).initialize();
+//            } catch (VivoPushException e) {
+//                e.printStackTrace();
+//            }
         } else if (HeytapPushManager.isSupportPush()) {
             // oppo离线推送，因为需要登录成功后向我们后台设置token，所以注册放在MainActivity中做
         }
